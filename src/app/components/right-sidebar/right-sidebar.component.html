@@ -1,0 +1,220 @@
+<div class="right-section" id="appRightSection">
+    <div class="row mb-1">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="dash-widgit">
+
+                <div class="profileImage">
+                   <img src="assets/img/prime_logo.jpg" class="prime">
+                    <img class="profile-img"
+                        src="{{doctorDeatils.profilePic?doctorDeatils.profilePic:'assets/img/welcome_icon.svg'}}"
+                        routerLink="/userProfile">
+                </div>
+
+                <div class="drName">
+                    <h3>
+                        Dr. {{docName?docName:'NA'}}
+                    </h3>
+                    <p>
+                        <span *ngFor="let item of degreeType">{{item.degreeType}},</span>
+                    </p>
+                    <p>
+                        <label class="switch s-default mr-4">
+                            <input type="checkbox" [checked]="ischecked" (click)="setToggle()">
+                            <span class="slider online round"></span>
+                        </label>
+                    </p>
+                </div>
+
+                <div class="profile-circle-container" id="profileCircleContainer">
+                    <div class="clearfix">
+                        <div class="c100 p{{resPercentage}} small green">
+                            <span><strong>{{resPercentage}}%</strong><em>Profile Score</em></span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="spcNotice d-flex justify-content-around">
+                <div>
+                    Speciality <br>
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="speciality"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <img src="assets/img/shape.png" class="bs-tooltip" data-placement="top"
+                            title="Tooltip on bottom">
+                    </a>
+                    <section class="dropdown-menu position-absolute animated fadeInUp notification-dorpdown"
+                        aria-labelledby="speciality">
+                     <p class="dropdown-item" >
+                        <span *ngFor="let item of doctorSpecializationList" class="mr-2">
+                                    {{item.specialization}}
+                         </span>
+                        </p>
+                        <!-- <p class="view-more">
+                            <a href="javascript:void(0)" routerLink="/notificationDetails">view more</a>
+                        </p> -->
+                    </section>
+                </div>
+                <div>
+                    Notification<br>
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="notification"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        (click)="getallnotifications()">
+                        <img src="assets/img/notification.png">{{unreadCount}}
+                    </a>
+                    <section class="dropdown-menu position-absolute animated fadeInUp notification-dorpdown"
+                        aria-labelledby="notification">
+                     <p class="dropdown-item" *ngFor="let item of notificationList">
+                          <img src="assets/img/Weblogo_icon.png">
+                                <span>
+                                    {{item.message.title}}
+                                    <div>
+                                        <img src="assets/img/timeIcone.png">
+                                        {{(item.uts)  | date: 'dd/MM/yyyy , HH:mm '}}
+                                    </div>
+                                </span>
+                        </p>
+                        <p class="view-more">
+                            <a href="javascript:void(0)" routerLink="/notificationDetails">view more</a>
+                        </p>
+                    </section>
+                </div>
+
+                <!-- <div>
+                    Chat<br>
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="chat" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/img/chat.png">
+                    </a>
+
+                    <section class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="chat">
+                        <p class="dropdown-item">
+                            <a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg> 
+                                <span>Chat 1</span>
+                            </a>
+                        </p>
+
+                        <p class="dropdown-item">
+                            <a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-log-out">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                                <span>Chat 2</span>
+                            </a>
+                        </p>
+                    </section>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div>
+                <ul class="flex defualtUl" style="cursor: pointer;">
+                    <li *ngFor="let item of dayLable">
+                        <p (click)="selectItem(item)" [ngClass]="item.date === activeElement ? 'activeSelect' : 'none'">
+                            <span class="datepoints" *ngIf="selectDatePoint"></span>
+                            {{item.dayName}}
+                            <span> {{item.date}}</span>
+                            <em></em>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row layout-top-spacing">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Today's Appointment </label>
+        </div>
+    </div>
+
+    <div class="row widget-statistic">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" *ngFor="let item of todayVisitList">
+            <div class="tappointment mb-3">
+                <!-- <div class="tappointment mb-3" (click)="goTaskboard(item.patientId)"></div> -->
+                <div>
+                    <h5>{{item.patientName.firstName}} {{item.patientName.lastName}}</h5>
+                    <p>Time Slot -{{item.start | date: 'HH:mm'}}</p>
+                    <p>Date - {{item.start | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="text-right">
+                    <!-- <a class="btn btn-primary tapStatusBtn mb-3" *ngIf="item.status=='BOOKED'">Booked</a> -->
+                    <div *ngIf="item.status=='BOOKED'"><button class="tapCommonBtn btn btn-primary tapconfirmbtn mb-3" (click)="updateVisitTimeSlot(item.visitId, 'confirm')">Confirm</button></div>
+                    <div *ngIf="item.status=='BOOKED'"><button class="tapCommonBtn btn btn-primary tapcancelbtn mb-3" (click)="updateVisitTimeSlot(item.visitId, 'cancel')">Cancel</button></div>
+                    <!-- show buttons for status CONFIRMED -->
+                    <div class="tapStatusBtn mb-3" *ngIf="item.status=='CONFIRMED'"><i class="fas fa-check-circle"></i>
+                        Confirmed</div>
+                    <!-- show buttons for status CANCELLED -->
+                    <div class="tapStatusBtn mb-3" *ngIf="item.status=='CANCELLED'"><i class="fas fa-times-circle"></i>
+                        Canceled</div>
+                </div>
+
+                <!-- <div class="text-right">                   
+                    <a class="tapStatusBtn mb-3" *ngIf="item.status=='BOOKED'"
+                        (click)="updateVisitTimeSlot(item.visitId, 'confirm')"><i class="fas fa-check-circle"></i>
+                        Confirm</a>
+                    <a class="tapcancelbtn mb-3" *ngIf="item.status=='BOOKED'"
+                        (click)="updateVisitTimeSlot(item.visitId, 'cancel')"><i class="fas fa-times-circle"></i>
+                        Cancel</a>                    
+                    <a class="tapStatusBtn mb-3" *ngIf="item.status=='CONFIRMED'"><i class="fas fa-check-circle"></i>
+                        Confirmed</a>                   
+                    <a class="tapStatusBtn mb-3" *ngIf="item.status=='CANCELLED'"><i class="fas fa-times-circle"></i>
+                        Canceled</a>
+                </div> -->
+
+            </div>
+        </div>
+        <div class="no-data " *ngIf="dataLength">
+            <h4 class="error-heading">Oops!</h4>
+            <div> No Data Found</div>
+        </div>
+    </div>
+
+    <div class="row widget-statistic">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="user-review mb-3">
+                <h5>User's Review</h5>
+                <div class="rating-star-box clearfix mb-1 mt-1">
+                    <div class="rating-star"></div>
+                    <div class="rating-star"></div>
+                    <div class="rating-star"></div>
+                    <div class="rating-star"></div>
+                    <div class="rating-star"></div>
+                    <div class="rating-star"></div>
+                    <div class="rating-count">{{docRating?docRating:0}}</div>
+                </div>
+                <!-- <p>Nalini Bhatnagar</p> -->
+                <hr class="mb-1">
+                <div class="flex">
+                    <img src="assets/img/defaultPic.png">
+                    <img src="assets/img/defaultPic.png">
+                    <img src="assets/img/defaultPic.png">
+                    <img src="assets/img/defaultPic.png">
+                    <img src="assets/img/defaultPic.png">
+                    <div class="user-count">+{{userPartiCount?userPartiCount:0}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

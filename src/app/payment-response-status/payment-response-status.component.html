@@ -1,0 +1,136 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label>TRANSACTION DETAIL</label>
+                    </div>
+                </div>
+
+                <div class="my-patient" *ngIf="resPaymtStatus && resPaymtStatus.status">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+
+                            <h5>Payment Response Status - {{resPaymtStatus.status}}</h5>
+                            <form>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Your Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.firstname}} {{resPaymtStatus.lastname}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Plan Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.productinfo}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Plan Amount</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.amount}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Net Amount Debit</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.net_amount_debit}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Transaction Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.txnid}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Bank Ref No</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.bank_ref_num}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Payment Mode</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.mode}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Payu Money Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.payuMoneyId}}</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-12">
+                                    <div class="col-md-6">
+                                        <label>Transaction Date</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{resPaymtStatus.addedon}}</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="my-patient" *ngIf="!(resPaymtStatus && resPaymtStatus.status)">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <h5>Payment Response Status - FAIL</h5>
+
+                                <div class="row mb-12">
+                                    <div class="col-md-12">
+                                        <label><h6>We are sorry!</h6> <br> <b>Your Transaction has been failed So Please try again to click on left menu Subscripton link</b></label>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->

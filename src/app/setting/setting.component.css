@@ -1,0 +1,374 @@
+a{cursor: pointer;}
+
+.main-section {
+    min-height: 1050px;
+}
+
+.modal{
+    z-index: 9999;
+}
+
+
+h4.prescriptionHeading{
+  font-size:15px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.presborder{
+    border:1px dashed #ccc;
+    /* height: 80px;
+    line-height: 80px;
+    text-align:center;
+    font-size:7px;
+    font-weight: 600;
+    color: #a2a2a2; */
+}
+
+.diagnosisborder{
+    border: 1px dashed #ccc;
+    line-height: 56px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333232;
+    /* height: 64px; */
+    /* padding-left: 9px; */
+    margin-bottom: 7px;
+}
+
+/* .diagnosisborder textarea{
+   width: 100%;
+   height: 100px;
+} */
+
+.ruller, .preruler, .secruler{
+    font-size: 12px;
+    font-weight: 600;
+    color: #3d3d3d;
+    position: relative;
+}
+
+.ruller span, .preruler span, .secruler span{
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+    padding-right: 5px;
+}
+
+.secruler::after {
+    content: "";
+    position: absolute;
+    top: 13px !important;
+    left:0px !important;
+    width: 100%;
+    height: 1px;
+    background: #d6d6d6;
+}
+
+
+.preruler::after {
+    content: "";
+    position: absolute;
+    top: 13px !important;
+    left:0px !important;
+    width: 100%;
+    height: 1px;
+    background: #d6d6d6;
+}
+
+
+.ruller::after {
+    content: "";
+    position: absolute;
+    top: 13px !important;
+    left:0px !important;
+    width: 100%;
+    height: 1px;
+    background: #d6d6d6;
+}
+
+
+
+.zoho-calander{
+    text-align: right;
+}
+
+.synced-calander-box{
+    background: #f9f9f9;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    background-image: linear-gradient(#ffffff, #f3f3f3);
+}
+
+.prescription-box{
+    border-radius: 10px;
+    background-color: #fafafa;
+    margin-right: 20px;
+    padding: 21px 10px;
+    cursor: pointer;
+    margin-bottom:20px;
+}
+
+.prescription-box:last-child{
+    margin-right:0px !important;
+}
+
+.template-box{
+    display:flex;
+    align-items: center;
+    font-size:12px;
+    font-weight: bold;
+    color: #707070;
+}
+
+.template-box img{
+    margin-right: 17px;
+    margin-left: 18px;
+}
+
+.lock-box{
+    background: #f9f9f9;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 5px;
+}
+
+.add-content{
+    font-size: 16px;
+    font-weight: bold;
+    color: #3b76ef;
+}
+
+
+.setting-popup-box{
+    border-radius: 10px;
+    box-shadow: 0 1px 30px 15px rgba(0, 0, 0, 0.5);
+    background-color: #f1f5ff;
+}
+
+.drprofile-box{
+    background-color: #f4faff;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 10px 25px 10px;
+}
+
+.drLogo{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 4px;
+    font-weight: 500;
+    color: #a4a4a4;
+    text-align: center;
+    padding-top: 14px;
+    position: relative;
+}
+
+.drLogo p{
+    font-size: 9px;
+    font-weight: 500;
+    color: #a4a4a4;
+    margin-top: 6px;
+}
+
+.drplusicon{
+    /* position: absolute; */
+    bottom: -9px;
+    height: 20px !important;
+    left: 37px;
+
+}
+
+.drLogo img{
+    height: 50px;
+}
+
+.drcontent{
+    width: 547px;
+    border-radius: 5px;
+    font-size: 4px;
+    font-weight: 500;
+    color: #a4a4a4;
+  }
+
+  .drcontent h3{
+    font-size: 20px;
+    font-weight: bold;
+    color: #3b76ef;
+  }
+
+  .drcontent p.caption{
+    font-size: 17px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.69;
+    letter-spacing: normal;
+    color: #646464;
+}
+
+.drcontent p{
+    font-size: 10px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.69;
+    letter-spacing: normal;
+    color: #646464;
+}
+
+.presmedicine-border{
+    min-height: 62px;
+    border: solid 0.2px #e1e1e1;
+    padding: 13px;
+}
+
+.presmedicine-border input{
+    border-radius: 1px !important;
+    background-color: #f4faff;
+    border: none;
+}
+
+.drRight-icon{
+    width: 75px;
+    height: 75px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    border: 2px solid #afddff;
+    text-align: center;
+    padding-top: 13px;
+  }
+
+  .drSignature{
+    font-size: 12px;
+    font-weight: 600;
+    color: #646464;
+  }
+
+.presborder textarea{
+    border: none;
+    /* height: 76px; */
+}
+
+.diagnosisborder textarea{
+    border: none;
+    /* height:60px; */
+}
+
+.prescribe{
+   margin-bottom:0px;
+   clear: both;
+   display: flex;
+   justify-content: space-between;
+}
+
+.prescribe div.setInput{
+    margin-right:10px;
+    margin-bottom: 20px;;
+}
+
+.prescribe div.setInput input{
+    /* width: 208px;
+    float: left; */
+}
+
+
+.prescribe div:last-child{
+    margin-right:0px;
+}
+
+
+.editlable{
+     border: 1px solid #bfc9d4;
+     color: #3b3f5c;
+     font-size: 13px;
+     padding: 8px 10px;
+     letter-spacing: 1px;
+     border-radius: 6px;
+     height: 35px;
+     padding: 2px 2px 2px 5px !important;
+    
+}
+
+/* CSS Start for File Upload */
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.angular-editor-textarea{
+   display:none;
+}
+
+
+.angular-editor-textarea{
+    height: 117px !important;
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+   
+    .prescription-box{
+        margin-right:0px;
+    }
+
+    .m-flex{
+        display:block;
+    }
+
+    .m-button button{
+        display:block;
+        width: 100%;
+        margin-bottom:4px;
+    }
+
+    .drLogo{
+        width: 154px;
+        height: 100px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        font-size: 4px;
+        font-weight: 500;
+        color: #a4a4a4;
+        text-align: center;
+        padding-top: 14px;
+        position: relative;
+        margin-right: 10px;
+    }
+
+    .drcontent{
+        width: 547px;
+        border-radius: 5px;
+        font-size: 4px;
+        font-weight: 500;
+        color: #a4a4a4;
+    }
+
+    .drRight-icon{
+        width: 52px;
+        height: 43px;
+        background:none;
+        border-radius: 50%;
+        border: none;
+        text-align:unset;
+        padding-top: 6px;
+    }
+
+   } 

@@ -1,0 +1,1151 @@
+<header class="header-area">
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-12">
+                    <!-- <ul class="top-header-social">
+                        <li><a href="#" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="#" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="#" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="#" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                        <li><a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                    </ul> -->
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <ul class="top-header-contact-info">
+                        <li><button class="btn btn-primary home-btn" routerLink="/login">LOG IN</button></li>
+                        <li><button class="btn btn-primary home-signup" routerLink="/signup">DOCTOR'S SIGN UP</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Header -->
+    <!-- Start Navbar Area -->
+    <nav class="navbar onepage-navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#home"><img src="assets/img2/homeLogo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger-menu">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#howitworks" class="nav-link">How It Works?</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#blog" class="nav-link">Blogs</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar Area -->
+</header>
+
+<div *ngIf="landingPage">
+    <div class="banner-area">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="main-banner-content">
+                                <!-- <span class="sub-title">Stay Safe &</span> -->
+                                <h1>Getting <span style="font-size:34px;font-weight: bold;color: #4f87fb;">THE
+                                        CARE</span>
+                                    you <br>
+                                    need in One click.</h1>
+                                <p>
+                                    Medilocks is India’s most convenient healthcare <br>
+                                    platform where you can find the information on <br>
+                                    best doctors, hospitals, clinics and laboratories.
+                                </p>
+
+                                <div class="btn-box">
+                                    <span class="popup-youtube optional-btn location">
+                                        <i class="bx bx-map"></i>
+                                        <input type="text" class="form-control" placeholder="Location">
+                                    </span>
+                                    <span class="popup-youtube optional-btn search">
+                                        <i class="bx bx-search-alt"></i>
+                                        <input type="text" class="form-control" [(ngModel)]="searchItem"
+                                            [ngModelOptions]="{standalone: true}"
+                                            placeholder="Search Doctor, Specialization, Address"
+                                            (keyup.enter)="searchKey()">
+                                    </span>
+                                    <button class="btn btn-primary ml-2 search-btn"
+                                        (click)="searchKey()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <img src="assets/img2/medicalBanner.png" alt="image" class="banner"
+                                style="position: absolute;top: -191px;right: -28px;">
+                            <!-- <div class="banner-image">
+                            <img src="assets/img2/corona1.png" alt="image">
+                            <img src="assets/img2/corona2.png" alt="image">
+                            <img src="assets/img2/corona3.png" alt="image">
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="about" class="about-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <div class="about-image">
+                        <img src="assets/img/aboutPic.png" alt="image">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-12">
+                    <div class="about-content">
+                        <h2>About Us </h2>
+                        <span class="sub-title">Using the power of technology in <br> creating Healthier India!</span>
+                        <p>
+                            <span class="fb">Medilocks</span> is India’s most convenient healthcare platform where you
+                            can find the information on
+                            best doctors, hospitals, clinics and laboratories. The platform will eliminate the need for
+                            intermediaries in storing <span class="fb">electronic health records</span> by using <span
+                                class="fb">Blockchain technology.</span>
+                        </p>
+                        <!-- <blockquote>
+                        <p>The World Health Organization (WHO) have declared a public health emergency relating to COVID-19.</p>
+                    </blockquote> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-area">
+        <div class="container">
+            <div class="cta-inner-area">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 col-md-5">
+                                <img src="assets/img2/man.png" alt="image">
+                            </div>
+                            <div class="col-lg-7 col-md-7">
+                                <h3>We operate 24x7 - Every Day!</h3>
+                                <p>Call us if you have any problems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <div class="cta-btn">
+                            <a href="tel:+44587154756">
+                                <i class="flaticon-call"></i>
+                                <span>Watsapp us @</span>
+                                +91-2999 999
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="symptoms-area pt-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <!-- <div class="symptoms-image">
+                    <img src="assets/img2/symptoms-img.png" alt="image">
+                </div> -->
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="symptoms-content">
+                        <!-- <span class="sub-title"></span> -->
+                        <h2>Features</h2>
+                        <p>
+                            Medilocks gives you all the help you need to maintain a healthy lifestyle & care for your
+                            family.
+                        </p>
+
+                        <ul>
+                            <li><span><i class='flaticon-tick'></i> Browse Specialists
+                                    Doctors</span></li>
+                            <li><span><i class='flaticon-tick'></i> Book Appointments</span></li>
+                            <li><span><i class='flaticon-tick'></i> Get Online
+                                    Consultation</span></li>
+                            <li><span><i class='flaticon-tick'></i> Instant Chats</span></li>
+                            <li><span><i class='flaticon-tick'></i> Seamless
+                                    Consultation</span></li>
+                            <li><span><i class='flaticon-tick'></i> Detailed
+                                    Prescription</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="howitworks" class="how-to-protect-area ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h2>How it Works?</h2>
+                <span class="sub-title">Steps to Download the Application</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <div class="how-to-protect-content">
+                        <div class="content">
+                            <div class="text">
+                                <div class="icon">
+                                    <img src="assets/img2/download.png" alt="image">
+                                </div>
+                                <h3>Download the Application</h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p> -->
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="text">
+                                <div class="icon">
+                                    <img src="assets/img2/mNumber.png" alt="image">
+                                </div>
+                                <h3>Enter your Mobile Number</h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p> -->
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="text">
+                                <div class="icon">
+                                    <img src="assets/img2/OtpNumber.png" alt="image">
+                                </div>
+                                <h3>Verify OTP Mobile Number</h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p> -->
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="text">
+                                <div class="icon">
+                                    <img src="assets/img2/faceIcon.png" alt="image">
+
+                                </div>
+                                <h3>Account Registered</h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p> -->
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="text">
+                                <div class="icon">
+                                    <img src="assets/img2/aregister.png" alt="image">
+                                </div>
+                                <h3>Browse Best Doctors & Hospitals</h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12">
+                    <div class="how-to-protect-image">
+                        <img src="assets/img2/how-to-protect/img1.png" class="main-image main-image1" alt="image">
+                        <!-- <img src="assets/img2/how-to-protect/img2.jpg" class="main-image main-image2" alt="image">
+                    <img src="assets/img2/how-to-protect/img3.jpg" class="main-image main-image3" alt="image">
+                    <img src="assets/img2/how-to-protect/img4.jpg" class="main-image main-image4" alt="image">
+                    <img src="assets/img2/how-to-protect/img5.jpg" class="main-image main-image5" alt="image">
+                    <img src="assets/img2/how-to-protect/img6.jpg" class="main-image main-image6" alt="image"> -->
+
+                        <div class="how-to-protect-shape">
+                            <img src="assets/img2/how-to-protect/shape1.png" alt="image">
+                            <img src="assets/img2/how-to-protect/shape2.png" alt="image">
+                            <img src="assets/img2/how-to-protect/shape3.png" alt="image">
+                            <img src="assets/img2/how-to-protect/shape4.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="faq-section-two bg-f9f9f9 ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <span class="sub-title">What clients says about us</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-doctors-box">
+                        <div class="flex mb-3">
+                            <img src="assets/img/defaultPic.png" alt="image" class="mr-3">
+                            <div>
+                                <h3>Frank Gallaghers</h3>
+                                <span>Patient</span>
+                            </div>
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-doctors-box">
+                        <div class="flex mb-3">
+                            <img src="assets/img/defaultPic.png" alt="image" class="mr-3">
+                            <div>
+                                <h3>Frank Gallaghers</h3>
+                                <span>Patient</span>
+                            </div>
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-doctors-box">
+                        <div class="flex mb-3">
+                            <img src="assets/img/defaultPic.png" alt="image" class="mr-3">
+                            <div>
+                                <h3>Frank Gallaghers</h3>
+                                <span>Patient</span>
+                            </div>
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-doctors-box">
+                        <div class="flex mb-3">
+                            <img src="assets/img/defaultPic.png" alt="image" class="mr-3">
+                            <div>
+                                <h3>Frank Gallaghers</h3>
+                                <span>Patient</span>
+                            </div>
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="emergency-contact-area pb-100">
+        <div class="download-box">
+            <div class="downloadApp">
+                <h3>Download App</h3>
+                <p>Take care your health</p>
+            </div>
+
+            <div class="appStore">
+                <div>
+                    <!-- <h3>Get it on</h3>
+                <p>App Store</p> -->
+                    <img src="assets/img/app-store.png" alt="image">
+                </div>
+                <div>
+                    <!-- <h3>Get it on</h3>
+                <p>App Store</p> -->
+                    <img src="assets/img/google-play.png" alt="image">
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </section>
+
+
+    <section id="blog" class="blog-area pb-100">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Blogs</h2>
+                <span class="sub-title">worldwide latest news</span>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post-item">
+                        <div class="post-image">
+                            <a routerLink="/blog-details">
+                                <img src="assets/img2/blog/blog-image.png" alt="image">
+                            </a>
+                            <div class="date">
+                                <span>January 29, 2020</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="category">Covid</span>
+                            <h3><a routerLink="/blog-details">Medicine for headache</a></h3>
+                            <a routerLink="/blog-details" class="details-btn">Read Story</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post-item">
+                        <div class="post-image">
+                            <a routerLink="/blog-details">
+                                <img src="assets/img2/blog/blog-image.png" alt="image">
+                            </a>
+                            <div class="date">
+                                <span>January 29, 2020</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="category">Covid</span>
+                            <h3><a routerLink="/blog-details">Medicine for headache</a></h3>
+                            <a routerLink="/blog-details" class="details-btn">Read Story</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="single-blog-post-item">
+                        <div class="post-image">
+                            <a routerLink="/blog-details">
+                                <img src="assets/img2/blog/blog-image.png" alt="image">
+                            </a>
+                            <div class="date">
+                                <span>January 29, 2020</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="category">Covid</span>
+                            <h3><a routerLink="/blog-details">Medicine for headache</a></h3>
+                            <a routerLink="/blog-details" class="details-btn">Read Story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div *ngIf="searchPage" class="pt-50">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="search-box">
+                    <i class="bx bx-map search-page-lokIcon"></i>
+                    <input type="text" placeholder="Near Me" class="form-control searchlist mr-3">
+                    <i class="bx bx-search-alt search-page-searchIcon"></i>
+                    <input type="text" placeholder="Dentist" class="form-control searchlist">
+                </div>
+            </div>
+            <div class="col-md-6" style="display: flex;justify-content: flex-end;">
+                LAYOUT
+                <span class="layout-box">
+                    <img src="assets/img/viewList.png" alt="image" class="mr-2">
+                    <img src="assets/img/map.png" alt="image">
+                </span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6" style="font-size:20px;">
+                <span style="color:#15959a;">{{allDoctors.length}}</span>&nbsp;Doctors
+            </div>
+            <div class="col-md-6" style="display: flex;justify-content: flex-end; align-items:center;">
+                <span class="mr-2">More Filters +</span>
+                <select class="form-control searchlist mr-2" style="width: 200px;font-size: 12px;color: #6c6c6c;">
+                    <option>
+                        Dentist
+                    </option>
+                </select>
+                <select class="form-control searchlist" style="width: 200px;font-size: 12px;color: #6c6c6c;">
+                    <option>
+                        Sort By
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <!-- -------------------------------------------- -->
+        <div class="searchListBox" *ngFor="let doctor of allDoctors; let i=index">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. {{doctor.name.firstName}} {{doctor.name.lastName}}</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="{{doctor.profilePic}}" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span
+                                        *ngFor="let spec of doctor.specialization">{{spec.specialization?spec.specialization:'NA'}}
+                                        <br>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span *ngFor="let deg of doctor.degree">{{deg.degree?deg.degree:'NA'}} <br>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : {{doctor.address?doctor.address:'NA'}}
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- <input type="date" class="btn btn-primary date-time" [(ngModel)]="selectedBookDate"
+                                    (change)="getAvailableSlot(doctor.docId, i, '')"> -->
+                                <input type="date" class="btn btn-primary date-time w100" #bookDateVal
+                                    (change)="getAvailableSlot(doctor.docId, i, bookDateVal.value)">
+                            </div>
+                            <div class="col-md-3">
+                                <select class="btn date-time w100" [(ngModel)]="selectedBookSlot"
+                                    (change)="getSelectedSlot($event)">
+                                    <option value="" selected>Select Slot</option>
+                                    <ng-container *ngIf="i===doctorIndex">
+                                        <option *ngFor="let slot of availableSlots" value="{{slot.slotValue}}">
+                                            {{slot.slotFormatted}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary appointment-btn" data-toggle="modal"
+                                    data-target="#noAuthUserBookAppointment"
+                                    (click)="bookAppointment(bookDateVal.value, i)">BOOK
+                                    APPOINTMENT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------------------------- -->
+        <!-- <div class="searchListBox">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. Niharika Sharma</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="assets/img/userpic.png" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span>Dentist</span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span>MBBS, MD</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : 123, Street Name, New Delhi - 110092
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <input type="date" class="btn btn-primary date-time">
+                        <input type="time" class="btn btn-primary date-time">
+                        <button class="btn btn-primary appointment-btn">BOOK APPOINTMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="searchListBox">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. Niharika Sharma</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="assets/img/userpic.png" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span>Dentist</span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span>MBBS, MD</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : 123, Street Name, New Delhi - 110092
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <input type="date" class="btn btn-primary date-time">
+                        <input type="time" class="btn btn-primary date-time">
+                        <button class="btn btn-primary appointment-btn">BOOK APPOINTMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="searchListBox">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. Niharika Sharma</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="assets/img/userpic.png" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span>Dentist</span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span>MBBS, MD</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : 123, Street Name, New Delhi - 110092
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <input type="date" class="btn btn-primary date-time">
+                        <input type="time" class="btn btn-primary date-time">
+                        <button class="btn btn-primary appointment-btn">BOOK APPOINTMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="searchListBox">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. Niharika Sharma</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="assets/img/userpic.png" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span>Dentist</span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span>MBBS, MD</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : 123, Street Name, New Delhi - 110092
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <input type="date" class="btn btn-primary date-time">
+                        <input type="time" class="btn btn-primary date-time">
+                        <button class="btn btn-primary appointment-btn">BOOK APPOINTMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="searchListBox">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="drName">Dr. Niharika Sharma</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="daytime">
+                        <ul class="day">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>t</li>
+                            <li>w</li>
+                            <li>t</li>
+                            <li>f</li>
+                            <li>s</li>
+                        </ul>
+                        <ul class="time">
+                            <li>
+                                <a>MORNING</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                            <li>
+                                <a>Evening</a>
+                                <span> 09:00 - 14:00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <img src="assets/img/userpic.png" alt="image">
+                </div>
+                <div class="col-md-10">
+                    <div class="rating-box">
+                        <div>
+                            <ul class="star">
+                                <li>
+                                    <img src="assets/img/staricon.png" alt="image">
+                                    <span class="out-of-five">4.8 out of 5</span>
+                                </li>
+                                <li>
+                                    <span>SPECIALIZATION</span> <br>
+                                    <span>Dentist</span>
+                                </li>
+                                <li>
+                                    <span>DEGREE</span> <br>
+                                    <span>MBBS, MD</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span style="color:#15959a">108</span>
+                            Patient Satisfaction Ratings
+                        </div>
+                        <div>
+                            Address : 123, Street Name, New Delhi - 110092
+                        </div>
+                    </div>
+                    <div class="book-box">
+                        <input type="date" class="btn btn-primary date-time">
+                        <input type="time" class="btn btn-primary date-time">
+                        <button class="btn btn-primary appointment-btn">BOOK APPOINTMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+
+</div>
+
+<footer class="footer-area" id="contact">
+    <div class="container">
+        <div class="subscribe-area">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12">
+                    <h2>Contact Us</h2>
+                    <span class="sub-title">Get in touch for Queries</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>
+                        Drop us a line
+                    </h4>
+                    <p>We are always open and we welcome and questions you have for our team. If you wish to get in
+                        touch, please fill out the form below. Someone from our team will get back to you shortly.</p>
+
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="Your Name">
+                        <input type="text" class="form-control mb-3" placeholder="Your Email">
+                        <textarea rows="4" cols="3" class="form-control mb-3" placeholder="Your Message"></textarea>
+                        <button class="btn btn-primary w100 send-btn">Send us a message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>
+                        Here to Help
+                    </h4>
+                    <p>
+                        Have a question? You may find an answer in our FAQ’s. But you
+                        can also connect us.
+                    </p>
+                    <ul class="fmark mb-2">
+                        <li>
+                            <img src="assets/img/phone.png" alt="image">
+                            +0128-9202811
+                        </li>
+                        <li>
+                            <img src="assets/img/mark.png" alt="image">
+                            info@medilocks.com, support@medilocks.com
+                        </li>
+                    </ul>
+                    <h4>
+                        Follow Us
+                    </h4>
+                    <ul class="social-link">
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="assets/img/facebook.png" alt="image">
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank">
+                                <img src="assets/img/insta.png" alt="image">
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="assets/img/linkedin.png" alt="image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="assets/img/twitter.png" alt="image">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <p>Copyright <i class='bx bx-copyright'></i> 2020. Medilocks</p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="footer-shape1"><img src="assets/img2/footer-shape1.png" alt="image"></div>
+    <div class="footer-shape2"><img src="assets/img2/footer-shape2.png" alt="image"></div>
+    <div class="footer-shape3"><img src="assets/img2/footer-shape3.png" alt="image"></div> -->
+</footer>
+<div class="search-overlay">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="search-overlay-layer"></div>
+            <div class="search-overlay-layer"></div>
+            <div class="search-overlay-layer"></div>
+
+            <div class="search-overlay-close">
+                <span class="search-overlay-close-line"></span>
+                <span class="search-overlay-close-line"></span>
+            </div>
+
+            <div class="search-overlay-form">
+                <form>
+                    <input type="text" class="input-search" placeholder="Search here...">
+                    <button type="submit"><i class='bx bx-search-alt'></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-live-data></app-live-data> -->
+
+<div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+
+<!-- <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> -->
+<div class="modal fade" id="noAuthUserBookAppointment" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="mySmallModalLabel">
+                  Complete Your Booking
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    onclick='document.getElementById("myDIV").style.display = "block";'>
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-text">
+                    <form [formGroup]="createVisitForm" class="bookAppointment">
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                Booking Date
+                            </label>
+                            <div class="col-md-8">
+                                <input type="date" class="form-control" value="{{selectedBookDate}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                Booking Time
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" value="{{selectedBookSlotFormatted}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                First Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" formControlName="firstName"
+                                    placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                Last Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" formControlName="lastName"
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                Phone Number
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" formControlName="mobNum"
+                                    placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-4">
+                                Illness
+                            </label>
+                            <div class="col-md-8">
+                                <!-- <input type="text" class="form-control searchlist" formControlName="illness" placeholder="Mention illness"> -->
+                                <textarea rows="4" cols="3" class="form-control" formControlName="illness"
+                                    placeholder="Illness"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="verifyOtpShow">
+                            <label class="col-md-4">
+                                OTP
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control searchlist" formControlName="userOtp"
+                                    placeholder="Enter OTP" [(ngModel)]="userOtp">
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="verifyOtpShow">
+                            <label class="col-md-4">
+                            </label>
+                            <div class="col-md-8">
+                                <button type="button" class="btn btn-primary form-control confirm-booking"
+                                    (click)="verifyOtp(userOtp)" [disabled]="disableVerifyOtpBtn">Verify
+                                    OTP</button>
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="!verifyOtpShow">
+                            <label class="col-md-4">
+                                <!-- Phone Number -->
+                            </label>
+                            <div class="col-md-8">
+                                <button type="button" class="btn btn-primary form-control confirm-booking"
+                                    (click)="createVisit()" [disabled]="disableConfirmBooking">Confirm
+                                    Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn">Resend OTP</button>
+                <button class="btn btn-primary"><i class="flaticon-cancel-12"></i> Verify</button>
+            </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="form">
+  <div class="form-container">
+    <div class="form-form">
+      <div class="form-form-wrap">
+        <div class="form-container">
+          <div class="form-content">
+            <div class="logo" style="margin-bottom:40px">
+              <img src="assets/img/loginLogo.png">
+              <span>Medilocks</span>
+            </div>
+            <!-- <p class="signup-link">Already have an Account? <a routerLink="/login">Log in</a></p> -->
+            <form class="text-left mt-4" [formGroup]="recoverForm" *ngIf="showPassowrd">
+              <h5 class="signup-link" style="margin-bottom: 13px;">Forgot Password</h5>
+              <div class="form">
+                <div class="field-wrapper input">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg> -->
+                  <p class="logHeading">Registered Mobile Number</p>
+                  <input type="text" class="form-control-input" name="number" formControlName="mobNo"
+                    placeholder="Mobile Number" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    autocomplete="nope" [ngClass]="{ 'is-invalid': submitted && f.mobNo.errors }">
+                  <div *ngIf="submitted && f.mobNo.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobNo.errors.required">Mobile Number is required.</div>
+                    <div *ngIf="f.mobNo.errors.minlength">Mobile Number must be atleast 10 degits</div>
+                    <div *ngIf="f.mobNo.errors.maxlength">Mobile Number must be atleast 10 degits</div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <button type="button" class="btn btn-primary mb-2 mr-2 form-control" (click)="submit()">
+                    Send OTP
+                  </button>
+                </div>
+                <div class="text-center mt-3">
+                  <p>Already have an Account? <a routerLink="/login" class="createAccount">Login</a></p>
+                </div>
+              </div>
+              <div>
+              </div>
+            </form>
+            <form class="text-left" [formGroup]="forgotPasswordForm" *ngIf="!showPassowrd">
+              <div class="form">
+                <div class="field-wrapper input mb-2">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg> -->
+                  <p class="logHeading">Registered Mobile Number</p>
+                  <input type="password" class="form-control-input" name="password" formControlName="password"
+                    minlength="6" maxlength="35" placeholder="Password"
+                    [ngClass]="{ 'is-invalid': submitted && h.password.errors }">
+                  <div *ngIf="submitted && h.password.errors" class="invalid-feedback">
+                    <div *ngIf="h.password.errors.required">Password is required.</div>
+                    <div *ngIf="h.password.errors.minlength">password must be atleast 6 characters</div>
+                    <div *ngIf="h.password.errors.pattern">Password must contain at least 6 characters including 1
+                      uppercase and 1 lowercase letter, 1 special character and 1 number.</div>
+                  </div>
+                </div>
+                <div class="field-wrapper input mb-2">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg> -->
+                  <input type="password" class="form-control-input" name="confirmPassword"
+                    formControlName="confirmPassword" placeholder="Confirm Password"
+                    [ngClass]="{ 'is-invalid': submitted && h.confirmPassword.errors }">
+                  <div *ngIf="submitted && h.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="h.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="h.confirmPassword.errors.mustMatch">Password must match</div>
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                  <a class="btn btn-primary" (click)="forgotPassword()">Submit</a>
+                </div>
+                <div class="text-center mt-3">
+                  <p>Already have an Account? <a routerLink="/login" class="createAccount">Login</a></p>
+                </div>
+              </div>
+            </form>
+            <div class="text-center">
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6 class="modal-title" id="mySmallModalLabel">
+                      <small>
+                        We Send OTP code to Verify your Number
+                      </small>
+                    </h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                  </div>
+                  <form [formGroup]="addOtpForm" (ngSubmit)="VerifyOTP()">
+                    <div class="modal-body">
+                      <div class="modal-text">
+                        <div class="row">
+                          <div class="form-group col-sm-2" *ngFor="let input of formInput; index as i">
+                            <input #formRow type="text" formControlName="{{input}}" class="form-control text-center"
+                              maxlength="1" (keyup)="keyUpEvent($event, i)">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn" (click)="sendotp()">Resend OTP</button>
+                      <button class="btn btn-primary" [disabled]="addOtpForm.invalid"><i class="flaticon-cancel-12"></i>Verify</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <p class="terms-conditions mb-4" style="margin-top: 111px;">This page is protected by 256 bit end-to-end
+              encryption and is
+              subject to the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service.</a> </p>
+            <p class="all-right-reserved text-center">All Rights Reserved. Blockcube 2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-image">
+      <div class="l-image">
+        <div class="right-bg-name">
+          Maintaining a Healthy
+          Lifestyle is now
+          Simplified
+        </div>
+        <img src="assets/img/dot1.png" class="dot1">
+      </div>
+    </div>
+  </div>
+</div>

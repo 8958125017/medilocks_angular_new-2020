@@ -1,0 +1,178 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #fafafa;
+    border-radius: .25rem;
+}
+
+.plansheet{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #fafafa;
+    border-radius: .25rem;
+    line-height: 13px;
+    padding: 10px 10px;
+}
+
+.plansheet li{
+    width: 40%;
+    border-right: 1px solid #ccc;
+    padding-right: 16px;
+    margin-right: 19px;
+    text-align: center;
+    height: 14px;
+    position: relative;
+    font-size: 10px;
+
+}
+
+.plansheet li button{
+    border-radius: 4px;
+    background-color: #10a7b1;
+    font-size: 9px;
+    color: #fff;
+    position: absolute;
+    border: none;
+    right: 0px;
+}
+
+
+.plansheet li:last-child{
+ border-right: none;
+    
+}
+
+.subscriptionPlan{
+    text-align: center;
+    line-height: 21px;
+    margin-bottom: 24px;
+  }
+
+.subscriptionPlan span{
+    width: 116.2px;
+    height: 17.4px;
+    border-radius: 1.2px;
+    background-color: #3b76ef;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 12px;
+  }
+
+
+  .subscriptionPlan span:last-child{
+    width: 116.2px;
+    height: 17.4px;
+    border-radius: 1.2px;
+    background-color: #e4edf2;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    color: #5b6b82;
+    font-size: 12px;
+  }
+  
+
+.subheading{
+    font-size: 20px;
+    font-weight: bold;
+    color: #262626;
+}
+
+.subCaption{
+    font-size: 11.6px;
+    color: #5b6b82;
+    margin-bottom: 24px;
+}
+
+.plan-widget-box{
+    display: flex;
+
+}
+
+.plan-widget-box div{
+    width: 230px;
+    height: 288px;
+    padding: 10px 10px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+
+}
+
+.plan-widget-box div p{
+    font-size:12px !important;
+    font-weight: 600;
+    color: #242f40;
+}
+
+.plan-widget-box div h4{
+    font-size: 17px;
+    color: #242f40;
+    font-weight: bold;
+
+}
+
+.plan-widget-box div ul{
+    margin: 11px;
+    padding: 0px;
+    list-style-type: none;
+    margin-bottom: 40px;
+  
+  }
+
+
+  .plan-widget-box div ul li{
+    font-size: 9px;
+    line-height: 20px;
+    color: #5b6b82;
+    padding-top: 6px;
+
+   }
+
+   .plan-widget-box div a{
+    border-radius: 1.2px;
+    border: solid 0.3px #e8e8e8;
+    text-transform: uppercase;
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 5px 10px;
+    font-size: 9px;
+   }
+
+   .subscribeBox{
+    border-radius: 4px;
+    background-color: #fff9ea;
+    height: 65px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #262626;
+    font-size: 15px;
+   }
+
+.highlighted-plan{
+    border: 1px solid #006df4;
+    height: 310px !important;
+    margin-top: -11px;
+    box-shadow: 0 6px 9px 4px rgba(0, 0, 0, 0.2) !important;
+    z-index: 1;
+}
+
+.bottom-bor{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+}
+
+.f-weight{
+    font-weight: bold;
+}
+
+

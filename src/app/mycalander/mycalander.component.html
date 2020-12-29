@@ -1,0 +1,222 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container"> 
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+      <div class="main-section">
+        <div class="layout-px-spacing">
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="dash-widgit mb-4 mt-3">
+                <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                <div class="welname">
+                  <p>
+                    Hey Doctor!<Br>
+                    <span>Hope you have Greate day today!</span>
+                  </p>
+                </div>
+                <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row layout-top-spacing">
+            <div class="col-md-12">
+                <div class="showStatus">
+                    13:00-14-40
+                    <span class="pending">Pending</span>
+                    <p>Ajeet Kumar Singh</p>
+                </div>
+            </div>
+          </div> -->
+
+          <div class="row layout-top-spacing mb-3">
+            <div class="col-md-12">
+              <label>My Calendar</label>
+              <a href="javascript:void(0)" routerLink="/createVisit/id" id="myBtn" class="btn btn-primary float-right">Add Visit</a>
+              <!-- <button id="myBtn" data-toggle="modal" data-target=".addEventsModal" class="btn btn-primary float-right">Add Visit</button> -->
+            </div>
+          </div>
+           <!-- <div class="availity mb-4 layout-top-spacing">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="page-title">
+                         <button class="btn btn-primary availity-btn">Availability</button>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="page-title">
+                      11/06/2020
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="page-title">
+                       11:00 - 11:30 AM
+                     </div>
+                  </div>
+                 <div class="col-md-3">
+                   <div class="page-title float-right">
+                     edit
+                    </div>
+                 </div>
+               </div>
+             </div> -->
+            <div class="my-patient">
+                <div id="calendar"></div>
+            </div>
+         </div>
+       </div>
+     </div>
+      <!--  END CONTENT AREA  -->
+ </div>
+<!-- END MAIN CONTAINER --> 
+
+<div class="modal fade gooffline">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">You are going offline, select duration</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-text">
+                    <form>
+                        <div class="row mb-4">
+                        <div class="col-md-12 text-center">
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Time">
+                        </div>
+                        </div>
+                        <div class="row mb-4 justify-content-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+              </div>
+            </div>                         
+        </div>
+    </div>
+</div>
+<div class="modal fade edit">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Select duration of slots for booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-text">
+                    <form>
+                        <div class="row mb-4">
+                        <div class="col-md-12 text-center">
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Time">
+                                <p class="mt-4"><strong>Note:</strong> The slot changes will reflect for future days and will not effect present bookings.</p>
+                            </div>
+                        </div>
+                        <div class="row mb-4 justify-content-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+            </div>
+            </div>                         
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <div  class="modal animated fadeIn addEventsModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <span class="close" id="discard" data-dismiss="modal">&times;</span>
+                                    <div class="add-edit-event-box">
+                                        <div class="add-edit-event-content">
+                                            <h5 class="add-event-title modal-title mb-4">Create Visit</h5>
+                                           <form class="">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-4">
+                                                        <label for="start-date" class="">Patient Name</label>
+                                                        <div class="d-flex event-title">
+                                                            <input id="write-e" type="text" placeholder="Enter Title" class="form-control" name="task">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <label for="start-date" class="">Contact Number</label>
+                                                        <div class="d-flex event-title">
+                                                            <input id="write-e" type="text" placeholder="Enter Title" class="form-control" name="task">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <label for="start-date" class="">Email</label>
+                                                        <div class="d-flex event-title">
+                                                            <input id="write-e" type="text" placeholder="Enter Title" class="form-control" name="task">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-2">
+                                                        <label for="start-date" class="">Visit Schedule</label>
+                                                   </div>
+                                                    <div class="col-md-4 col-sm-4 col-12">
+                                                       <div class="form-group start-date">
+                                                            <label for="start-date" class="">Date</label>
+                                                            <div class="d-flex">
+                                                                <input  class="form-control" type="date">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-12 mb-4">
+                                                        <div class="form-group end-date">
+                                                            <label for="end-date" class="">Time</label>
+                                                            <div class="d-flex">
+                                                                <input type="time" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-12 mb-4">
+                                                        <div class="form-group end-date">
+                                                            <label for="end-date" class="">Duration</label>
+                                                            <div class="d-flex">
+                                                              <select class="form-control">
+                                                                  <option>1 hours</option>
+                                                                  <option>30:00 min</option>
+                                                                  <option>20:00 min</option>
+                                                              </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="start-date" class="">Illness</label>
+                                                        <div class="d-flex event-description">
+                                                            <textarea id="taskdescription" placeholder="Enter Description" rows="7" class="form-control" name="taskdescription"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button id="discard" class="btn" data-dismiss="modal">Discard</button>
+                                    <button id="add-e" class="btn">Create Visit</button>
+                                    <!-- <button id="edit-event" class="btn">Save</button> -->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+    </div>

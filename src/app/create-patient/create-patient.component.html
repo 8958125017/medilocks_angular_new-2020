@@ -1,0 +1,160 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px; -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label>Add Patient</label>
+                    </div>
+                </div>
+                <div class="my-patient">
+                    <!-- <div class="drProfile">
+                        <h3>
+                            Dr. Kabir Anand,
+                        </h3>
+                        <p>
+                            [Degree] &nbsp;&nbsp; | &nbsp;&nbsp; [Specialization] <br>
+                            [Email Id] &nbsp;&nbsp; | &nbsp;&nbsp; [Mobile] &nbsp;&nbsp; | &nbsp;&nbsp; [Address]
+                        </p>
+                    </div> -->
+                    <form [formGroup]="createPatientForm">
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">First Name:<span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="fName" class="form-control" id="name" placeholder="First Name" autocomplete="nope" [ngClass]="{ 'is-invalid': submitted && f.fName.errors }" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required="">
+                                <div *ngIf="submitted && f.fName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fName.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Last Name:<span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="lName" class="form-control" id="name" placeholder="Last Name" autocomplete="nope" [ngClass]="{ 'is-invalid': submitted && f.lName.errors }" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' required="">
+                                <div *ngIf="submitted && f.lName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Contact Number:<span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="mobNum" class="form-control" id="mobNum" placeholder="Contact Number" maxlength="10" autocomplete="nope" onkeypress="return event.charCode >= 48 && event.charCode <= 57" [ngClass]="{ 'is-invalid': submitted && f.mobNum.errors }" required="">
+                                <div *ngIf="submitted && f.mobNum.errors" class="invalid-feedback">
+                                    <div *ngIf="f.mobNum.errors.required">Mobile Number is required.</div>
+                                    <div *ngIf="f.mobNum.errors.minlength">Mobile Number must be atleast 10 degits</div>
+                                    <div *ngIf="f.mobNum.errors.maxlength">Mobile Number must be atleast 10 degits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Email Id:</label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="email" class="form-control" id="email" placeholder="Email Id"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <!-- div *ngIf="f.email.errors.required">Email address is required</div> -->
+                                    <div *ngIf="f.email.errors.pattern">Please enter valid email Id & avoid spaces Eg: abcd@gmail.com.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Address Line 1:</label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="address" class="form-control" id="address" placeholder="Address Line">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">State:</label>
+                            <div class="col-md-7">
+                                 <select name="state" formControlName="state" class="form-control" required (change)="getCity(createPatientForm.value.state)" [(ngModel)]='state'>
+                                  <option value="" class="" selected="selected">--Select State--</option>
+                                  <option *ngFor="let item of stateList" value="{{item.name}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">City:</label>
+                            <div class="col-md-7">
+                                 <select class="form-control" name="city" formControlName="city" [(ngModel)]='city' required>
+                                                <option value="" class="" selected="selected">--Select City--</option>
+                                                <option *ngFor="let city of cityList" value="{{city.name}}">{{city.name}}</option>
+                                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Pin Code:</label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="pincode" maxlength="6" class="form-control w40" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="pincode" placeholder="Pin Code">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Date Of Birth:</label>
+                            <div class="col-md-7">
+                                <input type="date" formControlName="dob" class="form-control w40" id="dob" placeholder="Date Of Birth">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Blood Group:</label>
+                            <div class="col-md-7">
+                                <select class="form-control w40" formControlName="bloodGroup" >
+                                      <option value="" selected>Blood Group</option>
+                                      <option *ngFor="let bloodGroup of bloodGroupList" value="{{bloodGroup.name}}">{{bloodGroup.name}}</option>
+                              </select>
+                            </div>
+                        </div>
+                         <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Weight:</label>
+                            <div class="col-md-7">
+                                <input type="text" formControlName="weight" class="form-control w40"  placeholder="weight" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Height:</label>
+                            <div class="col-md-7">
+                                <select class="form-control w40" formControlName="height">
+                                    <option value="" selected>Select Height</option>
+                                    <option value="165">165 cm/ft</option>
+                                    <option value="160">160 cm/ft</option>
+                                    <option value="155">155 cm/ft</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Upload Photo</label>
+                            <div class="col-md-7">
+                                <input type="file" name="uploadExempt" accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt" (change)="fileUpload($event)" class="form-control" id="formGroupExampleInput">
+                            </div>
+                        </div>
+                        <div class="row mb-4 mt-2 justify-content-center">
+                            <button type="submit" class="btn btn-primary" (click)="createForm()">Save Patient</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->

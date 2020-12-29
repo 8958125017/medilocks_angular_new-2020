@@ -1,0 +1,207 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing mb-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label>My Profile</label>
+                            <a (click)="editProfile()" class="btn btn-primary">EDIT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-patient" id="userProfileScreen">
+                    <div class="row layout-spacing">
+                        <!-- Content -->
+                        <div class="col-md-4" id="userProfileLeftContainre">
+                            <div class="user-profile layout-spacing">
+                                <div class="widget-content widget-content-area user-bg">
+                                    <!-- <div class="d-flex justify-content-between">
+                                        <h3 class="">Info</h3>
+                                        <a  class="mt-2 edit-profile" (click)="editProfile()"> <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" class="feather feather-edit-3" >
+                                                <path d="M12 20h9"></path>
+                                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                            </svg></a>
+                                    </div> -->
+                                    <div class="text-center user-info">
+                                        <img src="{{doctorDeatils.profilePic?doctorDeatils.profilePic:'assets/img/welcome_icon.svg'}}"
+                                            routerLink="/userProfile">
+                                        <p class="">Dr. {{docName}}<br>{{doctorDeatils?.userName}} </p> 
+                                    </div>
+                                    <div class="clinicTiming">
+                                        <label>Clinic Timing & Schedule</label>
+                                        <p>{{openTime?openTime:'00'}} - {{closeTime?closeTime:'00'}}</p>
+                                        <ul>
+                                            <li (click)="getDayByTime('sun')">S</li>
+                                            <li class="active" (click)="getDayByTime('mon')">M</li>
+                                            <li class="active" (click)="getDayByTime('tue')">T</li>
+                                            <li class="active" (click)="getDayByTime('wed')">W</li>
+                                            <li class="active" (click)="getDayByTime('thu')">T</li>
+                                            <li class="active" (click)="getDayByTime('fri')">F</li>
+                                            <li class="active" (click)="getDayByTime('sat')">S</li>
+                                        </ul>
+                                    </div>
+                                    <div class="user-info-list">
+                                        <div class="">
+                                            <ul class="contacts-block list-unstyled">
+                                                <li class="contacts-block__item">
+                                                    <span class="usericon">
+                                                        <img src="assets/img/drDOBIcon.png">
+                                                    </span>
+                                                    DOB
+                                                    <p class="f10">{{doctorDeatils.dob}}</p>
+                                                </li>
+                                                <li class="contacts-block__item">
+                                                    <span class="usericon">
+                                                        <img src="assets/img/drlocationIcon.png">
+                                                    </span>
+                                                    Gender
+                                                    <p class="f10" *ngIf="doctorDeatils.gender=='M'">Male</p>
+                                                    <p class="f10" *ngIf="doctorDeatils.gender=='F'">Female</p>
+                                                </li>
+                                                <li class="contacts-block__item">
+                                                    <span class="usericon">
+                                                        <img src="assets/img/drlocationIcon.png">
+                                                    </span>
+                                                    Geo Location
+                                                    <p class="f10">{{latLang?latLang:'-'}}</p>
+                                                </li>
+                                                <li class="contacts-block__item">
+                                                    <span class="usericon">
+                                                        <img src="assets/img/drMessageIcon.png">
+                                                    </span>
+                                                    Email
+                                                    <p class="f10">{{doctorDeatils.email?doctorDeatils.email:'NA'}}</p>
+                                                </li>
+                                                <li class="contacts-block__item">
+                                                    <span class="usericon">
+                                                        <img src="assets/img/drPhIcon.png">
+                                                    </span>
+                                                    Mobile
+                                                    <p class="f10">{{doctorDeatils.mobNumber}}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="education layout-spacing" id="education">
+                                <div class="widget-content widget-content-area education-bg">
+                                    <h3 class="">Education</h3>                                    
+                                        <div class="item-timeline" *ngFor="let item of doctDegree">
+                                            <div class="t-meta-date">
+                                                <p class="">{{item.degreeType}}</p>
+                                            </div>
+                                            <div class="t-dot">
+                                            </div>
+                                            <div class="t-text">
+                                                <p>{{item.degree}}</p>
+                                                <small>{{item.college}}</small><br>
+                                                <small>{{item.year}}</small>
+                                            </div>
+                                        </div>                                    
+                                </div>
+                            </div>
+                            <div class="work-experience layout-spacing ">
+                                <div class="widget-content widget-content-area achievement-bg">
+                                    <h3 class="">Achievement</h3>
+                                    <div class="timeline-alter">
+                                        <ul>
+                                            <li *ngFor="let item of docAchivment">
+                                                {{item.year}}
+                                                <small>{{item.title}}</small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="layout-spacing">
+                                <div class="widget-content">
+                                    <div class="row" id="bio">
+                                        <div class="col-md-9 mb-5 user-text">
+                                            <h3 class="">Bio</h3>
+                                            <p>{{doctorDeatils.description}}</p>
+                                        </div>
+                                        <div class="col-md-3 mb-5 user-text">
+                                            <h3 class="">Signature</h3>
+                                            <img class="img-fluid" src="{{doctorDeatils.signature}}" alt="avatar">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 mb-xl-5 mb-5"
+                                            *ngFor="let item of doctSpecialization">
+                                            <div class="specilization">
+                                                <div class="specilizationIcon">
+                                                    <img src="assets/img/shape.png">
+                                                </div>
+                                                <h5>{{item.specialization}}</h5>
+                                                <p>
+                                                    Registration Number : {{item.regNumber}}
+                                                </p>
+                                                <p>
+                                                    Registration Council : {{item.regCouncil}}
+                                                </p>
+                                                <p>
+                                                    Registration regYear : {{item.regYear}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bio-skill-box" id="bioSkillBox">
+                                        <h3 class="text-center text-sm-left">WORK EXPERIENCE</h3>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">                                                
+                                                    <div class="widget-content widget-content-area">                                                        
+                                                            <div class="item-timeline"
+                                                                *ngFor="let item of doctWorkExperience">
+                                                                <div class="t-meta-date mr-4">
+                                                                    <p><strong>{{item.from}} to {{item.to}}</strong></p>
+                                                                </div>
+                                                                <div class="t-dot t-dot-work"></div>
+                                                                <div class="t-text">
+                                                                    <p class="d-sm-none"><strong>{{item.from}} to {{item.to}}</strong></p>
+                                                                    <p><strong>{{item.institutionName}}</strong></p>
+                                                                    <p>{{item.designation}}</p>
+                                                                    <p>{{item.department}}</p>
+                                                                </div>
+                                                            </div>                                                        
+                                                    </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->

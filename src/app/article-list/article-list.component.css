@@ -1,0 +1,43 @@
+.presborder{
+    border:1px dashed #ccc;
+    /* height: 80px;
+    line-height: 80px;
+    text-align:center;
+    font-size:7px;
+    font-weight: 600;
+    color: #a2a2a2; */
+}
+
+#articleText{
+    display:flex;
+    align-items: center;
+    color: #3d3d3d;
+}
+
+#articleText img{
+    height: 55px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#articleText span{
+    font-size: 16px;
+    color: #3d3d3d;
+}
+
+.publisText{
+
+}
+
+.publisText p{
+    font-size: 12px;
+    margin-bottom:4px;
+}
+
+.publisText a{
+    font-size: 13px;
+    color: darkgreen;
+    font-weight: bold;
+}
+

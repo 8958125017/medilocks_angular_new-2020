@@ -1,0 +1,94 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #fafafa;
+    border-radius: .25rem;
+}
+
+
+.card-amount-box{
+    
+    border-radius: 1.5px;
+    border: dotted 1px #dcdcdc;
+    background-color: #ffffff;
+    margin-top: 33px;
+    padding: 7px;
+}
+
+.amount-box{
+    font-size: 11px;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 11px;
+}
+
+.totalPrice{
+    font-weight: bold;
+    font-size: 19px;
+    color: #000;
+}
+
+.register-address{
+
+}
+
+.register-address label{ 
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: #515356;
+}
+
+
+.register-address input{ 
+        height:40px;
+}
+
+
+
+.credit-container{
+    border: solid 0.5px #4a90e2;
+  
+}
+
+.credit-container label{
+   font-size:11px;
+}
+
+.credit-details{
+    height: 40px;
+    border-radius: 1px;
+    border-bottom: solid 0.5px #4a90e2;
+    background-color: #f2f8ff;
+}
+
+.credit-details ul{
+    margin:0px;
+    padding:0px;
+    display: flex;
+   list-style-type: none;
+}
+
+.credit-details ul li{
+    line-height: 14px;
+    padding-left: 6px;
+    font-size: 13px;
+    color: #433d3d;
+    padding-top: 8px;
+    margin-right: 18px;
+}
+
+.credit-details ul li p{
+   padding:0px;
+   height: 0px;
+   line-height: 10px;
+   color:#ccc;
+}
+
+.online-banking{
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+}

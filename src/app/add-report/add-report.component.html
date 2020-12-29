@@ -1,0 +1,98 @@
+
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+      <div class="main-section">
+        <div class="layout-px-spacing">
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="dash-widgit mb-4 mt-3">
+                <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                <div class="welname">
+                  <p>
+                    Hey Doctor!<Br>
+                    <span>Hope you have Greate day today!</span>
+                  </p>
+                </div>
+                <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+              </div>
+            </div>
+          </div>
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Add Report</label>
+            </div>
+          </div>
+          <div class="my-patient">
+            <form [formGroup]="createReportForm">
+              <div class="row mb-4">
+                <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Patient Name<span class="text-danger">*</span></label>
+                <div class="col-md-7">
+                    <input type="text"  class="form-control" id="name" placeholder="Patient Name" formControlName="name" autocomplete="nope">
+                    <!-- <div *ngIf="submitted && f.fName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fName.errors.required">Report Title</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row mb-4">
+              <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Contact Number<span class="text-danger">*</span></label>
+              <div class="col-md-7">
+                  <input type="text"  class="form-control" id="name" placeholder="Report Title" autocomplete="nope" formControlName="mobNo">
+                  <!-- <div *ngIf="submitted && f.fName.errors" class="invalid-feedback">
+                      <div *ngIf="f.fName.errors.required">Report Title</div>
+                  </div> -->
+              </div>
+          </div>
+                  <div class="row mb-4">
+                      <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Issued By<span class="text-danger">*</span></label>
+                      <div class="col-md-7">
+
+                        <input type="text"  class="form-control" id="name" placeholder="Issued By Title" autocomplete="nope" formControlName="issuedBy">
+                          
+                      </div>
+                  </div>
+                   <div class="row mb-4">
+                      <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Category of Report<span class="text-danger">*</span></label>
+                      <div class="col-md-7">
+                          <select class="form-control" formControlName="category" [(ngModel)]="category">
+                              <option value="" selected="">--Select Category--</option>
+                              <option value="Radiographs">Radiographs</option>
+                              <option value="CT scan">CT scan</option>
+                              <option value="Ultrasound">Ultrasound</option>
+                              <option value="PET scan">PET scan</option>
+                              <option value="Xray">Xray</option>
+                              <option value="MRI scan">MRI scan</option>
+                              <option value="Lab report">Lab report</option>
+                              <option value="Pathology report">Pathology report</option>   
+                          </select>
+                          <!-- <div *ngIf="submitted && f.lName.errors" class="invalid-feedback">
+                              <div *ngIf="f.lName.errors.required">Category of Report</div>
+                          </div> -->
+                      </div>
+                  </div>
+                  <div class="row mb-4">
+                      <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Upload Report</label>
+                      <div class="col-md-7">
+                           <input type="file" name="uploadExempt" accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt" (change)="fileUpload($event)" class="form-control" id="formGroupExampleInput">
+                      </div>
+                  </div>
+                  <div class="row mb-4">
+                      <label for="formGroupExampleInput" class="col-md-3 offset-md-1"></label>
+                      <div class="col-md-7">
+                          <button type="submit" class="btn btn-primary" style="padding: 8px 66px;" (click)="createReport()">ADD</button>
+                      </div>
+                  </div>
+                 
+              </form>
+          </div>
+         </div>
+       </div>
+      <!--  END CONTENT AREA  -->
+    </div>    
+  </div>
+<!-- END MAIN CONTAINER -->

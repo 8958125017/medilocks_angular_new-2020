@@ -1,0 +1,27 @@
+a{cursor: pointer;}
+
+.main-section {
+    min-height: 1050px;
+}
+
+.modal{
+    z-index: 9999;
+}
+
+
+h4.prescriptionHeading{
+  font-size:15px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.presborder{
+    border:1px dashed #ccc;
+    /* height: 80px;
+    line-height: 80px;
+    text-align:center;
+    font-size:7px;
+    font-weight: 600;
+    color: #a2a2a2; */
+}
+

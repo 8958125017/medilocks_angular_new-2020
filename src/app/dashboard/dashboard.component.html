@@ -1,0 +1,191 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+  <!--  BEGIN CONTENT AREA  -->
+  <div id="content" class="main-content">
+    <div class="main-section">
+      <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="dash-widgit mb-4 mt-3">
+              <img src="assets/img/drIcon.png" class="dash-icon" style="">
+              <div class="welname">
+                <p>
+                  Hey Doctor!<Br>
+                  <span>Hope you have Greate day today!</span>
+                </p>
+              </div>
+              <img src="assets/img/humanIcon.png" class="dash-right-icon img-fluid" style="top: -38px;z-index: 2;">
+              <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+              height: 62px;
+              width: 217px;
+              z-index: 1;">
+            </div>
+          </div>
+        </div>
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Patient's Task Board &nbsp;&nbsp; <small routerLink='/mypatient'>View All</small></label>
+          </div>
+        </div>
+        <div class="mb-3 clearfix" id="patientSlider">
+
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="patientSliderConfig">
+            <div ngxSlickItem *ngFor="let item of taskBoardList" class="slide">
+              <div class="widget widget-one_hybrid" routerLink="/mypatient/{{item.patientId}}">
+                <a>
+                  <div class="widget-heading">
+
+                    <div class="icon">
+                      <img src="{{item.photo?item.photo:'assets/img/defaultPic.png'}}">
+
+                    </div>
+
+                    <div class="content">
+                      <p class="w-value">{{item?.name?.firstName}} {{item?.name?.lastName}}</p>
+                      <h5>
+                        <span>Visits:{{item.visit?item.visit:0}}</span>
+                        <span>Report:{{item.report?item.report:0}}</span>
+                        <span>Prescription: {{item.prescription?item.prescription:0}}</span>
+                      </h5>
+                    </div>
+
+                  </div>
+                </a>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+
+          <!-- <div class="patientTaskBox" *ngFor="let item of taskBoardList">
+            <div class="widget widget-one_hybrid" routerLink="/mypatient/{{item.patientId}}">
+              <a>
+                <div class="widget-heading">
+                  <div class="icon">
+                    <img src="assets/img/defaultPic.png">
+                  </div>
+                  <div class="content">
+                    <p class="w-value">{{item.name.firstName}} {{item.name.lastName}}</p>
+                    <h5>
+
+                      <span>Visits:{{item.visit?item.visit:0}}</span>
+                      <span>Report:{{item.report?item.report:0}}</span>
+                      <span>Prescription: {{item.prescription?item.prescription:0}}</span>
+                    </h5>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div> -->
+
+          <div class="no-data " *ngIf="dataLength">
+            <h4 class="error-heading">Oops!</h4>
+            <div> No Data Found</div>
+          </div>
+          <!--  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+            <div class="widget widget-one_hybrid">
+              <a>
+                <div class="widget-heading">
+                  <div class="icon">
+                    <img src="assets/img/defaultPic.png">
+                  </div>
+                  <div class="content">
+                    <p class="w-value">Mayank Bhatnagar</p>
+                    <h5>
+                      <span>Month: June</span>
+                      <span>Visits: 4</span>
+                      <span>Report: 2</span>
+                      <span>Prescription: 4</span>
+                     </h5>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div>
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Analytics</label>
+          </div>
+        </div>
+        <div class="row widget-statistic mb-3">
+          <div class="col-md-4 col-12 mb-2">
+            <div class="widget tpatient">
+              <h6>Total Patient</h6>
+              <a routerLink="/mypatient">
+                <img src="assets/img/tp.png" class="img-c-ip">
+                <span>{{this.totalPatients}}</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 col-12 mb-2">
+            <div class="widget tpatient pending-request">
+              <h6>Pending Request</h6>
+              <a routerLink="/mypatient">
+                <img src="assets/img/pendingr.png">
+                <span>{{this.pendingPatients}}</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 col-12 mb-2">
+            <div class="widget tpatient visit-request">
+              <h6>Visit Request</h6>
+              <a routerLink="/myvisit">
+                <img src="assets/img/visitR.png">
+                <span>{{this.visitdPatients}}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Industry Health Record </label>
+          </div>
+        </div>
+        <div class="row widget-statistic-for-graph mb-3">
+          <div class="col-lg-6 col-md-6 col-12">
+            <div class="widget industryVisit">
+              <div class="defaultFlex">
+                <h6>Global Records</h6>
+                <select class="defaultSelect">
+                  <option selected>Select Country</option>
+                  <option>India</option>
+                </select>
+              </div>
+              <label>Covid 19</label><br>
+              <label>Active Cases :{{totalActive}}</label>
+              <canvas id="lineChar1"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="row layout-top-spacing mb-3">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>News Feed</label>
+            <button type="button" class="btn btn-primary float-right" routerLink='/articleList'>
+              <i class="fas fa-plus-circle"></i> 
+              Your Articles
+            </button>
+          </div>
+        </div>
+        <div class="row widget-statistic">
+          <div class="col-lg-4 col-md-4 col-12 mb-4" *ngFor="let item of shortNewsDataList">
+            <div class="widget news-box">
+              <a routerLink="/newsFeed">
+                  <img src="{{item.shortNewsImage[0]}}">
+                  <h4>{{item.shortNewsAuthor}}</h4>
+                  <p>
+                    {{item.shortNewsCategory}}
+                  </p>
+               </a>
+            </div>
+           </div>
+          <div class="no-data ml-3" *ngIf="newsdataLength">
+            <h4 class="error-heading">Oops!</h4>
+            <div> No Data Found</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  END CONTENT AREA  -->
+  </div>
+
+</div>
+<!-- END MAIN CONTAINER -->

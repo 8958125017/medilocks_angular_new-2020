@@ -1,0 +1,186 @@
+<div class="form">
+    <div class="form-container">
+        <div class="form-form">
+            <div class="form-form-wrap">
+                <div class="form-container py-0">
+                    <div class="form-content d-flex flex-wrap align-content-around vh-100">
+
+                        <div class="m-0 logo" routerLink="/home" style="cursor: pointer">
+                            <img src="assets/img/loginLogo.png">
+                            <span>Medilocks</span>
+                        </div>
+
+                        <form [formGroup]="loginForm" (ngSubmit)="login()" class="text-left w-100">
+                            <h5 class="signup-link mb-4">Log In </h5>
+                            <div class="form" *ngIf="loginbyEmail">
+                                <p class="logHeading">By Email Id</p>
+                                <div id="username-field" class="field-wrapper input">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg> -->
+                                    <input type="text" class="form-control-input" name="id" formControlName="id"
+                                        placeholder="Enter Id" [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+                                    <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                                        <div *ngIf="f.id.errors.required">Email Id is required</div>
+                                        <!--  <div *ngIf="f.id.errors.pattern">Please enter valid email Id & avoid spaces Eg: abcd@gmail.com.</div> -->
+                                    </div>
+                                    <!--  <span
+                                    *ngIf="loginForm.controls.email.errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                    class="small text-danger"> Please enter email Id or phone number</span> -->
+                                </div>
+                                <div id="password-field" class="field-wrapper input mb-2">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg> -->
+                                    <input type="password" class="form-control-input" name="password"
+                                        formControlName="password" placeholder="Password"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                    </div>
+                                </div>
+                                <div class="d-sm-flex justify-content-between">
+                                    <div class="field-wrapper toggle-pass">
+                                        <div class="n-chk new-checkbox checkbox-outline-primary">
+                                            <!-- <label class="new-control new-checkbox checkbox-outline-primary">
+                                                <input type="checkbox" class="new-control-input" [(ngModel)]="isSelected"(click)="isSelect($event)" [ngModelOptions]="{standalone: true}">
+                                                <span class="new-control-indicator"></span>Keep me logged in
+                                            </label> -->
+                                        </div>
+
+                                    </div>
+                                    <div class="field-wrapper">
+                                        <a routerLink="/forgotpassword" class="forgot-pass-link">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="field-wrapper text-center keep-logged-in">
+                                    <button type="submit" class="btn btn-primary p form-control" value="">Login</button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <p>Haven’t Sign up? <a routerLink="/signup" class="createAccount">Create Account</a>
+                                    </p>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <p>
+                                        <span class="cursorPointer loginbymobile" (click)="loginByMNumber()">Login by
+                                            Mobile</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form" *ngIf="loginbyNumber">
+                                <p class="logHeading">Mobile Number</p>
+                                <div id="username-field" class="field-wrapper input mb-1">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg> -->
+                                    <input type="text" class="form-control-input" name="mobilenumber"
+                                        formControlName="mobilenumber" placeholder="Enter Number"
+                                        [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+                                    <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                                        <div *ngIf="f.id.errors.required">Number is required</div>
+                                        <!--  <div *ngIf="f.id.errors.pattern">Please enter valid email Id & avoid spaces Eg: abcd@gmail.com.</div> -->
+                                    </div>
+                                </div>
+
+                                <div class="d-sm-flex justify-content-between">
+                                    <div class="field-wrapper toggle-pass">
+                                        <div class="n-chk new-checkbox checkbox-outline-primary">
+                                            <!-- <label class="new-control new-checkbox checkbox-outline-primary">
+                                                <input type="checkbox" class="new-control-input" [(ngModel)]="isSelected"(click)="isSelect($event)" [ngModelOptions]="{standalone: true}">
+                                                <span class="new-control-indicator"></span>Keep me logged in
+                                            </label> -->
+                                        </div>
+
+                                    </div>
+                                    <div class="field-wrapper">
+                                        <a routerLink="/forgotpassword" class="forgot-pass-link">Forgot Password?</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="field-wrapper text-center keep-logged-in">
+                                    <button type="button" class="btn btn-primary mb-2 mr-2 form-control"
+                                        data-toggle="modal" data-target="#exampleModalCenter">
+                                        Send OTP
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <p>Haven’t Sign up? <a routerLink="/signup" class="createAccount">Create Account</a>
+                                    </p>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <p>
+                                        <span class="cursorPointer loginbymobile" (click)="loginByEmail()">Login by
+                                            Email</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div>
+                            <p class="terms-conditions m-0">This page is protected by 256 bit end-to-end encryption and
+                                is
+                                subject to the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of
+                                    Service.</a> </p>
+                            <p class="all-right-reserved text-center">All Rights Reserved. Blockcube 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-image">
+            <div class="l-image">
+                <div class="right-bg-name">
+                    Maintaining a Healthy
+                    Lifestyle is now
+                    Simplified
+                </div>
+                <img src="assets/img/dot1.png" class="dot1">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="mySmallModalLabel">
+                    <small>
+                        We Send OTP code to Verify your Number
+                    </small>
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    onclick='document.getElementById("myDIV").style.display = "block";'>
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <form [formGroup]="addOtpForm" (ngSubmit)="VerifyOTP()">
+            <div class="modal-body">
+                <div class="modal-text">
+                    <div class="row">
+                        <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i">
+                            <input #formRow type="text" formControlName="{{input}}" class="form-control text-center"
+                                maxlength="1" (keyup)="keyUpEvent($event, i)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" (click)="sendotp()">Resend OTP</button>
+                <button class="btn btn-primary" [disabled]="addOtpForm.invalid"><i class="flaticon-cancel-12"></i> Verify</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

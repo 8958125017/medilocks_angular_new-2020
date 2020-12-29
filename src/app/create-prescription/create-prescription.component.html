@@ -1,0 +1,153 @@
+
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+      <div class="main-section">
+        <div class="layout-px-spacing">
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="dash-widgit mb-4 mt-3">
+                <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                <div class="welname">
+                  <p>
+                    Hey Doctor!<Br>
+                    <span>Hope you have Greate day today!</span>
+                  </p>
+                </div>
+                <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+              </div>
+            </div>
+          </div>
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Add Prescription</label>
+            </div>
+          </div>
+
+          <div class="my-patient">
+            <div class="drProfile">
+               <h3>
+                    Dr. {{docName}},
+                </h3>
+                <p>
+                    [<span *ngFor="let item of degreeType">{{item.degreeType?item.degreeType:'NA'}}</span>]   &nbsp;&nbsp;	 |  &nbsp;&nbsp;	[<span *ngFor="let item of doctSpecialization">{{item.specialization?item.specialization:'NA'}}</span>]<br>
+                    [ {{doctorDeatils.email?doctorDeatils.email:'NA'}}  ]   	&nbsp;&nbsp;    |   &nbsp;&nbsp; 	   [{{doctorDeatils.mobNumber?doctorDeatils.mobNumber:'NA'}}]  &nbsp;&nbsp;      &nbsp;&nbsp;  	 	<!-- [Address]  -->
+                </p>
+            </div>
+            
+                <div class="row mb-4">
+                  <div class="col-md-3">
+                        <input type="text" class="form-control" [(ngModel)]="patientsName" placeholder="Patient Name"  [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" [(ngModel)]="mobNumber" placeholder="Contact Number" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email Id" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="col-md-3">
+                       <div class="flex">
+                         <div class="spec-box">
+                             Age
+                             <span>{{patientsDtails.age ?patientsDtails.age:'NA'}}</span>
+                         </div>
+                         <div class="spec-box">
+                            Blood
+                            <span>{{patientsDtails.bloodGroup?patientsDtails.bloodGroup:'NA'}}</span>
+                        </div>
+                        <div class="spec-box">
+                          Height
+                          <span>{{patientsDtails.height?patientsDtails.height:'NA'}}CM</span>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="comment-box">
+                      <div class="comment-caption">Diagnosis</div>
+                    <textarea class="form-control" cols="10" rows="7" style="border: none;"></textarea>
+                    </div>
+                   </div>
+                   <div class="col-md-12 mb-4">
+                    <div class="comment-box">
+                      <div class="comment-caption comments-bg">Comments</div>
+                    <textarea class="form-control" cols="10" rows="7" style="border: none;"></textarea>
+                    </div>
+                   </div>
+                   <div class="col-md-6 mb-4">
+                    <div class="comment-box">
+                      <div class="comment-caption comments-bg">Recommended Test</div>
+                    <textarea class="form-control" cols="10" rows="7" style="border: none;"></textarea>
+                    </div>
+                   </div>
+                   <div class="col-md-6 mb-4">
+                    <div class="comment-box">
+                      <div class="comment-caption comments-bg">Prescribed Medicines</div>
+                      <div class="table-responsive">
+                        <table class="mb-4">
+                            <thead>
+                                <tr class="text-center">
+                                    <th style="width: 33%;">Medicine Name</th>
+                                    <th style="width: 33%;">Dosage</th>
+                                    <th style="width: 33%;"> Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                   <td colspan="3">
+                                       <table formArrayName="addTableRow" class="addTablerow"
+                                       *ngFor="let a of myForm.get('addTableRow')['controls']; let i = index">
+                                         <tr [formGroupName]="i">
+                                            <td>
+                                                <input type="text" name="addRowItem1" formControlName="addRowItem1" class="form-control">
+                                            </td>
+                                            <td>
+                                              <input type="text" name="addRowItem2" formControlName="addRowItem2" class="form-control">
+                                         </td>
+                                         <td>
+                                              <input type="text" name="addRowItem3" formControlName="addRowItem3" class="form-control">
+                                         </td>
+                                         </tr>
+                                         <tr *ngIf="i!=0">
+                                             <td colspan="3" class="text-right">
+                                                <a href="javascript:void(0)" (click)="removeSection(i,'remvoeTableRow')"
+                                                class="removeclonediv">
+                                                Remove Row
+                                            </a>
+                                             </td>
+                                         </tr>
+                                       </table>
+                                     
+                                   </td>
+                                 </tr>
+                               <tr>
+                                  <td colspan="3">
+                                      <a class="addMore float-right mt-2" (click)="addItem('addNewRow')">Add Row</a>
+                                  </td>
+                                </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                   </div>
+                   <div class="col-md-12 mb-4">
+                     <button class="btn btn-primary mr-2 float-right">ADD</button>
+                   </div>
+                </div>
+            </form>
+          </div>
+         
+        </div>
+       </div>
+      <!--  END CONTENT AREA  -->
+    </div>
+    
+  </div>
+  <!-- END MAIN CONTAINER -->

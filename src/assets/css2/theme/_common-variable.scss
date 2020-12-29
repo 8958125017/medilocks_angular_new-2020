@@ -1,0 +1,121 @@
+// start color variable
+$colorThemeblue:#3b76ef;
+$grayColor_59748a:#59748a;
+$colorWhite:#fff;
+$colorBlack:#000;
+$color60:#606060;
+$colorblue:#1b55e2;
+$colorRed:#ff0000;
+
+
+// start bg variable
+$bgThemeblue:#3b76ef;
+$bgLightBlue_f4faff:#f4faff;
+$bgPink:#ff8b8b;
+$bgGray_e8eefe:#e8eefe;
+$bgWhite:#fff;
+$bgVoilet_a66dd4:#a66dd4;
+$buttonColor:#f1f1f1;
+$bg_f9f9f9:#f9f9f9;
+
+
+// start border color vaiable
+$border_979797:#979797;
+
+
+
+// start font bold
+$fontBold:bold;
+
+// start font size variable
+$font28:28px;
+$font27:27px;
+$font26:26px;
+$font25:25px;
+$font24:24px;
+$font23:23px;
+$font22:22px;
+$font21:21px;
+$font20:20px;
+$font19:19px;
+$font18:18px;
+$font17:17px;
+$font16:16px;
+$font15:15px;
+$font14:14px;
+$font13:13px;
+$font12:12px;
+$font11:11px;
+$font10:10px;
+$font9:9px;
+
+// start font size class
+.font28{
+    font-size:$font28;
+}
+.font27{
+    font-size:$font27;
+}
+.font26{
+    font-size:$font26;
+}
+.font25{
+    font-size:$font25;
+}
+.font24{
+    font-size:$font24;
+}
+.font23{
+    font-size:$font23;
+}
+.font22{
+    font-size:$font22;
+}
+.font21{
+    font-size:$font21;
+}
+.font20{
+    font-size:$font20;
+}
+.font19{
+    font-size:$font19;
+}
+.font18{
+    font-size:$font18;
+}
+.font17{
+    font-size:$font17;
+}
+.font16{
+    font-size:$font16;
+}
+.font15{
+    font-size:$font15;
+}
+.font14{
+    font-size:$font14;
+}
+.font13{
+    font-size:$font13;
+}
+.font12{
+    font-size:$font12;
+}
+.font11{
+    font-size:$font11;
+}
+
+// start font color class
+.bluetext, a.bluetext{
+    color:$colorThemeblue;
+}
+.graytext, a.graytext{
+    color:$grayColor_59748a;
+}
+.whitetext, a.whitetext{
+    color:$colorWhite;
+}
+.blacktext, a.blacktext{
+    color:$colorBlack;
+}
+

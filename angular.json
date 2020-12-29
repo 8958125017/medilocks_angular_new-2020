@@ -1,0 +1,230 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "medilocks": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/medilocks",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/assets/img/favicon.ico",
+              "src/assets"
+              // "src/manifest.webmanifest"
+            ],
+           "styles": [
+
+                // "node_modules/bootstrap/scss/bootstrap.scss",
+          
+              "src/bootstrap/css/bootstrap.min.css", 
+              "src/assets/css/plugins.css",                          
+              "src/assets/css/dashboard/dash_1.css",
+              "src/assets/css/apps/mailing-chat.css",
+              "src/assets/css/scrollspyNav.css",
+              "src/assets/css/components/tabs-accordian/custom-tabs.css",
+              "src/assets/css/forms/theme-checkbox-radio.css",
+              "src/assets/css/forms/switches.css",
+              "src/assets/css/elements/alert.css",
+              "src/assets/css/elements/tooltip.css",
+              "src/assets/css/components/tabs-accordian/custom-accordions.css",
+              "src/plugins/fullcalendar/fullcalendar.css",
+              "src/plugins/fullcalendar/custom-fullcalendar.advance.css",
+              "src/plugins/flatpickr/flatpickr.css",  
+              "src/plugins/editors/quill/quill.snow.css",  
+              "src/plugins/flatpickr/custom-flatpickr.css",
+              "node_modules/ngx-toastr/toastr.css",
+              // "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              // "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              // "node_modules/bootstrap/scss/bootstrap.scss",
+              // "src/assets/css2/owl.carousel.min.css",
+              // "src/assets/css2/owl.theme.default.min.css",
+              // "src/assets/css2/animate.min.css",
+             
+              
+              // "src/assets/css2/odometer.min.css",
+              // "src/assets/css2/datatables.min.css",
+              // "src/assets/css2/magnific-popup.min.css",
+               "src/assets/css2/boxicons.min.css",
+              "src/assets/css2/flaticon.css",
+              "src/assets/css2/nice-select.min.css",
+              "src/assets/css2/slick.min.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",              
+              "src/assets/css2/style.scss",
+              "src/assets/css2/responsive.scss",
+              "src/assets/css/whoAt/atwho.css"
+
+             
+            ],
+
+            "scripts": [   
+                      "src/assets/js/libs/jquery-3.1.1.min.js",
+                      "src/bootstrap/js/popper.min.js",
+                      "src/bootstrap/js/bootstrap.min.js",
+                      "src/assets/js/app.js",
+                      "src/assets/js/jQuery-plugin-progressbar.js",
+                      "src/assets/js/custom.js",
+                      "src/assets/js/dashboard/dash_1.js",
+                      "src/plugins/highlight/highlight.pack.js",
+                      "src/assets/js/scrollspyNav.js",
+                      "src/assets/js/authentication/form-1.js",
+                      "src/assets/js/components/ui-accordions.js",
+                      "src/assets/js/elements/tooltip.js",
+                      "src/plugins/fullcalendar/moment.min.js",
+                      "src/plugins/flatpickr/flatpickr.js",
+                      "src/plugins/fullcalendar/fullcalendar.min.js",
+                      "src/plugins/editors/quill/quill.js",
+                      "src/assets/js/users/account-settings.js",
+                      
+                      // "node_modules/owl.carousel/dist/owl.carousel.min.js",
+                      
+                      "src/assets/js2/mixitup.min.js",
+                      "src/assets/js2/parallax.min.js",
+                      "src/assets/js2/datatables.min.js",
+                      "src/assets/js2/magnific-popup.min.js",
+                      "src/assets/js2/nice-select.min.js",
+                      "src/assets/js2/slick.min.js",
+                      "node_modules/slick-carousel/slick/slick.min.js",
+                      "src/assets/js2/appear.min.js",
+                      "src/assets/js2/odometer.min.js",
+                      "src/assets/js2/wow.min.js",
+                      "src/assets/js2/main.js",
+                      "src/assets/js/whoAt/atwho.js",
+                      "src/assets/js/whoAt/caret.js"
+             ],
+
+            "allowedCommonJsDependencies": [
+               "lodash",
+               "rxjs",
+               "rxjs-compat",
+               "socket.io-client",
+               "socket.io-parser",
+               "debug",
+               "chart.js",
+               "file-saver"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500mb",
+                  "maximumError": "500mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "500mb",
+                  "maximumError": "500mb"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "medilocks:build",
+            // "proxyConfig": "src/proxy.conf.json",
+            "host":"localhost",
+            "port":4300
+
+
+             
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "medilocks:build:production",
+              
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "medilocks:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/assets/img/favicon.ico",
+              "src/assets"
+              // "src/manifest.webmanifest"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "medilocks:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "medilocks:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "medilocks",
+  "cli": {
+    "analytics": false
+  }
+}

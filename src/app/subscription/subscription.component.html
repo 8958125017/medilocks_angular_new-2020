@@ -1,0 +1,123 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+      <div class="main-section">
+        <div class="layout-px-spacing">
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="dash-widgit mb-4 mt-3">
+                <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                <div class="welname">
+                  <p>Hey Doctor!<Br>
+                    <span>Hope you have Greate day today!</span>
+                  </p>
+                </div>
+                <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+              </div>
+            </div>
+          </div>
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>My Subscription</label>
+            </div>
+          </div>
+          <div class="my-patient" id="subscriptionPlanPage">
+              <ul class="plan-tab mb-2" id="planTab">
+                <li><a class="active" routerLink='/subscription'>Active Plan</a></li>
+                <li><a routerLink='/previousePlan'>Previous Plan</a></li>
+              </ul>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                  <ol class="plansheet" *ngIf="oPlanRes">
+                        <li class=""><a href="javascript:void(0);">{{oPlanRes?.subName}} ({{oPlanRes?.validityType}})</a></li>
+                        <li class="">Valid for {{oPlanRes?.totValidity}} days</li>
+                        <li class="">
+                          <button (click)="gotToInvoice(oPlanRes.userSubId)">View Invoice</button>
+                        </li>
+                  </ol>
+                    <ol class="plansheet" *ngIf="!oPlanRes">
+                        <li class="">No any activated plan</li>
+                    </ol>
+                </div>
+             </div>
+             <div class="row mb-3 layout-top-spacing">
+              <div class="col-md-12">
+               <div class="subscriptionPlan">
+                 <p class="subheading">Subscription Plan</p>
+                 <p class="subCaption">Sign up in less than 30 seconds. Try out our 15 day free trial,<br>upgrade at anytime, no questions, no hassle.</p>
+                    <span (click)="selectMonthlyPlan()" [class.selectedPlan]="monthlyPlan">Monthly</span>
+                    <span (click)="selectAnnualyPlan()" [class.selectedPlan]="annualyPlan">Annually</span>
+                </div>
+               </div>
+              </div>
+
+             <div class="row mb-3 layout-top-spacing" *ngIf="monthlyPlan">
+             <div class="col-md-12 d-flex justify-content-center">
+              <div class="plan-widget-box" *ngFor="let resdata of monthPlan">
+                <div>
+                  <p>{{resdata?.subName}}</p>
+                  <h4> <span style="font-size:12px">Rs.</span> <span style="font-size:22px"> {{resdata?.amount}} </span>
+                    <span style="font-size: 9px;">/mo</span></h4>
+                    <p><small>Valid for {{resdata?.validity}} Days</small></p>
+                  <ul>
+                    <li *ngFor="let data of resdata?.subFeature">{{data?.name}}</li>
+                  </ul>
+                  <a routerLink="/bySubscription/{{resdata?.subId}}" class="btn btn-primary">Buy Plan</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="row mb-3 layout-top-spacing" *ngIf="annualyPlan">
+              <div class="col-md-12 d-flex justify-content-center">
+                  <div class="plan-widget-box" *ngFor="let resdata of yearPlan">
+                      <div>
+                          <p>{{resdata?.subName}}</p>
+                          <h4> <span style="font-size:12px">Rs.</span> <span style="font-size:22px"> {{resdata?.amount}} </span>
+                              <span style="font-size: 9px;">/yr</span></h4>
+                          <p><small>Valid for {{resdata?.validity}} Days</small></p>
+                          <ul>
+                              <li *ngFor="let data of resdata?.subFeature">{{data?.name}}</li>
+                          </ul>
+                          <a routerLink="/bySubscription/{{resdata?.subId}}" class="btn btn-primary">Buy Plan</a>
+                      </div>
+                  </div>
+                </div>
+             </div>
+
+     
+            <!--<div class="subscribeBox mb-3 layout-top-spacing">
+              <span style="   width: 473px;">
+                Tell us your requirements for <br>Customised Plans
+              </span>
+              <a routerLink="#" class="btn btn-primary">Subscribe Now!</a>
+            </div>-->
+          </div>
+         </div>
+       </div>
+      <!--  END CONTENT AREA  -->
+    </div>
+  </div>
+<!-- END MAIN CONTAINER -->
+
+<div class="modal fade " id="resetPassword" data-backdrop="static">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content setting-popup-box">
+                <div class="modal-header">
+                    <h5 class="modal-title add-content" id="myLargeModalLabel">Reset Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-text">
+
+                   </div>
+                </div>
+            </div>
+        </div>
+</div>

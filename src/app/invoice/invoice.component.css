@@ -1,0 +1,93 @@
+p{
+    font-size: 12px;
+    color: #000;
+    word-break: break-word;
+}
+
+.invoice{
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.paid{
+    font-size: 15px;
+    color: #00a305;
+    font-weight: bold;
+}
+
+
+
+
+.description-row{
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+}
+
+.description-row:last-child span{
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #000;
+    width: 81px;
+    display: inline-block;
+    text-align: center;
+}
+
+.description-row:last-child span:last-child{
+    margin-right:0px !important; 
+}
+
+.fix-border{
+    border-top: 1px solid #ccc;
+    padding: 10px 0px 10px 0px;
+}
+
+.botr-border{
+    position:relative;
+    position: relative;
+    height: 34px;
+    line-height: 52px;
+}
+
+.botr-border::after{
+    position: absolute;
+    bottom: -12px;
+    right: 0px;
+    content: '';
+    width: 217px;
+    height: 1px;
+    background: #ccc;
+}
+
+.fb{
+    font-weight: bold;
+}
+
+.payments-ruller{
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.payments-ruller::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: #cccccc38;
+}
+
+.prt-btn{
+    border: none;
+    background: none;
+}
+
+@media print{
+    .print-top-space{
+        margin-top:30px !important;
+    }
+}

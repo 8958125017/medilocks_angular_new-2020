@@ -1,0 +1,752 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top:-38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                    height: 62px;
+                    width: 217px;
+                    z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing mb-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label>My Profile</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-patient">
+                    <form [formGroup]="myProfileForm">
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler">
+                                    <span> Personal Information</span>
+                               </div>
+                            </div>
+                        </div>
+                        <div id="myprofilePicContainer">
+                            <div class="myprofilePic">
+                                <img src="{{doctorDeatils.profilePic?doctorDeatils.profilePic:'assets/img/welcome_icon.svg'}}"
+                                    class="profileImage2" alt="avatar"
+                                    style="width: 100px;height: 100px;border-radius: 50% !important;">
+                                <div class="fileUpload">
+                                    <span> <img src="assets/img/plus.png" class="drplusicon"></span>
+                                    <input id="uploadBtn" type="file" class="upload"
+                                        accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt"
+                                        (change)="fileUpload($event,'profileImg')" />
+                                </div>
+                            </div>
+                            <div class="row layout-spacing">
+                                <div class="col-md-4">
+                                    <label>First Name</label>
+                                    <input type="text" formControlName="firstName" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                                        autocomplete="nope">
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.pattern">First Name should only alphabets</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>
+                                        Last Name
+                                    </label>
+                                    <input type="text" formControlName="lastName" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                                        autocomplete="nope">
+                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lastName.errors.pattern">Last Name should only alphabets</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>
+                                        Gender
+                                    </label>
+                                    <select class="form-control" formControlName="gender">
+                                        <option value="" selected>
+                                            Select Gender
+                                        </option>
+                                        <option value="M">
+                                            Male
+                                        </option>
+                                        <option value="F">
+                                            Female
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--  <div class="row layout-spacing">
+                                <div class="col-md-4">
+                                    <label>
+                                        Contact Number
+                                    </label>
+                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="mobNumber" class="form-control" maxlength="10">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                <label>
+                                   Email
+                                </label>
+                                <div class="flex">
+                                    <input type="text" formControlName="email" class="form-control mr-1">
+                                     <button class="btn btn-primary" (click)="updateEmail()">update</button>     
+                                </div>
+                            </div>
+                            </div> -->
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-3">
+                                <label>
+                                    Address
+                                </label>
+                                <input type="text" formControlName="address" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label>
+                                    State
+                                </label>
+                                <select name="state" formControlName="state" class="form-control" required
+                                    (change)="getCity(myProfileForm.value.state)" [(ngModel)]='state'>
+                                    <option value="" class="" selected="selected">--Select State--</option>
+                                    <option *ngFor="let item of stateList" value="{{item.name}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>
+                                    City
+                                </label>
+                                <select class="form-control" name="city" formControlName="city" [(ngModel)]='city'
+                                    required>
+                                    <option value="" class="" selected="selected">--Select City--</option>
+                                    <option *ngFor="let city of cityList" value="{{city.name}}">{{city.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>
+                                    Pincode
+                                </label>
+                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                    formControlName="pincode" class="form-control" maxlength="6">
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <label>
+                                    Description / Bio
+                                </label>
+                                <textarea class="form-control" formControlName="description" cols="4"
+                                    rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <button class="update btn btn-primary" (click)="onSubmit()">Update</button>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler clinic">
+                                    Clinic & Schedule
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-3">
+                                <label>
+                                    Reception Contact Number
+                                </label>
+                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                    formControlName="recepMobNo" class="form-control" maxlength="10">
+                            </div>
+                            <div class="col-md-6">
+                                <label>
+                                    Clinic Timings
+                                </label>
+                                <div class="flex">
+                                    <input type="time" class="form-control mr-1" formControlName="openTime">
+                                    <input type="time" class="form-control" formControlName="closeTime">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>
+                                    Clinic Geolocation
+                                </label>
+                                <div class="d-flex">
+                                    <input type="text" class="form-control w-75" [(ngModel)]="latLang"
+                                        [ngModelOptions]="{standalone: true}" disabled=" ">
+                                    <span
+                                        class="w-25 d-flex justify-content-center align-items-center text-primary font28"
+                                        (click)="getUserLocation()"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing mb-4">
+                            <div class="col-md-12">
+                                <button class="update btn btn-primary" (click)="onSubmit()">Update</button>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing" style="font-size: 14px;font-weight: bold;">
+                            <div class="col-md-6">
+                                Schedule Planning
+                                <p>
+                                    <small>
+                                        (Plan your Clinic Timings for booking availability on Medilocks)
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control w50 float-right" formControlName="slot" [(ngModel)]="slotDuration">
+                                    <option value="" selected>Select Slot</option>
+                                    <option value="15">15 Mins</option>
+                                    <option value="30">30 Mins</option>
+                                    <option value="45">1 Hour</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <div class="row layout-spacing">
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Mon</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setMonTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setMonTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Tue</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setTueTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setTueTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Wed</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setWedTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setWedTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Thur</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setThuTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setThuTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Fri</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setFriTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setFriTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Sat</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setSatTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setSatTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex sch" style="align-items: center;position:relative">
+                                    <span class="" style="width: 59px;">Sun</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="setSunTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="setSunTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="flex breakTime" style="align-items: center;position:relative">
+                                    <span class="" style="width:206px;">Break Time</span>
+                                    <span class="from">From</span>
+                                    <span class="to">To</span>
+                                    <input type="time" class="form-control mr-1 ml-1" [(ngModel)]="breakTime1"
+                                        [ngModelOptions]="{standalone: true}">
+                                    <input type="time" class="form-control" [(ngModel)]="breakTime2"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <button class="update btn btn-primary mb-2" (click)="updateSchedual()">Update</button>
+                            </div>
+                        </div>
+                        <!--  <div class="row layout-spacing">
+                            <div class="col-md-6">
+                                <label>
+                                    Slot Duration
+                                </label>
+                                <div class="flex">
+                                    <select class="form-control w50" formControlName="slot">
+                                        <option value="" selected>Select Slot</option>
+                                        <option value="15">15 Mins</option>
+                                        <option value="30">30 Mins</option>
+                                        <option value="45">1 Hour</option>
+                                    </select>&nbsp;
+                                    <button class="update btn btn-primary" (click)="onSubmit()">Update</button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler achievement">
+                                    Specilization
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12 mt-md-0 mt-4">
+                                <div formArrayName="specialization"
+                                    *ngFor="let a of myProfileForm.get('specialization')['controls']; let i = index"
+                                    class="form">
+                                    <div [formGroupName]="i">
+                                        <div class="row form-group">
+                                            <div class="col-md-3">
+                                                <label>specialization</label>
+
+                                                <input type="text" name="specialization" list="searchList"
+                                                    placeholder="Please enter active entityId" class="form-control"
+                                                    (keydown)="searchSpecialization()" autocomplete="off"
+                                                    formControlName="specialization">
+                                                <datalist id="searchList" style="max-height: 200px;">
+                                                    <option *ngFor="let item of searchList" [value]="item.name">
+                                                        ({{item.name}})
+                                                </datalist>
+                                                <label
+                                                    *ngIf="specialization.controls[i].get('specialization').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Specialization is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Register Number</label>
+                                                <input type="text" name="year" formControlName="regNumber"
+                                                    class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                                <label
+                                                    *ngIf="specialization.controls[i].get('regNumber').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Registration Number is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Register Council</label>
+                                                <select class="form-control" formControlName="regCouncil">
+                                                    <option value="Andhra Pradesh Medical Council">Andhra Pradesh
+                                                        Medical Council</option>
+                                                    <option value="Assam Medical Council">Assam Medical Council</option>
+                                                    <option value="Bihar Medical Council">Bihar Medical Council</option>
+                                                    <option value="Chattisgarh Medical Council">Chattisgarh Medical
+                                                        Council</option>
+                                                    <option value="Delhi Medical Council">Delhi Medical Council</option>
+                                                    <option value="Goa Medical Council">Goa Medical Council</option>
+                                                    <option value="Gujarat Medical Council">Gujarat Medical Council
+                                                    </option>
+                                                    <option value="Haryana Medical">Haryana Medical </option>
+                                                    <option value="Himanchal Pradesh Medical Council">Himanchal Pradesh
+                                                        Medical Council</option>
+                                                    <option value="Jammu & Kashmir Medical Council">Jammu & Kashmir
+                                                        Medical Council</option>
+                                                    <option value="Jharkhand Medical Council">Jharkhand Medical Council
+                                                    </option>
+                                                    <option value="Karnataka Medical Council">Karnataka Medical Council
+                                                    </option>
+                                                    <option value="Madhya Pradesh Medical Council">Madhya Pradesh
+                                                        Medical Council</option>
+                                                    <option value="Maharashtra Medical Council">Maharashtra Medical
+                                                        Council</option>
+                                                    <option value="Manipur Medical Council">Manipur Medical Council
+                                                    </option>
+                                                    <option value="Mizoram Medical Council">Mizoram Medical Council
+                                                    </option>
+                                                    <option value="Nagaland Medical Council">Nagaland Medical Council
+                                                    </option>
+                                                    <option value="Orissa Council of Medical Registration">Orissa
+                                                        Council of Medical Registration</option>
+                                                    <option value="Punjab Medical Council">Punjab Medical Council
+                                                    </option>
+                                                    <option value="Rajasthan Medical Council">Rajasthan Medical Council
+                                                    </option>
+                                                    <option value="Sikkim Medical Council">Sikkim Medical Council
+                                                    </option>
+                                                    <option value="Tamil Nadu Medical Council">Tamil Nadu Medical
+                                                        Council</option>
+                                                    <option value="Telangana State Medical Council">Telangana State
+                                                        Medical Council</option>
+                                                    <option value="Travancore Cochin Medical Council, Trivandrum">
+                                                        Travancore Cochin Medical Council, Trivandrum</option>
+                                                    <option value="Tripura State Medical Council">Tripura State Medical
+                                                        Council</option>
+                                                    <option value="Uttarakhand Medical Council">Uttarakhand Medical
+                                                        Council</option>
+                                                    <option value="Uttar Pradesh Medical Council">Uttar Pradesh Medical
+                                                        Council</option>
+                                                    <option value="West Bengal Medical Council">West Bengal Medical
+                                                        Council</option>
+                                                </select>
+                                                <label
+                                                    *ngIf="specialization.controls[i].get('regCouncil').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Registration Council is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Year</label>
+                                                <input type="text" name="year" formControlName="regYear"
+                                                    class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                    maxlength="4">
+                                                <label
+                                                    *ngIf="specialization.controls[i].get('regYear').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Year is required.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group justify-content-end">
+                                        <div class="col-md-3 text-right">
+                                            <div *ngIf="picSplitNameForSpecilization[i]">
+                                                <a href="javascript:void(0)"
+                                                    class="uploadPicName">{{picSplitNameForSpecilization[i]}}</a>
+                                            </div>
+                                            <div *ngIf="!picSplitNameForSpecilization[i]"
+                                                class="fileUpload p-0 position-static">
+                                                <a href="javascript:void(0)" class="removeclonediv p">Upload Proof</a>
+                                                <input id="uploadBtn" type="file" class="upload" #file
+                                                    (change)="uploadProofFn($event, i, 'spec')"
+                                                    accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-right">
+                                            <a *ngIf="i!=0" href="javascript:void(0)"
+                                                (click)="removeSection(i,'specialization')"
+                                                class="removeclonediv">Remove Section</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="addMore" href="javascript:void(0)" (click)="addItem('specialization')">Add
+                                    More</a>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler degree">
+                                    Degree
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12 mt-md-0 mt-4">
+                                <div formArrayName="degree"
+                                    *ngFor="let a of myProfileForm.get('degree')['controls']; let i = index"
+                                    class="form">
+                                    <div [formGroupName]="i">
+                                        <div class="row form-group">
+                                            <div class="col">
+                                                <label>Select your degree</label>
+                                                <select class="form-control" formControlName="degreeType" ([ngModel])="degreeType" (change)="getDegreeType($event)">
+                                                    <option value="" selected="selected">--Select Degree--</option>
+                                                    <option
+                                                        value="Bachelor of Medicine, Bachelor of Surgery (MBBS, BMBS, MBChB, MBBCh)">
+                                                        Bachelor of Medicine, Bachelor of Surgery (MBBS, BMBS, MBChB,
+                                                        MBBCh)</option>
+                                                    <option value="Doctor of Medicine (MD, Dr.MuD, Dr.Med)">Doctor of
+                                                        Medicine (MD, Dr.MuD, Dr.Med)</option>
+                                                    <option value="Doctor of Osteopathic Medicine (DO)">Doctor of
+                                                        Osteopathic Medicine (DO)</option>
+                                                    <option value="Doctor of Medicine by research (MD(Res), DM)">Doctor
+                                                        of Medicine by research (MD(Res), DM)</option>
+                                                    <option value="Doctor of Philosophy (PhD, DPhil)">Doctor of
+                                                        Philosophy (PhD, DPhil)</option>
+                                                    <option value="Master of Clinical Medicine (MCM)">Master of Clinical
+                                                        Medicine (MCM)</option>
+                                                    <option value="Master of Medical Science (MMSc, MMedSc)">Master of
+                                                        Medical Science (MMSc, MMedSc)</option>
+                                                    <option value="Master of Medicine (MM, MMed)">Master of Medicine
+                                                        (MM, MMed)</option>
+                                                    <option value="Master of Philosophy (MPhil)">Master of Philosophy
+                                                        (MPhil)</option>
+                                                    <option value="Master of Surgery (MS, MSurg, MChir, MCh, ChM, CM)">
+                                                        Master of Surgery (MS, MSurg, MChir, MCh, ChM, CM)</option>
+                                                    <option value="Master of Science in Medicine or Surgery (MSc)">
+                                                        Master of Science in Medicine or Surgery (MSc)</option>
+                                                    <option value="Doctor of Clinical Medicine (DCM)">Doctor of Clinical
+                                                        Medicine (DCM)</option>
+                                                    <option value="Doctor of Clinical Surgery (DClinSurg)">Doctor of
+                                                        Clinical Surgery (DClinSurg)</option>
+                                                    <option value="Doctor of Medical Science (DMSc, DMedSc)">Doctor of
+                                                        Medical Science (DMSc, DMedSc)</option>
+                                                    <option value="Doctor of Surgery (DS, DSurg)">Doctor of Surgery (DS,
+                                                        DSurg)</option>
+                                                        <option value="Other">Other</option>
+                                                </select>
+                                                <label
+                                                    *ngIf="degree.controls[i].get('degreeType').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Degree Type is required.
+                                                </label>
+                                            </div>
+                                            <div class="col" *ngIf="degreeName">
+                                                <label>Degree Name</label>
+                                                <input type="text" name="year" formControlName="degree"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="degree.controls[i].get('degreeType').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Degree Type is required.
+                                                </label>
+                                            </div>
+                                            <div class="col">
+                                                <label>College/University</label>
+                                                <input type="text" name="year" formControlName="college"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="degree.controls[i].get('college').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    college is required.
+                                                </label>
+                                            </div>
+                                            <div class="col">
+                                                <label>Year</label>
+                                                <input type="text" name="year" formControlName="year"
+                                                    class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                    maxlength="4">
+                                                <label
+                                                    *ngIf="degree.controls[i].get('year').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    year is required.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group justify-content-end">
+                                        <div class="col-md-3 text-right">
+                                            <div *ngIf="picSplitNameForDegree[i]">
+                                                <a href="javascript:void(0)"
+                                                    class="uploadPicName">{{picSplitNameForDegree[i]}}</a>
+                                            </div>
+                                            <div *ngIf="!picSplitNameForDegree[i]"
+                                                class="fileUpload p-0 position-static">
+                                                <a href="javascript:void(0)" class="removeclonediv p">Upload Proof</a>
+                                                <input id="uploadBtn" type="file" class="upload" #file
+                                                    (change)="uploadProofFn($event, i, 'deg')"
+                                                    accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-right">
+                                            <a href="javascript:void(0)" (click)="removeSection(i,'degree')"
+                                                *ngIf="i!=0" class="removeclonediv">Remove Section</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="addMore" (click)="addItem('degree')">Add More</a>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler experience">
+                                    Experience
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12 mt-md-0 mt-4">
+                                <div formArrayName="experience"
+                                    *ngFor="let a of myProfileForm.get('experience')['controls']; let i = index"
+                                    class="form">
+                                    <div [formGroupName]="i">
+                                        <div class="row form-group">
+                                            <div class="col-md-3">
+                                                <label>Institution Name</label>
+                                                <input type="text" name="title" formControlName="institutionName"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="experience.controls[i].get('institutionName').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Institution Name is required.
+                                                </label>
+                                            </div>
+                                            <div class="col">
+                                                <label>from</label>
+                                                <input type="text" name="year" formControlName="from"
+                                                    class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                                <label
+                                                    *ngIf="experience.controls[i].get('from').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    From Date is required.
+                                                </label>
+                                            </div>
+                                            <div class="col">
+                                                <label>To</label>
+                                                <input type="text" name="year" formControlName="to" class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                                <label
+                                                    *ngIf="experience.controls[i].get('to').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    To Date is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Designation</label>
+                                                <input type="text" name="year" formControlName="designation"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="experience.controls[i].get('designation').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Designation is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Department</label>
+                                                <input type="text" name="year" formControlName="department"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="experience.controls[i].get('department').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Department is required.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-12 text-right">
+                                            <a href="javascript:void(0)" (click)="removeSection(i,'exp')" *ngIf="i!=0"
+                                                class="removeclonediv">Remove Section</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="addMore" (click)="addItem('experience')">Add More</a>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler achievement">
+                                    Achievements
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12 mt-md-0 mt-4">
+                                <div formArrayName="achievement"
+                                    *ngFor="let a of myProfileForm.get('achievement')['controls']; let i = index"
+                                    class="form">
+                                    <div [formGroupName]="i">
+                                        <div class="row form-group">
+                                            <div class="col-md-6">
+                                                <label>Title</label>
+                                                <input type="text" name="title" formControlName="title"
+                                                    class="form-control">
+                                                <label
+                                                    *ngIf="achievement.controls[i].get('title').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Title is required.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Year</label>
+                                                <input type="text" name="year" formControlName="year"
+                                                    class="form-control"
+                                                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                    maxlength="4">
+                                                <label
+                                                    *ngIf="achievement.controls[i].get('year').errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted"
+                                                    class="invalid-feedback">
+                                                    Year is required.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-12 text-right">
+                                            <a href="javascript:void(0)" (click)="removeSection(i,'achv')" *ngIf="i!=0"
+                                                class="removeclonediv">Remove Section</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="addMore" (click)="addItem('achievements')">Add More</a>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="myProfileRuler sig">
+                                    Signature
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row layout-spacing">
+                            <div class="col-md-12">
+                                <div class="signature" id="signature">
+                                    <div class="fileUpload">
+                                        <span> <img src="assets/img/plus.png" class="drplusicon"></span>
+                                        <input id="uploadBtn" type="file" class="upload"
+                                            accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt"
+                                            (change)="fileUpload($event,'singImg')" />
+                                    </div>
+                                    <img src="{{doctorDeatils.signature}}" alt="avatar"
+                                        style="width: 150px;height: 50px"><br>
+                                    <!-- Upload Signature <br> -->
+                                    <p class="mt-1">(To be Used in Prescription)</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" (click)="onSubmit()">SAVE & UPDATE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  END CONTENT AREA  -->
+</div>
+<!-- END MAIN CONTAINER -->
+<script>
+    document.getElementById("uploadBtn").onchange = function () {
+        document.getElementById("uploadFile").value = this.value;
+    };
+</script>

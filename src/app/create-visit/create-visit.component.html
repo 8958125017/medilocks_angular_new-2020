@@ -1,0 +1,106 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing mb-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label>Add Visit</label>
+                           
+                        </div>
+                   </div>
+                </div>
+                <div class="my-patient">
+                    <form [formGroup]="createVisitForm">
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Contact Number :<span class="text-danger">*</span> </label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" 
+                                    placeholder="Contact Number" formControlName="mobNo" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Patient Name :<span class="text-danger">*</span> </label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" 
+                                    placeholder="Patient Name" formControlName="name" >
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Email Id :<span class="text-danger">*</span> </label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control"
+                                    placeholder="Email Id" formControlName="email" >
+                            </div>
+                        </div>
+                        <!-- <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Duration :</label>
+                            <div class="col-md-6">
+                                <select class="form-control" formControlName="duration">
+                                    <option value="" selected>Selected Duration</option>
+                                    <option value="15">15 Mins</option>
+                                    <option value="30">30 Mins</option>
+                                    <option value="1">1 Hour</option>
+                                    <option value="2">2 Hour</option>
+                                    <option value="2:30">2:30 Hour</option>
+
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Visit Schedule</label>
+                            <div class="col-md-6 flex">
+                                <input type="date" class="form-control w50 mr-2" formControlName="bookSlot" (change)="getDate()">
+                                <select class="form-control w50" formControlName="slot">
+                                    <option value="" selected>Selected Time</option>
+                                    <option *ngFor="let item of availableSlotList" value="{{item}}">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Illness</label>
+                            <div class="col-md-6">
+                                <textarea rows="4" cols="3" class="form-control" formControlName="illness"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary" (click)="createVisit()">Add Visit</button>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+
+</div>
+<!-- END MAIN CONTAINER -->

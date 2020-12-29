@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,800;1,700&display=swap');
+
+.navbar {
+    margin: 0px;
+    border-bottom:none;
+   
+}
+
+.home-btn{
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    padding: 2px 10px;
+    font-size: 13px;
+}
+
+.home-signup{
+    border-radius: 7px;
+    background-image: linear-gradient(to top, #0072ff, #00c6ff);
+    font-size: 11px;
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+}
+
+.search-btn{
+    height: 38px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-image: linear-gradient(to top, #0072ff, #00c6ff);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.send-btn{
+    background-color: #46a5ff !important;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff !important;
+    height:52px;
+    border-radius: 12px;
+}
+
+.search-location{
+    width: 170px;
+    height: 22.5px;
+    border-radius: 6px;
+    box-shadow: 0 0.5px 2.5px 0.5px #919191;
+    background-color: #ffffff;
+}
+
+
+
+.about-content p{
+    color: #878da4 !important;
+    font-family: 'Rubik', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+}
+
+.fb{
+    font-weight: bold;
+}
+
+.single-doctors-box {
+    border-radius: 4px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.06);
+    border: solid 0.5px #f1f1f1;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: 198px;
+    padding: 27px 23px;
+    font-size: 12px;
+}
+
+.single-doctors-box h3{
+    color:#0f1c49;
+    font-size: 14px;
+}
+
+.single-doctors-box span{
+    color:#878da4;
+    font-size: 11px;
+}
+
+.download-box{
+    max-width: 700px;
+    height: 101px;
+    box-shadow: 0 5px 6.5px 0 rgba(0, 0, 0, 0.08);
+    background-color: #1a87fb;
+    margin: auto;
+    margin-top: 66px;
+    display: flex;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border: none;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.downloadApp{
+    padding: 20px 20px;
+    width: 362px;
+}
+
+.downloadApp h3{
+    color: #d2d2d2;
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+ }
+
+.downloadApp p{
+    margin: 1px;
+    padding: 0px;
+    color: #fff;
+    font-size: 31px;
+    line-height: 47px;
+    font-family: auto;
+}
+
+.appStore{
+    display: flex;
+    background: #140f47;
+    padding:32px 20px;
+    width: 338px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-left: 1px solid #b4b4b4;
+}
+
+.appStore div{
+   margin-right:30px;
+   width: 100%;
+}
+
+.appStore div:last-child{
+    margin-right:0px;
+ }
+ 
+.appStore h3{
+    color: #d2d2d2;
+    margin: 0px;
+    padding: 0px;
+    font-size: 10px;
+ }
+
+.appStore p{
+    margin: 1px;
+    padding: 0px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+// End  css for landing page
+ 
+// Footer css Start 
+
+.single-footer-widget input, textarea{
+    height:47.5px;
+    border-radius: 7px;
+    border: none;
+    padding-left:20px !important;
+    
+ &::placeholder {
+            color: #000876;
+        }
+
+ &::focus {
+            border-color: #4f87fb;
+            background-color: #ffffff;
+        }
+       
+    }
+  
+
+
+
+.single-footer-widget h4{
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.single-footer-widget p{
+    color: #f8f8f8;
+    line-height: 19px;
+    font-size: 11px;
+    
+}
+
+.fmark{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    margin-bottom: 30px !important;
+}
+
+.fmark li{
+    line-height: 26px;
+    color: #fff;
+    font-size: 11px;
+}
+
+.fmark li img{
+    height: 12px;
+    margin-right:10px;
+ }
+
+ .social-link img{
+    height: 19px;
+ }
+
+
+ // End css for Footer
+ 
+ // Start Css for Searching page
+
+ .searchListBox{
+    min-height: 200px;
+    border-radius: 1.5px;
+    box-shadow: 0 0 3.5px 0 rgba(224, 224, 224, 0.5);
+    background-color: #ffffff;
+    margin: 25px 0px;
+    padding: 15px;
+ }
+
+ ul.day{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 152px;
+    float: left;
+ }
+
+ ul.day li{ 
+    background: #227b00;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: 4px;
+}
+
+ul.day li.active{ 
+    background: #ff3636;
+    color: #fff;
+   
+}
+
+ul.time{
+    list-style: none;
+    margin:0px;
+    padding:0px;
+    display:flex;
+}
+
+
+ul.time li{ 
+    width: 84px;
+    line-height: 9px;
+}
+
+ul.time li a{ 
+    color: #7d99ff;
+    font-size: 9px;
+    display: block;
+}
+
+ul.time li span{ 
+    color: #000;
+    font-size: 9px;
+}
+
+
+
+
+ul.star{
+    list-style: none;
+    margin:0px;
+    padding:0px;
+    display:flex;
+}
+
+ul.star li{ 
+    line-height: 9px;
+    width:300px;
+}
+
+ul.star li a{ 
+    color: #7d99ff;
+    font-size: 9px;
+    display: block;
+}
+
+ul.star li img{ 
+    height: 16px;
+    margin-right: 6px;
+}
+
+
+ul.star li span{ 
+    color: #47495a;
+    font-size: 9px;
+}
+
+.out-of-five{
+    font-family: HelveticaNeue;
+    font-size: 7px;
+    font-weight: 500;
+    color: #9faab8;
+}
+
+.rating-box{
+    line-height: 37px;
+    font-size: 12px;
+    border-bottom: 1px solid #f8f8f8;
+    padding-bottom: 14px;
+    color: #47495a;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.date-time{
+    border-radius:13px;
+    border: solid 1px #e6e6e6;
+    background: #fff !important;
+    color: #15959a !important;
+    height: 40px;
+}
+
+.appointment-btn{
+    background: #2799a7 !important;
+}
+
+.search-box{
+    position: relative;
+    display: flex;
+}
+
+.search-page-lokIcon{
+    position: absolute;
+    top: 12px;
+    left: 6px;
+}
+
+.search-page-searchIcon{
+    position: absolute;
+    top: 14px;
+    left: 310px;
+}
+
+.searchlist {
+    background: none;
+    height: 38px;
+    border-radius: 0;
+    box-shadow: unset !important;
+    padding: 0 0 0 30px !important;
+    border: 1px solid #f5f5f5;
+    color: #130947;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.layout-box{
+    width: 72px;
+    height: 25px;
+    border-radius: 1.5px;
+    border: solid 0.5px #e0e2e4;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.layout-box img{
+    height:21px;
+}
+
+.confirm-booking{
+    background: #15959a !important;
+    font-weight: bold;
+    border-radius: 11px;
+    text-transform: uppercase;
+}
+
+.pt-50{
+    padding-top:50px;
+}
+
+.location{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 1px solid #e1e1e1 !important;
+    font-size: 9px;
+    color: #ccc !important;
+}
+
+.location input{
+    background: #fff;
+    border: none;
+    width:135px;
+    height: 40px;
+}
+
+.search{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    font-size: 9px;
+    color: #ccc !important;
+}
+
+.search input{ 
+    background: #fff;
+    border: none;
+    height:40px; 
+    width:240px;
+}
+
+.daytime{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookAppointment{
+
+    input{
+        height: 40px;
+        font-size: 12px;
+    }
+
+    textarea{
+        height: 40px;
+        font-size: 12px;
+
+    &::focus{
+        border: 1px solid #4f87fb;
+    }
+    }
+}
+
+
+.book-box{}
+
+.book-box input{
+ 
+}
+
+.book-box button{
+   width:100%;
+ }
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        z-index: 2;
+        margin-top: 166px;
+    }
+
+    .downloadApp p{
+        font-size: 14px;
+    }
+
+    .location input{
+        background: #fff;
+        border: none;
+        width: 0px;
+        height: 40px;
+    }
+    .banner-area {
+        height: auto;
+        padding-top: 14px;
+        padding-bottom: 90px;
+    }
+.banner{
+    display:none;
+}
+    .search input{
+        background: #fff;
+        border: none;
+        width: 165px;
+        height: 40px;
+    }
+
+    .search-btn{
+        margin: inherit;
+    }
+
+    .daytime{
+        display:block;
+        justify-content: flex-end;
+    }
+
+   .star{display: block !important;}
+
+    ul.star li{ 
+        line-height: 20px;
+        width: 100%;
+    }
+
+    .book-box input{
+        margin-top:10px;
+        margin-right:0px; 
+     }
+     
+}
+

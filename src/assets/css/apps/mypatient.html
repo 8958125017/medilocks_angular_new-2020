@@ -1,0 +1,534 @@
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+      <div class="main-section">
+        <div class="layout-px-spacing">
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="dash-widgit mb-4 mt-3">
+                <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                <div class="welname">
+                  <p>
+                    Hey Doctor!<Br>
+                    <span>Hope you have Greate day today!</span>
+                  </p>
+                </div>
+                <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+              </div>
+            </div>
+          </div>
+          <div class="row layout-top-spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>My Patient</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="chat-system">
+                    <div class="hamburger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-menu mail-menu d-lg-none">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div class="user-list-box" [class.defaultShow]="isFavorite">
+                        <div class="widget-content widget-content-area rounded-pills-icon">
+                            <ul class="nav nav-pills mb-4 mt-3 " id="rounded-pills-icon-tab" role="tablist"
+                                style="border-bottom: 1px dotted #ccc;">
+                                <li class="nav-item mr-2">
+                                    <a class="nav-link mb-2 active text-center" id="rounded-pills-icon-home-tab" data-toggle="pill" href="#pending-chats" role="tab" aria-controls="pending-chats" aria-selected="true" (click)="pendingChat()">
+                                        Pending Chats
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-2 mr-2">
+                                    <a class="nav-link mb-2 text-center" id="rounded-pills-icon-profile-tab" data-toggle="pill" href="#accepted-chats" role="tab" aria-controls="accepted-chats" aria-selected="false" (click)="acceptedChat()">
+                                        Accepted Chats
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="rounded-pills-icon-tabContent">
+                                <div class="tab-pane fade show active" id="pending-chats" role="tabpanel"
+                                    aria-labelledby="rounded-pills-icon-home-tab">
+                                    <div class="search">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                        <input type="text" class="form-control"
+                                            placeholder="Search Patient" />
+                                        <div class="clearfix mt-2">
+                                            <a >All Patient</a>
+                                        </div>
+                                    </div>
+                                    <div id="toggleAccordion">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <section class="mb-0 mt-0">
+                                                    <div role="menu" class="collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#defaultAccordionOne"
+                                                        aria-expanded="true"
+                                                        aria-controls="defaultAccordionOne">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="user-pic"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Jatin Joshi
+                                                                <p><small>Requested 3 Days ago</small></p>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >View Profile</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Accepted</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Rejected</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="icons">
+                                                            <svg> ... </svg>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                            <div id="defaultAccordionOne" class="collapse"
+                                                aria-labelledby="..." data-parent="#toggleAccordion">
+                                                <div class="card-body">
+                                                    One
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="...">
+                                                <section class="mb-0 mt-0">
+                                                    <div role="menu" class="" data-toggle="collapse"
+                                                        data-target="#defaultAccordionTwo"
+                                                        aria-expanded="false"
+                                                        aria-controls="defaultAccordionTwo">
+
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="user-pic"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Ritika jain
+                                                                <p><small>Requested 3 Days ago</small></p>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >View Profile</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Accepted</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Rejected</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="icons"><svg> ... </svg></div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                            <div id="defaultAccordionTwo" class="collapse show"
+                                                aria-labelledby="..." data-parent="#toggleAccordion">
+                                                <div class="card-body">
+                                                    Two
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <div class="card-header" id="...">
+                                                <section class="mb-0 mt-0">
+                                                    <div role="menu" class="collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#defaultAccordionThree"
+                                                        aria-expanded="false"
+                                                        aria-controls="defaultAccordionThree">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="user-pic"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Ankur jain
+                                                                <p><small>Requested 3 Days ago</small></p>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >View Profile</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Accepted</a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <a >Rejected</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="icons"><svg> ... </svg></div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                            <div id="defaultAccordionThree" class="collapse"
+                                                aria-labelledby="..." data-parent="#toggleAccordion">
+                                                <div class="card-body">
+                                                    Three
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="accepted-chats" role="tabpanel"
+                                    aria-labelledby="rounded-pills-icon-profile-tab">
+                                    <div class="search">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                        <input type="text" class="form-control"
+                                            placeholder="Search Patient" />
+                                        <div class="clearfix mt-2">
+                                            <a >All Patient</a>
+                                        </div>
+                                    </div>
+                                    <div class="people chat-height">        
+                                        <div class="person" (click)="getChatmessage()">
+                                            <div class="user-info">
+                                                <div class="f-head">
+                                                    <img src="assets/img/90x90.jpg" alt="avatar">
+                                                </div>
+                                                <div class="f-body">
+                                                    <div class="meta-info">
+                                                        <span class="user-name" data-name="Sean Freeman">
+                                                            Ajeet Kumar Singh
+                                                        </span>
+                                                        <span class="user-meta-time">2:09 PM</span>
+                                                    </div>
+                                                    <span class="preview">I was wondering...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-box" *ngIf="showMessage">
+                      <div class="chat-not-selected" *ngIf="clickUserToChat">
+                            <p> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-message-square">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                    </path>
+                                </svg> 
+                                Click User To Chat
+                            </p>
+                        </div>
+                        <div class="chat-box-inner" *ngIf="acceptedChatList">
+                        <div class="chat-meta-user chat-active">
+                            <div class="current-chat-user-name">
+                                  <span>
+                                      <img src="assets/img/90x90.jpg"
+                                          alt="dynamic-image">
+                                  <span class="name">Ajeet Kumar Singh</span>
+                              </span>
+                               </div>
+                              <div class="chat-action-btn align-self-center">
+                              <button type="button" class="btn btn-primary float-right mr-2" (click)="endChat()">
+                                    End chat
+                                  </button>
+                              </div>
+                          </div>
+                            <div class="chat-conversation-box">
+                                <div id="chat-conversation-box-scroll" class="chat-conversation-box-scroll">
+                                    <div class="chat">
+                                        <div class="conversation-start">
+                                            <span>Today, 6:48 AM</span>
+                                        </div>
+                                        <div class="bubble you">
+                                            Hello,
+                                        </div>
+                                     
+                                        <div class="bubble you">
+                                            I have a question regarding project.
+                                        </div>
+                                    </div>
+                                    <div class="chat">
+                                        <div class="conversation-start">
+                                            <span>Today, 5:38 PM</span>
+                                        </div>
+                                        <div class="bubble you">
+                                            Hello!
+                                        </div>
+                                        <div class="bubble me">
+                                            Hey!
+                                        </div>
+                                  </div>
+                                  <!-- <div class="chat-session">
+                                        Chat session ended on 30th june 2020, 6pm.
+                                    </div> -->
+                                </div>
+                             </div>
+                            <div class="chat-footer">
+                                <div class="chat-input">
+                                    <form class="chat-form" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-message-square">
+                                            <path
+                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                            </path>
+                                        </svg>
+                                        <input type="text" class="mail-write-box form-control"
+                                            placeholder="Message" (keyup.enter)="addInput()" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="patient-profile" *ngIf="showMessage">
+                       <div class="set-profile mb-2">
+                            <span class="profile-pic">
+                                <img src="assets/img/welcome_icon.svg" class="dash-icon">
+                            </span>
+                            <span class="profile-name"> Jatin Joshi <br>
+                             <span class="f10">Added On 25 July 2020</span>
+                            </span>
+                            <!-- <a  class="modify-btn f10 choose-file" style="text-transform: capitalize;">
+                              Choose File
+                            </a> -->
+                          
+                        </div>
+                        <div
+                            class="widget-content widget-content-area rounded-pills-icon fixscroll defaultScroll">
+                            <ul class="nav nav-pills mb-2 justify-content-center"
+                                id="rounded-pills-icon-tab" role="tablist">
+                                <li class="nav-item ml-2 mr-2">
+                                    <a class="nav-link mb-2 active text-center"
+                                        id="rounded-pills-icon-home-tab" data-toggle="pill"
+                                        href="#rounded-pills-icon-about" role="tab"
+                                        aria-controls="rounded-pills-icon-home" aria-selected="true">
+                                        About
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-2 mr-2">
+                                    <a class="nav-link mb-2 text-center" id="rounded-pills-icon-profile-tab"
+                                        data-toggle="pill" href="#rounded-pills-icon-report" role="tab"
+                                        aria-controls="rounded-pills-icon-profile" aria-selected="false">
+                                        Reports
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-2 mr-2">
+                                    <a class="nav-link mb-2 text-center" id="rounded-pills-icon-profile-tab"
+                                        data-toggle="pill" href="#rounded-pills-icon-prescription"
+                                        role="tab" aria-controls="rounded-pills-icon-profile"
+                                        aria-selected="false">
+                                        Prescription
+                                    </a>
+                                </li>
+
+                                <li class="nav-item ml-2 mr-2">
+                                    <a class="nav-link mb-2 text-center" id="rounded-pills-icon-profile-tab"
+                                        data-toggle="pill" href="#rounded-pills-icon-visits" role="tab"
+                                        aria-controls="rounded-pills-icon-profile" aria-selected="false">
+                                        Visits
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="rounded-pills-icon-tabContent">
+                                <div class="tab-pane fade show active" id="rounded-pills-icon-about"
+                                    role="tabpanel" aria-labelledby="rounded-pills-icon-home-tab">
+                                    <p class="mb-2">
+                                        <label>Personal Information</label>
+                                    </p>
+                                    <div class="table-responsive">
+                                        <form>
+                                            <table class="table table-bordered mb-4">
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>Jatin@gmail.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td>8383388383</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address</td>
+                                                    <td>Sharma Market</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pincode</td>
+                                                    <td>3333</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Gender</td>
+                                                    <td>Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Height</td>
+                                                    <td>4h</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Weight</td>
+                                                    <td>40Kg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blood Group</td>
+                                                    <td>O+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date Of Birth</td>
+                                                    <td>20/07/1986</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pin Code</td>
+                                                    <td>201301</td>
+                                                </tr>
+                                            </table>
+                                            <table class="table table-bordered mb-4">
+                                                <tr>
+                                                    <td style="width: 44%;">Family Member</td>
+                                                    <td>
+                                                        <a href="add-member.html" class="btn btn-primary modify-btn">Add Member</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Daughter</td>
+                                                    <td>
+                                                        <a >View Profile</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                       </form>
+                                    </div>
+                                    <!-- <p class="mb-2">
+                                      Email:Jatin@gmail.com<br> 
+                                      Phone:8383388383<br> 
+                                      Address:Sharma Market<br> 
+                                      New Delhi:3333<br> 
+                                      Gender:Male<br> 
+                                      Height:4h<br> 
+                                      Weight:40Kg<br> 
+                                      Blood Group:O+<br> 
+                                      Category:General<br> 
+                                     </p> -->
+                                </div>
+                                <div class="tab-pane fade" id="rounded-pills-icon-report" role="tabpanel"
+                                    aria-labelledby="rounded-pills-icon-profile-tab">
+
+                                    <div class="mb-3" style="text-align:right;">
+                                        <a  class="btn btn-primary mr-2"  (click)="showUploadSection()">
+                                            Upload Report
+                                        </a>
+                                    </div>
+                                    <div class="uplaod-report mb-4" *ngIf="showUpload">
+                                       <div class="row">
+                                            <div class="col-md-7">
+                                               <p>
+                                                   <input type="text" class="form-control">
+                                               </p>
+                                               <p>
+                                               <select class="form-control">
+                                                   <option selected>Select Category</option>
+                                                   <option>A</option>
+                                                   <option>B</option>
+                                               </select>
+                                               </p>
+                                               <p>
+                                                <a class="f10"  (click)="showUploadSection()">Cancel</a>
+                                               </p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <p>
+                                                    <button class="btn btn-primary f10">File Uplaod</button>
+                                                   </p>
+                                                   <p>
+                                                    <button class="btn btn-primary f10">Save Report</button>
+                                                   </p>
+                                            </div>
+                                       </div>
+                                    </div>
+                                <div class="alert alert-primary mb-4" style="display: flex;
+                                    justify-content: space-between;">
+                                        <strong>Report Title!</strong>
+                                      <span>
+                                          <a  class="fw"> View Report</a>
+                                        </span>
+                                        
+                                        <span class="float-right f10" style="text-align: right;">Added On
+                                            <Br>25 June 2020</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="rounded-pills-icon-prescription"
+                                    role="tabpanel" aria-labelledby="rounded-pills-icon-contact-tab">
+                                    <div class="mb-3" style="text-align: right;">
+                                        <a routerLink="/createPrescription" class="btn btn-primary mr-2">
+                                            New Prescription
+                                        </a>
+                                    </div>
+                                    <div class="alert alert-primary mb-4">
+                                        <strong>Prescription Title!</strong>
+                                        <span class="float-right f10" style="text-align: right;">Added On
+                                            <Br>25 June 2020</span>
+                                        <div class="mt-3">
+                                            <button type="button" class="btn btn-primary mr-2">
+                                                Download
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary">
+                                                View
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="rounded-pills-icon-visits" role="tabpanel"
+                                    aria-labelledby="rounded-pills-icon-settings-tab">
+                                    <div class="mb-3" style="text-align: right;">
+                                        <a routerLink="/myVisit" class="btn btn-primary mr-2">
+                                            Add Visit
+                                        </a>
+                                    </div>
+                                    <div class="alert alert-primary mb-4">
+                                        <div class="row f10">
+                                            <div class="col-md-3">23June</div>
+                                            <div class="col-md-5">Calender Booking Title</div>
+                                            <div class="col-md-4">
+                                                4pm-5pm
+                                                <Br><br>
+                                                <a  class="mr-1 f10 fw">Accept</a>
+
+                                                <a  class="f10 fw">Reject</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>
+       </div>
+      <!--  END CONTENT AREA  -->
+    </div>
+    
+  </div>
+  <!-- END MAIN CONTAINER -->

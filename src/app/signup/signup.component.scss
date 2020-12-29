@@ -1,0 +1,95 @@
+@import url('../../assets/css/authentication/form-1.css');
+
+/*start css for new Toaster*/
+.bootAlert{
+    width:40%;
+    min-height: 47px;
+    position: fixed;
+    left:50%;
+    top: 28px;
+    display: none;
+    z-index: 9999;
+    transform: translate(-50%, 0px);
+    padding:14px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 13px;
+}
+  
+  .closeBtn{
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    padding: 0px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 25px;
+    padding: 11px 9px;
+    opacity: 0.5;
+  }
+  
+  .closeBtn:hover{
+    border:none !important;
+    opacity: 1;
+  }
+  
+  
+  .alert-success {
+    color: #155724 !important;
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+  }
+  
+  .alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .myclass{
+
+    width: 95%;
+  }
+
+  @media (max-width:576px) {
+    .closeBtn {
+        position: absolute;
+        top: -12px;
+        right: -6px;
+        padding: 0px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        font-size: 25px;
+        padding: 11px 9px;
+        opacity: 0.5;
+    }
+    
+}
+
+@media (max-width:768px) {
+    .closeBtn {
+        position: absolute;
+        top: -12px;
+        right: -6px;
+        padding: 0px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        font-size: 25px;
+        padding: 11px 9px;
+        opacity: 0.5;
+    }
+}
+
+.form-control-input {
+  padding-left:10px !important;
+}
+
+
+/*End css for new Toaster*/

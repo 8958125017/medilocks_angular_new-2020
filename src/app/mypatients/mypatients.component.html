@@ -1,0 +1,1064 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label>My Patient</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="chat-system">
+                            <div class="hamburger">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-menu mail-menu d-lg-none">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                            </div>
+                            <div class="user-list-box">
+                                <div class="widget-content rounded-pills-icon">
+                                    <div class="search">
+                                        <div class="clearfix mb-2">
+                                            <a></a>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+
+                                        <input type="text" [(ngModel)]="searchKey"
+                                            class="form-control custom-form-control p-2  small login_input"
+                                            placeholder="Search Patient" (keyup)="searchresult($event)"
+                                            id="removeSpace">
+                                    </div>
+                                    <div id="patientTab">
+                                        <ul class="nav nav-pills mb-4 mt-3" id="rounded-pills-icon-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link mb-2 activeLink text-center"
+                                                    id="rounded-pills-icon-home-tab" data-toggle="pill"
+                                                    href="#allPatients-chats" role="tab"
+                                                    aria-controls="allPatients-chats" aria-selected="true"
+                                                    (click)="acceptedChat()">
+                                                    <i class="fas fa-user-friends"></i> All Patient
+                                                </a>
+                                            </li>
+                                            <li class="nav-item ml-1">
+                                                <a class="nav-link mb-2 pending text-center"
+                                                    id="rounded-pills-icon-profile-tab" data-toggle="pill"
+                                                    href="#pending-chats" role="tab" aria-controls="pending-chats"
+                                                    aria-selected="false" (click)="pendingChat()">
+                                                    <i class="fas fa-history"></i> Pending
+                                                </a>
+                                            </li>
+                                            <li class="nav-item ml-1">
+                                                <a class="nav-link mb-2 pending mentions text-center"
+                                                    id="rounded-pills-icon-profile-tab" data-toggle="pill"
+                                                    href="#mentions" role="tab" aria-controls="mentions-chats"
+                                                    aria-selected="false">
+                                                    <i class="fas fa-at"></i> Mentions
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content" id="rounded-pills-icon-tabContent">
+                                        <div class="tab-pane fade show active" id="allPatients-chats" role="tabpanel"
+                                            aria-labelledby="rounded-pills-icon-home-tab">
+                                            <div class="people chat-height" (scroll)="onScroll($event)">
+                                                <div class="person"
+                                                    [ngClass]="item.patientId === activeElement ? 'activeSelect' : 'none'"
+                                                    *ngFor="let item of allPatients">
+                                                    <div class="user-info" (click)="getChatmessage(item)">
+                                                        <div class="f-head">
+                                                            <!-- <img src="assets/img/90x90.jpg" alt="avatar"> -->
+                                                            <img
+                                                                [src]="item.photo ? item.photo : 'assets/img/90x90.jpg'">
+                                                        </div>
+                                                        <div class="f-body">
+                                                            <div class="meta-info pl-2">
+                                                                <span class="user-name" data-name="Sean Freeman">
+                                                                    {{item.name.firstName}} {{item.name.lastName}}
+                                                                </span>
+                                                                <span class="user-meta-time"
+                                                                    *ngIf="item.chatStatus=='P'">
+                                                                    <img src="assets/img/cross.png" alt="cross"
+                                                                        (click)="changeRequestStatus(item.patientId,'R')">
+                                                                    <img src="assets/img/accept.png" alt="accept"
+                                                                        (click)="changeRequestStatus(item.patientId,'A')">
+                                                                </span>
+                                                            </div>
+                                                            <!-- <span class="preview">I was wondering...</span> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pending-chats" role="tabpanel"
+                                            aria-labelledby="rounded-pills-icon-profile-tab">
+                                            <div class="people chat-height" (scroll)="onScroll($event)">
+                                                <div class="person" *ngFor="let item of allPendingPatients">
+                                                    <div class="user-info">
+                                                        <div class="f-head">
+                                                            <!-- <img src="assets/img/90x90.jpg" alt="avatar"> -->
+                                                            <img
+                                                                [src]="item.photo ? item.photo : 'assets/img/90x90.jpg'">
+                                                        </div>
+                                                        <div class="f-body">
+                                                            <div class="meta-info pl-2">
+                                                                <span class="user-name" data-name="Sean Freeman">
+                                                                    {{item.name.firstName}} {{item.name.lastName}}
+                                                                </span>
+                                                                <span class="user-meta-time">
+                                                                    <img src="assets/img/cross.png" alt="cross"
+                                                                        (click)="changeRequestStatus(item.patientId,'R')">
+                                                                    <img src="assets/img/accept.png" alt="accept"
+                                                                        (click)="changeRequestStatus(item.patientId,'A')">
+                                                                </span>
+                                                            </div>
+                                                            <!-- <span class="preview">I was wondering...</span> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="mentions" role="tabpanel"
+                                            aria-labelledby="rounded-pills-icon-profile-tab">
+                                            <div class="people chat-height" (scroll)="onScroll($event)">
+                                                <div class="person" *ngFor="let item of allPendingPatients">
+                                                    <div class="user-info">
+                                                        <div class="f-head">
+                                                            <img src="assets/img/90x90.jpg" alt="avatar">
+                                                        </div>
+                                                        <div class="f-body">
+                                                            <div class="meta-info pl-2">
+                                                                <span class="user-name" data-name="Sean Freeman">
+                                                                    {{item.name}}
+                                                                </span>
+                                                                <span class="user-meta-time">
+                                                                    <img src="assets/img/cross.png" alt="cross"
+                                                                        (click)="changeRequestStatus(item.patientId,'R')">
+                                                                    <img src="assets/img/accept.png" alt="accept"
+                                                                        (click)="changeRequestStatus(item.patientId,'A')">
+                                                                </span>
+                                                            </div>
+                                                            <!-- <span class="preview">I was wondering...</span> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-box">
+                                <button type="button" class="btn btn-primary add-patient-btn"
+                                    routerLink='/createpatient'>
+                                    <i class="fas fa-plus-circle"></i> Add Patient
+                                </button>
+                                <div class="widget-content widget-content-area rounded-pills-icon defaultScroll">
+                                    <div id="patientCenterTab">
+                                        <ul class="nav nav-pills" id="rounded-pills-icon-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active text-center"
+                                                    id="rounded-pills-icon-profile-tab" data-toggle="pill"
+                                                    href="#rounded-pills-icon-report" role="tab"
+                                                    aria-controls="rounded-pills-icon-profile" aria-selected="false">
+                                                    Task Board
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-center" id="rounded-pills-icon-profile-tab"
+                                                    data-toggle="pill" href="#rounded-pills-icon-addFamily" role="tab"
+                                                    aria-controls="rounded-pills-icon-profile" aria-selected="false">
+                                                    <span *ngIf="!isParentMember">+ Add Family</span>
+                                                    <span *ngIf="isParentMember">Family Details</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-center" id="rounded-pills-icon-home-tab"
+                                                    data-toggle="pill" href="#rounded-pills-icon-about" role="tab"
+                                                    aria-controls="rounded-pills-icon-home" aria-selected="true">
+                                                    Chats
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content" id="rounded-pills-icon-tabContent">
+                                        <div class="tab-pane fade show active" id="rounded-pills-icon-report"
+                                            role="tabpanel" aria-labelledby="rounded-pills-icon-profile-tab">
+                                            <div class="chat-box-inner" id="patientTabInnerDetail">
+                                                <div class="patient-tab-head">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-3">
+                                                            <div class="patient-name">
+                                                                <span>
+                                                                    {{patientsName.firstName?patientsName.firstName:"NA"}}
+                                                                    <br>
+                                                                    {{patientsName.lastName?patientsName.lastName:"NA"}}
+                                                                    <br>
+                                                                    <!-- <small class="name">Last seen today at 1:30 PM</small>   -->
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        BLOOD
+                                                                        <span>{{patientsDtails.bloodGroup}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        HEIGHT<span>{{patientsDtails.height}}CM</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        WEIGHT<span>{{patientsDtails.weight ?patientsDtails.weight:'0'}}KG</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        GENDER
+                                                                        <span>MALE</span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Email<span>{{patientsDtails.email}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Mobile<span>{{patientsDtails.mobNum}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="patient-detail-box maddress text-left">
+                                                                ADDRESS
+                                                                <span>
+                                                                    {{patientsDtails.address}}<br>
+                                                                    Near Metro Station,<br>
+                                                                    New Delhi - 110053<br>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layout-px-spacing" style="padding: 0 5px!important;">
+                                                    <div class="row layout-top-spacing no-gutters">
+                                                        <div class="col-sm-4 px-2" *ngIf="showAddButton">
+                                                            <div class="taskBoard">
+                                                                <h3>{{today}}</h3>
+                                                                <a href="javascript:void(0);"
+                                                                    class="dropdown-toggle user" id="addLink"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    <div class="addbox mb-2">
+                                                                        <span>
+                                                                            <i class="fa fa-plus"
+                                                                                aria-hidden="true"></i>
+                                                                        </span>
+                                                                        ADD
+                                                                    </div>
+                                                                </a>
+                                                                <section
+                                                                    class="dropdown-menu position-absolute animated fadeInUp"
+                                                                    aria-labelledby="addLink"
+                                                                    style="padding:0px; margin: 0px;width: 30%;">
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/prescriptionForm/{{patientId}}">
+                                                                            + Add Prescription
+                                                                        </a>
+                                                                    </p>
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/createVisit/{{patientId}}">
+                                                                            + Add Visit
+                                                                        </a>
+                                                                    </p>
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/addReport">
+                                                                            + Add Report
+                                                                        </a>
+                                                                    </p>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-4 px-2"
+                                                            *ngFor="let item of taskBoardList; let first = first">
+
+                                                            <div class="taskBoard">
+                                                                <h3>
+                                                                    {{(item.ts) | date: 'dd/MM/yyyy'}}</h3>
+
+                                                                <a href="javascript:void(0);"
+                                                                    class="dropdown-toggle user" id="addLink"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    <div class="addbox mb-2" *ngIf="first">
+                                                                        <span>
+                                                                            <i class="fa fa-plus"
+                                                                                aria-hidden="true"></i>
+                                                                        </span>
+                                                                        ADD
+                                                                    </div>
+                                                                </a>
+                                                                <h3>{{(item.ts) | date: 'dd/MM/yyyy'}}</h3>
+                                                                <a href="javascript:void(0);"
+                                                                    class="dropdown-toggle user" id="addLink"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    <div class="addbox mb-2" *ngIf="first">
+                                                                        + ADD
+                                                                    </div>
+                                                                </a>
+
+                                                                <section
+                                                                    class="dropdown-menu position-absolute animated fadeInUp"
+                                                                    aria-labelledby="addLink"
+                                                                    style="padding:0px; margin: 0px;width: 30%;">
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/prescriptionForm/{{patientId}}">
+                                                                            + Add Prescription
+                                                                        </a>
+                                                                    </p>
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/createVisit/{{patientId}}">
+                                                                            + Add Visit
+                                                                        </a>
+                                                                    </p>
+                                                                    <p class="dropdown-item addItem"
+                                                                        style="margin: 0px;">
+                                                                        <a routerLink="/addReport/{{patientId}}">
+                                                                            + Add Report
+                                                                        </a>
+                                                                    </p>
+                                                                </section>
+
+                                                                <p class="report"><span>Reports</span></p>
+                                                                <div class="reportBox mb-2"
+                                                                    *ngFor="let report of item.reports">
+                                                                    <div class="leftIcon"><img src="assets/img/cam.png">
+                                                                    </div>
+                                                                    <div class="reportName">
+                                                                        {{report.reportType}}<p>
+                                                                            {{(report.cts) * 1000 | date: 'dd/MM/yyyy'}}
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="rightIcon"
+                                                                        (click)="openImageDoc(report)">
+                                                                        <img src="assets/img/eye.png"></div>
+                                                                </div>
+
+                                                                <p class="prescription mb-2">
+                                                                    <span>PRESCRIPTION</span>
+                                                                </p>
+                                                                <div class="reportBox prescriptionBox mb-2"
+                                                                    *ngFor="let pre of item.prescriptions">
+                                                                    <div class="leftIcon">
+                                                                        <img src="assets/img/board.png">
+                                                                    </div>
+                                                                    <div class="reportName">
+                                                                        <p>{{(pre.cts) * 1000 | date: 'dd/MM/yyyy'}}
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="rightIcon">
+                                                                        <img src="assets/img/eye.png">
+                                                                    </div>
+                                                                    <div class="rightIcon">
+                                                                        <img src="assets/img/download.png">
+                                                                    </div>
+                                                                </div>
+
+                                                                <p class="prescription mb-2">
+                                                                    <span>APPOINTMENT</span>
+                                                                </p>
+                                                                <div *ngFor="let app of item.appointments">
+                                                                    <div class="reportBox appointmentBox mb-2">
+
+                                                                        <div class="leftIcon">
+                                                                            <img src="assets/img/calendor.png">
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <div style="margin-right:3px"
+                                                                                *ngIf="app.sts == 'BOOKED'">
+
+                                                                                <div class="appoinment-status">
+                                                                                    Appointment
+                                                                                </div>
+
+                                                                                <div class="booked-box">
+                                                                                    <span>
+                                                                                        <img src="assets/img/cross.png"
+                                                                                            style="height: 11px;"
+                                                                                            (click)="updateVisitTimeSlot(app.visitId, 'cancel')">
+                                                                                    </span>
+                                                                                    <span>
+
+                                                                                        <img src="assets/img/accept.png"
+                                                                                            (click)="updateVisitTimeSlot(app.visitId, 'confirm')">
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="appoinment-status"
+                                                                                [ngClass]="{'text-success':app.sts=='CONFIRMED'}"
+                                                                                *ngIf="app.sts=='CONFIRMED'">
+                                                                                Appointment
+                                                                                Confirmed</div>
+                                                                            <div class="appoinment-status"
+                                                                                [ngClass]="{'text-danger':app.sts=='CANCELLED'}"
+                                                                                *ngIf="app.sts=='CANCELLED'">
+                                                                                Appointment
+                                                                                Cancelled</div>
+                                                                            <div class="reportName">
+                                                                                {{app.appointmentsName}}
+                                                                                <p>Date -
+                                                                                    {{(app.vts) | date: 'dd/MM/yyyy'}}
+                                                                                </p>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- ------------- start : uploaded file by chat message ---------------- -->
+                                                                <p class="prescription mb-2">
+                                                                    <span>ATTACHMENT</span>
+                                                                </p>
+                                                                <div *ngFor="let attch of item.chatAttachment">
+                                                                    <ng-container
+                                                                        *ngIf="attch.file && attch.file.length != 0">
+                                                                        <div class="reportBox appointmentBox mb-2">
+                                                                            <div class="leftIcon">
+                                                                                <img src="assets/img/calendor.png">
+                                                                            </div>
+                                                                            <div>
+                                                                                <div style="margin-right:3px">
+                                                                                    <div class="appoinment-status">
+                                                                                        {{attch.file[0].fileName}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="reportName">
+                                                                                    <p>Date -
+                                                                                        {{(attch.cts) * 1000 | date: 'dd/MM/yyyy'}}
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </ng-container>
+                                                                </div>
+
+                                                                <!-- ------------- end : uploaded file by chat message ---------------- -->
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="rounded-pills-icon-addFamily" role="tabpanel"
+                                            aria-labelledby="rounded-pills-icon-profile-tab">
+                                            <div class="chat-box-inner" id="patientTabInnerDetail">
+                                                <div class="patient-tab-head">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-3">
+                                                            <div class="patient-name">
+                                                                <span>
+                                                                    {{patientsName.firstName?patientsName.firstName:"NA"}}
+                                                                    <br>
+                                                                    {{patientsName.lastName?patientsName.lastName:"NA"}}
+                                                                    <br>
+                                                                    <!-- <small class="name">Last seen today at 1:30 PM</small>   -->
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        BLOOD
+                                                                        <span>{{patientsDtails.bloodGroup}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        HEIGHT<span>{{patientsDtails.height}}CM</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        WEIGHT<span>{{patientsDtails.weight ?patientsDtails.weight:'0'}}KG</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        GENDER
+                                                                        <span>MALE</span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Email<span>{{patientsDtails.email}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Mobile<span>{{patientsDtails.mobNum}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="patient-detail-box maddress text-left">
+                                                                ADDRESS
+                                                                <span>
+                                                                    {{patientsDtails.address}}<br>
+                                                                    Near Metro Station,<br>
+                                                                    New Delhi - 110053<br>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="layout-px-spacing mt-3 familyMember">
+                                                    <form [formGroup]="createFamilyMemberForm">
+                                                        <div class="row layout-spacing">
+                                                            <div class="col-md-12">
+                                                                <span style="color:#4b81f0"
+                                                                    *ngFor="let item of memberList">
+                                                                    <span
+                                                                        (click)="getChieldPatientsDetails(item)">{{item.name.firstName}}
+                                                                        {{item.name.lastName}} </span>| </span>
+                                                                <small (click)="addMoreFamilyMember()"
+                                                                    style="cursor: pointer"> + Add More
+                                                                    Members</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-9">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 mb-2">
+                                                                        <label>
+                                                                            First Name
+                                                                        </label>
+                                                                        <input type="text" formControlName="fName"
+                                                                            class="form-control"
+                                                                            placeholder="First Name" autocomplete="nope"
+                                                                            [ngClass]="{ 'is-invalid': submitted && fa.fName.errors }"
+                                                                            required="">
+                                                                        <div *ngIf="submitted && fa.fName.errors"
+                                                                            class="invalid-feedback">
+                                                                            <div *ngIf="fa.fName.errors.required">
+                                                                                First
+                                                                                Name is required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 mb-2">
+                                                                        <label>
+                                                                            Last Name
+                                                                        </label>
+                                                                        <input type="text" formControlName="lName"
+                                                                            class="form-control" placeholder="Last Name"
+                                                                            autocomplete="nope"
+                                                                            [ngClass]="{ 'is-invalid': submitted && fa.lName.errors }"
+                                                                            required="">
+                                                                        <div *ngIf="submitted && fa.lName.errors"
+                                                                            class="invalid-feedback">
+                                                                            <div *ngIf="fa.lName.errors.required">
+                                                                                Last
+                                                                                Name is required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--  <div class="col-md-12">
+                                                    <label>
+                                                        Patient Name
+                                                    </label>
+                                                    <input type="text" formControlName="address" class="form-control">
+                                                  </div>
+ -->
+                                                                    <div class="col-md-12 mb-2">
+                                                                        <label>
+                                                                            Relationship
+                                                                        </label>
+                                                                        <select class="form-control"
+                                                                            formControlName="relation"
+                                                                            [(ngModel)]="relation">
+                                                                            <option value="" selected="">
+                                                                                --Select
+                                                                                Relation--</option>
+                                                                            <option value="Mother">Mother
+                                                                            </option>
+                                                                            <option value="Father">Father
+                                                                            </option>
+                                                                            <option value="Grand mother">Grand
+                                                                                mother
+                                                                            </option>
+                                                                            <option value="Son">Son</option>
+                                                                            <option value="Daughter">Daughter
+                                                                            </option>
+                                                                            <option value="Husband">Husband
+                                                                            </option>
+                                                                            <option value="Wife">Wife</option>
+                                                                            <option value="Sister">Sister
+                                                                            </option>
+                                                                            <option value="Brother">Brother
+                                                                            </option>
+                                                                            <option value="Uncle">Uncle</option>
+                                                                            <option value="Aunt">Aunt</option>
+                                                                            <option value="Cousin">Cousin
+                                                                            </option>
+                                                                            <option value="Niece">Niece</option>
+                                                                            <option value="Nephew">Nephew
+                                                                            </option>
+                                                                        </select>
+                                                                        <div *ngIf="submitted && fa.relation.errors"
+                                                                            class="invalid-feedback">
+                                                                            <div *ngIf="fa.relation.errors.required">
+                                                                                Relation is required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 mb-2 ">
+                                                                        <label>
+                                                                            Email
+                                                                        </label>
+                                                                        <input type="text" formControlName="email"
+                                                                            class="form-control" id="email"
+                                                                            placeholder="Email Id"
+                                                                            [ngClass]="{ 'is-invalid': submitted && fa.email.errors }">
+                                                                        <div *ngIf="submitted && fa.email.errors"
+                                                                            class="invalid-feedback">
+                                                                            <!-- div *ngIf="f.email.errors.required">Email address is required</div> -->
+                                                                            <div *ngIf="fa.email.errors.pattern">
+                                                                                Please
+                                                                                enter valid email Id & avoid
+                                                                                spaces Eg:
+                                                                                abcd@gmail.com.</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 mb-2">
+                                                                        <label>
+                                                                            Contact Number
+                                                                        </label>
+                                                                        <input type="text" formControlName="mobNum"
+                                                                            class="form-control" id="mobNum"
+                                                                            placeholder="Contact Number" maxlength="10"
+                                                                            autocomplete="nope"
+                                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                                            [ngClass]="{ 'is-invalid': submitted && fa.mobNum.errors }"
+                                                                            required="">
+                                                                        <div *ngIf="submitted && fa.mobNum.errors"
+                                                                            class="invalid-feedback">
+                                                                            <div *ngIf="fa.mobNum.errors.required">
+                                                                                Mobile Number is required.</div>
+                                                                            <div *ngIf="fa.mobNum.errors.minlength">
+                                                                                Mobile Number must be atleast 10
+                                                                                degits
+                                                                            </div>
+                                                                            <div *ngIf="fa.mobNum.errors.maxlength">
+                                                                                Mobile Number must be atleast 10
+                                                                                degits
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 mb-2">
+                                                                        <label>
+                                                                            Address
+                                                                        </label>
+                                                                        <textarea cols="4" rows="6" class="form-control"
+                                                                            formControlName="address"></textarea>
+                                                                    </div>
+
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            State
+                                                                        </label>
+                                                                        <select name="state" formControlName="state"
+                                                                            class="form-control" required
+                                                                            (change)="getCity(createFamilyMemberForm.value.state)"
+                                                                            [(ngModel)]='state'>
+                                                                            <option value="" class=""
+                                                                                selected="selected">--Select
+                                                                                State--
+                                                                            </option>
+                                                                            <option *ngFor="let item of stateList"
+                                                                                value="{{item.name}}">
+                                                                                {{item.name}}
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            City
+                                                                        </label>
+                                                                        <select class="form-control" name="city"
+                                                                            formControlName="city" [(ngModel)]='city'
+                                                                            required>
+                                                                            <option value="" class=""
+                                                                                selected="selected">--Select
+                                                                                City--
+                                                                            </option>
+                                                                            <option *ngFor="let city of cityList"
+                                                                                value="{{city.name}}">
+                                                                                {{city.name}}
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            Pincode
+                                                                        </label>
+                                                                        <input type="text" formControlName="pincode"
+                                                                            maxlength="6" class="form-control "
+                                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                                            id="pincode" placeholder="Pin Code"
+                                                                            autocoplete="off">
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            DOB
+                                                                        </label>
+                                                                        <input type="date" formControlName="dob"
+                                                                            class="form-control " id="dob"
+                                                                            placeholder="Date Of Birth">
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            Blood Group
+                                                                        </label>
+                                                                        <select class="form-control "
+                                                                            formControlName="bloodGroup">
+                                                                            <option value="" selected>Blood
+                                                                                Group
+                                                                            </option>
+                                                                            <option
+                                                                                *ngFor="let bloodGroup of bloodGroupList"
+                                                                                value="{{bloodGroup.name}}">
+                                                                                {{bloodGroup.name}}
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            Weight
+                                                                        </label>
+                                                                        <input type="text" formControlName="weight"
+                                                                            class="form-control " placeholder="weight"
+                                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-2">
+                                                                        <label>
+                                                                            Height
+                                                                        </label>
+                                                                        <select class="form-control"
+                                                                            formControlName="height">
+                                                                            <option value="" selected>Select
+                                                                                Height
+                                                                            </option>
+                                                                            <option value="165">165 cm/ft
+                                                                            </option>
+                                                                            <option value="160">160 cm/ft
+                                                                            </option>
+                                                                            <option value="155">155 cm/ft
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="familypic">
+                                                                    <div class="fileUpload"
+                                                                        style="margin-top:3px;margin-left: 20px;">
+                                                                        <span> <img src="assets/img/plus.png"
+                                                                                class="drplusicon"></span>
+                                                                        <input id="uploadBtn" type="file" class="upload"
+                                                                            accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp"
+                                                                            (change)="fileUpload($event)" />
+                                                                    </div>
+                                                                    <!-- <img src="assets/img/plus.png" class="plus"> -->
+                                                                    <img class="family-profile-pic"
+                                                                        src="{{patientsDtails.photo?patientsDtails.photo:'assets/img/defaultPic.png'}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-primary mb-2 mt-2"
+                                                            (click)="addFamilyMember()" *ngIf="showButton">Save</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="rounded-pills-icon-about" role="tabpanel"
+                                            aria-labelledby="rounded-pills-icon-home-tab">
+                                            <div class="chat-box-inner" id="patientTabInnerDetail">
+                                                <div class="patient-tab-head">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-3">
+                                                            <div class="patient-name">
+                                                                <span>
+                                                                    {{patientsName.firstName?patientsName.firstName:"NA"}}
+                                                                    <br>
+                                                                    {{patientsName.lastName?patientsName.lastName:"NA"}}
+                                                                    <br>
+                                                                    <!-- <small class="name">Last seen today at 1:30 PM</small>   -->
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        BLOOD
+                                                                        <span>{{patientsDtails.bloodGroup}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        HEIGHT<span>{{patientsDtails.height}}CM</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        WEIGHT<span>{{patientsDtails.weight ?patientsDtails.weight:'0'}}KG</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-center">
+                                                                        GENDER
+                                                                        <span>MALE</span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row no-gutters">
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Email<span>{{patientsDtails.email}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="patient-detail-box text-left">
+                                                                        Mobile<span>{{patientsDtails.mobNum}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="patient-detail-box maddress text-left">
+                                                                ADDRESS
+                                                                <span>
+                                                                    {{patientsDtails.address}}<br>
+                                                                    Near Metro Station,<br>
+                                                                    New Delhi - 110053<br>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="chat-conversation-box" *ngIf="showChatWindow">
+                                                    <div class="chat-inner-container">
+                                                        <div id="chat-conversation-box-scroll"
+                                                            class="chat-conversation-box-scroll"
+                                                            *ngFor="let item of chatHistoryList">
+                                                            <div class="chat">
+                                                                <div class="bubble you"
+                                                                    *ngIf="item.from==patientId && item.message">
+                                                                    <span>{{item.message}}</span>
+                                                                    <em class="date">{{item.cts | date:'medium'}}</em>
+                                                                </div>
+                                                                <div class="chats-active-container">
+                                                                    <div class="chat-img">@</div>
+                                                                    <h3>Ease of Checking all Activities Real
+                                                                        Time</h3>
+                                                                    <p>When People react to your message or
+                                                                        mentions you
+                                                                        or your keywords.</p>
+                                                                    <div class="chat-cross">*</div>
+                                                                </div>
+                                                                <div class="chats-noneActive-container">
+                                                                    <h3>
+                                                                        <strong>Dr. Sonha</strong> mentioned you
+                                                                        to
+                                                                        <strong>Sunstra Manertra </strong>
+                                                                        <span class="">11th Sept at 11:00
+                                                                            PM</span>
+                                                                    </h3>
+                                                                    <p>Lorem ipsum is simplify @Dr. Kabiranand
+                                                                        test of
+                                                                        the printing and typesetting industry.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="chat">
+                                                                <div class="bubble me"
+                                                                    *ngIf="item.from==docId && item.message">
+                                                                    <span>{{item.message}}</span>
+                                                                    <em class="date">{{item.cts | date:'medium'}}</em>
+                                                                </div>
+                                                                <ng-container
+                                                                    *ngIf="item.file && item.file.length != 0">
+                                                                    <a href="{{item.file[0].fileUrl}}" target="blank">
+                                                                        <div class="bubble me"
+                                                                            *ngIf="item.from==docId && item.file.length != 0">
+                                                                            <ng-container
+                                                                                *ngIf="item.file[0].fileType == 'jpeg' || item.file[0].fileType == 'jpg' || item.file[0].fileType == 'png'; else otherFileType">
+
+                                                                                <img src="{{item.file[0].fileUrl}}"
+                                                                                    alt="">
+                                                                                <span>{{item.file[0].fileName}}</span>
+                                                                                <em
+                                                                                    class="date">{{item.cts | date:'medium'}}</em>
+                                                                            </ng-container>
+                                                                            <ng-template #otherFileType>
+                                                                                <span>{{item.file[0].fileName}}</span>
+                                                                                <em
+                                                                                    class="date">{{item.cts | date:'medium'}}</em>
+                                                                            </ng-template>
+                                                                            <!-- <span>{{item.file[0].fileName}}</span>
+                                                                            <em
+                                                                                class="date">{{item.cts | date:'medium'}}</em> -->
+                                                                        </div>
+                                                                    </a>
+                                                                </ng-container>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="chat-footer pt-3">
+                                                    <div class="chat-input">
+                                                        <div class="row">
+                                                            <div class="col-9">
+                                                                <form class="chat-form">
+                                                                    <span>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            class="feather feather-message-square"
+                                                                            (click)="addInput()">
+                                                                            <path
+                                                                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+
+                                                                    <span style="position: absolute;right: 7%;">
+                                                                        <input style="display: none;" id="uploadChatBtn"
+                                                                            type="file" class="upload"
+                                                                            accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp"
+                                                                            [(ngModel)]="chatFile"
+                                                                            [ngModelOptions]="{standalone: true}"
+                                                                            (change)="selectChatFile($event)"
+                                                                            #chatFileInput />
+                                                                        <!-- (change)="chatFileUpload($event)" /> -->
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                            fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round"
+                                                                            class="feather feather-paperclip"
+                                                                            (click)="chatFileInput.click()">
+                                                                            <path
+                                                                                d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                    <p class="flex">
+                                                                        <input type="text" id="inputor"
+                                                                            class="mail-write-box"
+                                                                            placeholder="Type Message..."
+                                                                            (keyup.enter)="addInput()"
+                                                                            [(ngModel)]="message"
+                                                                            [ngModelOptions]="{standalone: true}"
+                                                                            autocomplete="off" />
+
+                                                                        <!-- <input type="text" class="mail-write-box" (keyup)="suggestList($event)" placeholder="Type Message..." /> -->
+                                                                    </p>
+                                                                </form>
+
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <button class="btn btn-danger"
+                                                                    (click)="endChatByDoctor()">End
+                                                                    Chat</button>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="chatFileName" class="row"
+                                                            style="background-color: #007bff;color:#fff;padding: 5px; margin: 10px;width: 70%;border-radius: 15px;">
+                                                            <div class="col-md-10">
+                                                                <span>{{chatFileName}}</span>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <!-- hkfhkdshf -->
+                                                                <span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        aria-hidden="true" focusable="false" width="1em"
+                                                                        height="1em"
+                                                                        style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        viewBox="0 0 16 16" (click)="removeChatFile()">
+                                                                        <g fill="red">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293L4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                                        </g>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->

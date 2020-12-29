@@ -1,0 +1,207 @@
+/* @import url('../../assets/css/authentication/form-1.css'); */
+@import url('../../assets/css/users/account-setting.css');
+
+/* css start myprofile page */
+
+.info{
+    position: relative;
+  }
+
+  .addMore{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #007bc3;
+    font-weight: bold;
+  }
+
+   .update{
+    position: absolute;
+    
+    right: 10px;
+    cursor: pointer;
+    
+    color: #007bc3;
+    font-weight: bold;
+  }
+
+  .general-info{
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+a.removeclonediv{
+    color: #1387ff;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a.removeclonediv:hover{
+    text-decoration: none;
+}
+
+a.uploadPicName{
+    color: green;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a.uploadPicName:hover{
+    text-decoration: none;
+}
+
+.myProfileRuler,.clinic,.specilization,.degree,.experience ,.achievement,.sig{
+    color: #59748a;
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+
+.myProfileRuler::after {
+    content: "";
+    position: absolute;
+    top: 17px !important;
+    left: 203px !important;
+    width: 75%;
+    height: 1px;
+    background: #d6d6d6;
+}
+
+.clinic::after {
+    left: 172px !important;
+    width: 79%;
+}
+
+
+.specilization::after {
+    left: 124px !important;
+    width: 85%;
+}
+
+
+.degree::after {
+    left: 78px !important;
+    width: 90%;
+}
+
+.experience::after {
+    left: 109px !important;
+    width: 86%;
+}
+
+.achievement::after {
+    left: 139px !important;
+    width: 82%;
+}
+
+.sig::after {
+    left: 98px !important;
+    width: 88%;
+}
+
+.breakTime{
+    align-items: center;
+    position: relative;
+    background: #ffd8d8;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.breakTime input{
+    width:auto;
+    font-size: 11px;
+
+}
+
+.sch input{
+    width:auto;
+    font-size: 11px;
+
+}
+
+.my-patient label.invalid-feedback {
+    color: #e7515a;
+}
+
+#myprofilePicContainer{
+    padding-right: 214px;
+    position: relative;
+    margin-bottom: 37px;
+}
+
+.myprofilePic{
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    background-color: #f4faff;
+    position:absolute;
+    top:0px;
+    right:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myprofilePic img{
+    /* width: 170px;
+    height: 103px; */
+}
+
+.signature{
+    width: 100%;
+    height: 100px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-size: 11.5px;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: center;
+    color: #93939d;
+    padding-top:18px;
+}
+
+.addMore{
+    position: relative;
+    float: right;
+    top: 0px;
+    right: 0px;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+/* CSS Start for File Upload */
+
+.fileUpload {
+    position: absolute;
+    right: 0px;
+    top:70px;
+    padding: 5px 5px;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#signature .fileUpload {
+    right: 0px;
+    left: 0px;
+    bottom: 15px;
+    margin: 0 auto;
+    top: initial;
+    width: 30px;
+}

@@ -1,0 +1,667 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label>Add Prescription</label>
+                    </div>
+                </div>
+                <div class="my-patient" id="prescriptionPage">
+
+                    <div class="row layout-top-spacing mb-4">
+                        <div class="col-md-12">
+                            <div class="drprofile-box" id="drprofileBox">
+                                <div class="drLogo">
+                                    <img src="{{doctorDeatils?doctorDeatils.profilePic:'assets/img/welcome_icon.svg'}}">
+                                    <!-- <p>CLINIC LOGO</p> -->
+                                    <div class="fileUpload">
+                                        <span><img src="assets/img/plus.png" class="drplusicon"></span>
+                                        <input id="uploadBtn" type="file" class="upload" />
+                                    </div>
+                                </div>
+                                <div class="drcontent">
+                                    <h3>Dr. {{docName?docName:'NA'}}</h3>
+                                    <p class="caption">
+                                        <span
+                                            *ngFor="let data of this.doctorDeatils?.degree">{{data.degreeType?data.degreeType:'NA'}}</span>
+                                    </p>
+                                    <p>{{docAddress?docAddress:'NA'}}<Br>
+                                        {{docEmail?docEmail:'NA'}} | {{docMob?docMob:'NA'}}
+                                    </p>
+                                </div>
+                                <div class="topLicNo" id="licContainer">
+                                    <p>LIC NO. {{docLic?docLic:'NA'}}</p>
+                                </div>
+                                <div class="drRight-icon">
+                                    <img src="assets/img/loginLogo.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row layout-top-spacing mb-4">
+                        <div class="col-md-3">Patient Name: <span
+                                class="d-block"><strong>{{patientsDtails?.name?patientsDtails.name?.firstName:'NA'}}
+                                    {{patientsDtails?.name?patientsDtails.name?.lastName:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Contact Number: <span
+                                class="d-block"><strong>{{patientsDtails.mobNum?patientsDtails.mobNum:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Email: <span
+                                class="d-block"><strong>{{patientsDtails.email?patientsDtails.email:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Gender:<span
+                                class="d-block"><strong>{{patientsDtails.gender?patientsDtails.gender:'NA'}}</strong></span>
+                        </div>
+                    </div>
+                    <div class="row layout-top-spacing mb-3">
+                        <div class="col-md-3">Age: <span
+                                class="d-block"><strong>{{patientAge?patientAge:'NA'}}</strong></span></div>
+                        <div class="col-md-3">Blood <span class="d-block"><strong>Group:
+                                    {{patientsDtails.bloodGroup?patientsDtails.bloodGroup:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Height: <span
+                                class="d-block"><strong>{{patientsDtails.height?patientsDtails.height:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Weight: <span
+                                class="d-block"><strong>{{patientsDtails.weight?patientsDtails.weight:'NA'}}</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="row layout-top-spacing mb-3">
+                        <div class="col-12">
+                            <form [formGroup]="addPrescriptionForm" (ngSubmit)="onProfileForm()">
+
+                                <div formArrayName="symptomsObservation" class="row mb-4">
+                                    <div *ngFor="let data of addPrescriptionForm.get('symptomsObservation')['controls']; let i=index"
+                                        class="col-12">
+                                        <div [formGroupName]=i class="row">
+                                            <div class="col-6">
+                                                <h4 class="prescriptionHeading my-2" *ngIf="symptoms">
+                                                    <span *ngIf="symptomsLabel" class="mr-3">Symptoms &
+                                                        Observation</span>
+                                                    <span *ngIf="symptomsEditLabel"><input type="text"
+                                                            class="editlable mr-3" placeholder="Symptoms & Observation"
+                                                            formControlName="key"></span>
+                                                    <img src="assets/img/preshape.png"
+                                                        (click)="showEditLabel('symptomsLabel')">
+                                                </h4>
+                                            </div>
+                                            <div class="col-6 text-right">
+                                                <img src="assets/img/cross.png" (click)="removeSymRow(i)">
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <angular-editor id="editorOne" formControlName="val" [config]="config">
+                                                </angular-editor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div formArrayName="diagnosis" class="row mb-4">
+                                    <div *ngFor="let data of addPrescriptionForm.get('diagnosis')['controls']; let i=index"
+                                        class="col-12">
+                                        <div [formGroupName]=i class="row">
+                                            <div class="col-6">
+                                                <h4 class="prescriptionHeading my-2" *ngIf="diagnosis">
+                                                    <span *ngIf="diagnosisLabel" class="mr-3">Diagnosis</span>
+                                                    <span *ngIf="diagnosisEditLabel"><input type="text"
+                                                            class="editlable mr-3" placeholder="Diagnosis"
+                                                            formControlName="key"></span>
+                                                    <img src="assets/img/preshape.png"
+                                                        (click)="showEditLabel('diagnosisLabel')">
+
+                                                </h4>
+
+                                            </div>
+                                            <div class="col-6 text-right">
+                                                <img src="assets/img/cross.png" (click)="removediaRow(i)">
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <angular-editor id="editorTwo" formControlName="val" [config]="config">
+                                                </angular-editor>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div formArrayName="prescribedMedicines" class="row mb-4">
+                                    <div *ngFor="let data of addPrescriptionForm.get('prescribedMedicines')['controls']; let i=index"
+                                        class="col-12">
+                                        <div [formGroupName]=i class="row">
+                                            <div class="col-6">
+                                                <h4 class="prescriptionHeading my-2" *ngIf="prescribemedicine">
+                                                    <span *ngIf="priscribeLabel" class="mr-3">Prescribed
+                                                        Medicines</span>
+                                                    <span *ngIf="priscribeEditLabel">
+                                                        <input type="text"
+                                                            class="editlable mr-3" placeholder="Prescribed Medicines"
+                                                            formControlName="pmHeading"></span>
+                                                    <img src="assets/img/preshape.png"
+                                                        (click)="showEditLabel('priscribe')">
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="col-6 text-right">
+                                                <img src="assets/img/cross.png" class="float-right"
+                                                    (click)="removePmMainRow(i)">
+                                            </div>
+
+                                            <div class="col-12 mt-2">
+                                                <div formArrayName="pmDetail" class="row mb-2">
+                                                   <div class="col-12">
+                                                        <div class="presmedicine-border">
+                                                            <div class="row">
+
+                                                                <div *ngFor="let innerData of data.get('pmDetail')['controls']; let j=index"
+                                                                    class="col-12">
+
+                                                                    <div [formGroupName]=j class="row my-2">
+
+                                                                        <div class="col">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="name"
+                                                                                placeholder="Name">
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="day" placeholder="Day">
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <input type="text" class="form-control"
+                                                                                formControlName="dose"
+                                                                                placeholder="Dose">
+                                                                        </div>
+
+                                                                        <div class="col" formArrayName="preMediExtCol"
+                                                                            *ngFor="let subInnerData of innerData.get('preMediExtCol')['controls']; let k=index">
+                                                                            <div class="row">
+                                                                                <div [formGroupName]=k class="col-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col">
+                                                                                            <input type="text"
+                                                                                                class="form-control"
+                                                                                                formControlName="extra"
+                                                                                                placeholder="New Column">
+                                                                                            <a href="javascript:void(0)"
+                                                                                                (click)="removePMCol(i,j,k)"
+                                                                                                class="inputCross">
+                                                                                                <img
+                                                                                                    src="assets/img/cross.png">
+                                                                                            </a>
+
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col text-right">
+                                                                            <a class="addRemoveBtn"
+                                                                                (click)="AddPMCol(i,j)">+Add Column</a>
+                                                                            <a *ngIf="j!=0" class="addRemoveBtn ml-3"
+                                                                                (click)="removePMDRow(i,j)">-Remove
+                                                                                Row</a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 text-right">
+                                                        <a class="addRemoveBtn" (click)="AddPresMedicRow(i)">+Add
+                                                            Field</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div formArrayName="addComments" class="row">
+                                    <div *ngFor="let data of addPrescriptionForm.get('addComments')['controls']; let i=index"
+                                        class="col-12 mb-4">
+                                        <div [formGroupName]=i class="row my-2">
+                                            <div class="col-6">
+                                                <h4 class="prescriptionHeading ">
+                                                    <span *ngIf="commentLabel" class="mr-3">Comments</span>
+                                                    <span *ngIf="commentEditLabel"><input type="text"
+                                                            class="editlable mr-3" placeholder="Comments"
+                                                            formControlName="key"></span>
+                                                    <img src="assets/img/preshape.png"
+                                                        (click)="showEditLabel('Comments')">
+                                                </h4>
+
+                                            </div>
+                                            <div class="col-6 text-right">
+                                                <img src="assets/img/cross.png" (click)="removeCommentsRow(i)">
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <angular-editor id="editor_{{i}}" formControlName="val"
+                                                    [config]="config">
+                                                </angular-editor>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row mb-4">
+                                    <div class="col-12">
+                                        <a class="addRemoveBtn mr-3" (click)="addTableDetailRow(i)">+Add
+                                            Table</a>
+                                        <a class="addRemoveBtn" (click)="AddCommentsRow()">+Add Field</a>
+                                    </div>
+                                </div> -->
+
+
+                                <div formArrayName="tableRow" class="row">
+                                    <div *ngFor="let data of addPrescriptionForm.get('tableRow')['controls']; let i=index"
+                                        class="col-12">
+                                        <div class="presmedicine-border mb-2">
+
+                                            <div [formGroupName]=i class="row">
+                                                <div class="col-6">
+                                                    <h4 class="prescriptionHeading mb-3">
+                                                        <span *ngIf="tableLabel" class="mr-3"> Table Name </span>
+                                                        <span *ngIf="tableEditLabel"><input type="text"
+                                                                class="editlable mr-3" placeholder="Table Name"
+                                                                formControlName="tableHeading"></span>
+                                                        <img src="assets/img/preshape.png"
+                                                            (click)="showEditLabel('tableName')">
+                                                    </h4>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <!-- <img src="assets/img/cross.png" (click)="removeMainTableRow(i)"> -->
+                                                </div>
+
+                                                <div class="col-12 mt-2 presmedicine-inner">
+                                                    <div formArrayName="tableDetail" class="row">
+                                                        <div *ngFor="let innerData of data.get('tableDetail')['controls']; let j=index"
+                                                            class="col-12">
+
+                                                            <div [formGroupName]=j class="row mb-2">
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control"
+                                                                        formControlName="tableItemOne"
+                                                                        placeholder="Table Name">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control"
+                                                                        formControlName="tableItemTwo"
+                                                                        placeholder="Table Name">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control"
+                                                                        formControlName="tableItemThree"
+                                                                        placeholder="Table Name">
+                                                                </div>
+
+                                                                <div class="col" formArrayName="tableExtCol"
+                                                                    *ngFor="let subInnerData of innerData.get('tableExtCol')['controls']; let k=index">
+                                                                    <div class="row">
+                                                                        <div [formGroupName]=k class="col-12">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        formControlName="tdExtra"
+                                                                                        placeholder="Table Name">
+
+                                                                                    <a href="javascript:void(0)"
+                                                                                        (click)="removeTableExtCol(i,j,k)"
+                                                                                        class="inputCross">
+                                                                                        <img src="assets/img/cross.png">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- <div class="row">
+                                                                            <div class="col"><button
+                                                                                    (click)="removeTableExtCol(i,j,k)"
+                                                                                    type="button"
+                                                                                    class="btn btn-danger">x</button>
+                                                                            </div>
+                                                                        </div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-3">
+                                                                <div class="col text-right">
+                                                                    <a class="addRemoveBtn"
+                                                                        (click)="addTableExtCol(i,j)">+Add Column</a>
+                                                                    <a *ngIf="j!=0" class="addRemoveBtn ml-3"
+                                                                        (click)="removeTableDetailRow(i,j)">-Remove
+                                                                        Row</a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col-12 text-right">
+                                                            <a class="addRemoveBtn" (click)="addTableDetailRow(i)">+Add
+                                                                Row</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col-12 text-right">
+                                                <a class="addRemoveBtn" (click)="removeMainTableRow(i)">-Remove
+                                                    Table</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <a class="addRemoveBtn mr-3" (click)="AddCommentsRow()">+Add Field</a>
+                                        <a class="addRemoveBtn" (click)="addMainTableRow()">+Add Table</a>
+                                    </div>
+                                </div>
+
+                                <div class="row layout-top-spacing mb-4 mt-3" style="margin-top:67px !important">
+                                    <div class="col-md-6">
+                                        <div class="drSignature">
+                                            Dr. {{docName?docName:'NA'}},<br>
+                                            <span
+                                                *ngFor="let data of this.doctorDeatils?.degree">{{data.degreeType?data.degreeType:'NA'}}</span><br>
+                                            Dated - {{date | date}}<br><br>
+                                            <div id="licContainer">
+                                                <p class="m-0">Authorised Signature</p>
+                                                <p>LIC NO. {{docLic?docLic:'NA'}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="col-md-6" style="text-align: right;">
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#doctorReceipt">Save Prescription</button>
+                                    </div>
+                                </div>        
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <section id="FollowupAppointment">
+                        <h4 class="prescriptionHeading mb-3">
+                            <span class="mr-3">Followup Appointment</span>
+                        </h4>
+                        <form [formGroup]="setgetTimeSlotForm" (ngSubmit)="onSetTimeSlotForm()">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="date" [value]="mySimpleFormat" class="form-control"
+                                            formControlName="bookSlot" (change)="getDate()">
+                                        <div *ngIf="submitted && setgetTimeSlotForm.controls['bookSlot'].errors">
+                                            <div *ngIf="setgetTimeSlotForm.controls['bookSlot'].errors.required">Please
+                                                Select Date</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <select class="form-control" formControlName="slot"
+                                            [ngClass]="{'is-invalid':submitted && setgetTimeSlotForm.controls['slot'].errors}">
+                                            <option value="" selected>Selected Time</option>
+                                            <option *ngFor="let item of availableSlotList" value="{{item}}">{{item}}
+                                            </option>
+                                        </select>
+                                        <div class="invalid-feedback"
+                                            *ngIf="submitted && setgetTimeSlotForm.controls['slot'].errors">
+                                            <div *ngIf="setgetTimeSlotForm.controls['slot'].errors.required">Please
+                                                Select Time</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Add Visit</button>
+                            </div>
+
+                        </form>
+                    </section>
+
+
+                </div>
+            </div>
+            <!--  END CONTENT AREA  -->
+        </div>
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- END MAIN CONTAINER -->    
+
+    <!-- Start Doctor Receipt Container -->
+    <div id="doctorReceipt" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <div class="row mb-4">
+                        <div class="col-md-12">
+                            <div class="drprofile-box" id="drprofileBox">
+                                <div class="drLogo">
+                                    <img src="{{doctorDeatils?doctorDeatils.profilePic:'assets/img/welcome_icon.svg'}}">
+                                    <!-- <p>CLINIC LOGO</p> -->
+                                    <div class="fileUpload">
+                                        <span><img src="assets/img/plus.png" class="drplusicon"></span>
+                                        <input id="uploadBtn" type="file" class="upload" />
+                                    </div>
+                                </div>
+                                <div class="drcontent">
+                                    <h3>Dr. {{docName?docName:'NA'}}</h3>
+                                    <p class="caption">
+                                        <span
+                                            *ngFor="let data of this.doctorDeatils?.degree">{{data.degreeType?data.degreeType:'NA'}}</span>
+                                    </p>
+                                    <p>{{docAddress?docAddress:'NA'}}<Br>
+                                        {{docEmail?docEmail:'NA'}} | {{docMob?docMob:'NA'}}
+                                    </p>
+                                </div>
+                                <div class="topLicNo" id="licContainer">
+                                    <p>LIC NO. {{docLic?docLic:'NA'}}</p>
+                                </div>
+                                <div class="drRight-icon">
+                                    <img src="assets/img/loginLogo.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row layout-top-spacing mb-4">
+                        <div class="col-md-3">Patient Name: <span
+                                class="d-block"><strong>{{patientsDtails?.name?patientsDtails.name?.firstName:'NA'}}
+                                    {{patientsDtails?.name?patientsDtails.name?.lastName:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Contact Number: <span
+                                class="d-block"><strong>{{patientsDtails.mobNum?patientsDtails.mobNum:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Email: <span
+                                class="d-block"><strong>{{patientsDtails.email?patientsDtails.email:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Gender:<span
+                                class="d-block"><strong>{{patientsDtails.gender?patientsDtails.gender:'NA'}}</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="row layout-top-spacing mb-3">
+                        <div class="col-md-3">Age: <span
+                                class="d-block"><strong>{{patientAge?patientAge:'NA'}}</strong></span></div>
+                        <div class="col-md-3">Blood <span class="d-block"><strong>Group:
+                                    {{patientsDtails.bloodGroup?patientsDtails.bloodGroup:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Height: <span
+                                class="d-block"><strong>{{patientsDtails.height?patientsDtails.height:'NA'}}</strong></span>
+                        </div>
+                        <div class="col-md-3">Weight: <span
+                                class="d-block"><strong>{{patientsDtails.weight?patientsDtails.weight:'NA'}}</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <table>
+
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let data of prescriptionObj?.symptomsObservation">
+                                                <td><strong>{{data?.key}} : </strong></td>
+                                                <td [innerHTML]="data?.val"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let data of prescriptionObj?.diagnosis">
+                                                <td><strong>{{data?.key}} : </strong></td>
+                                                <td [innerHTML]="data?.val"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let data of prescriptionObj?.prescribedMedicines">
+                                                <td><strong>{{data.pmHeading}} : </strong></td>
+                                            </tr>
+                                            <tr *ngFor="let data of prescriptionObj?.prescribedMedicines">
+                                                <td>
+                                                    <table>
+                                                        <tr
+                                                            *ngFor="let innerData of data.pmDetail">
+                                                            <td>{{innerData?.name}}</td>
+                                                            <td>{{innerData?.day}}</td>
+                                                            <td>{{innerData?.dose}}</td>
+                                                            <td
+                                                                *ngFor="let subInnerData of innerData?.preMediExtCol">
+                                                                {{subInnerData.extra}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let commentData of prescriptionObj?.addComments">
+                                                <td><strong>{{commentData?.key}} : </strong></td>
+                                                <td [innerHTML]="commentData?.val"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let data of prescriptionObj?.tableRow">
+                                                <td><strong>{{data?.tableHeading}} : </strong></td>
+                                            </tr>
+                                            <tr *ngFor="let data of prescriptionObj?.tableRow">
+                                                <td>
+                                                    <table>
+                                                        <tr *ngFor="let innerData of data.tableDetail">
+                                                            <td>{{innerData?.tableItemOne}}</td>
+                                                            <td>{{innerData?.tableItemTwo}}</td>
+                                                            <td>{{innerData?.tableItemThree}}</td>
+                                                            <td
+                                                                *ngFor="let subInnerData of innerData?.tableExtCol">
+                                                                {{subInnerData.tdExtra}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <ng-template *ngIf="prescriptionObj" class="col-12 text-center">Loading...</ng-template>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row layout-top-spacing my-3">
+                        <div class="col-md-6">
+                            <div class="drSignature">
+                                Dr. {{docName?docName:'NA'}},<br>
+                                <span
+                                    *ngFor="let data of this.doctorDeatils?.degree">{{data.degreeType?data.degreeType:'NA'}}</span><br>
+                                Dated - {{date | date}}<br><br>
+                                <div id="licContainer">
+                                    <p class="m-0">Authorised Signature</p>
+                                    <p>LIC NO. {{docLic?docLic:'NA'}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <button type="button" class="btn btn-primary">Downlaod PDF</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

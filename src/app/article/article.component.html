@@ -1,0 +1,93 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+  <!--  BEGIN CONTENT AREA  -->
+  <div id="content" class="main-content">
+    <div class="main-section">
+      <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="dash-widgit mb-3 mt-3">
+              <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+              <div class="welname">
+                <p>Hey Doctor!<Br>
+                  <span>Hope you have Greate day today!</span>
+                </p>
+              </div>
+              <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+              <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+            </div>
+          </div>
+        </div>
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Article</label>
+          </div>
+        </div>
+        <div class="my-patient" id="subscriptionPlanPage">
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <form [formGroup]="createArticleForm">
+                <h4 class="prescriptionHeading mb-3">
+                  <span class="mr-3">Add Title</span>
+                </h4>
+                <div class="mb-3">
+                  <textarea rows="3" cols="4" class="form-control" formControlName="newsTitle"  placeholder="Enter text here" required=""></textarea>
+               </div>
+                <h4 class="prescriptionHeading mb-3">
+                  <span class="mr-3">Content</span>
+                </h4>
+                <div class="diagnosisborder">
+                  <angular-editor [(ngModel)]="newsDescription" formControlName="newsDescription" [config]="config" placeholder="Enter Text here">
+                  </angular-editor>
+                </div>
+
+                <div class="row form-group mt-3">
+                  <div class="col-md-3">
+                    Upload Cover Image
+                  </div>
+                  <div class="col-md-6">
+                    <input type="file" name="coverImage" accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt" (change)="fileUpload($event)"  class="form-control">
+                  </div>
+                </div>
+
+                <!-- <div class="row form-group">
+                  <div class="col-md-3">
+                    Select Category <span class="text-danger">*</span>
+                  </div>
+                  <div class="col-md-6">
+                    <select formControlName="newsCategory" class="form-control" (change)="getCategory($event)" [ngClass]="{ 'is-invalid': submitted && f.newsCategory.errors }">
+                      <option value="" class="" selected="selected">--Select Category--</option>
+                      <option *ngFor="let item of categoryList" value="{{item.name}}">{{item.name}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.newsCategory.errors" class="invalid-feedback">
+                      <div *ngIf="f.newsCategory.errors.required">Please Select Category</div>
+                   </div>
+                  </div>
+                </div> -->
+                <div class="row form-group">
+                  <div class="col-md-3">
+                    Add Tags (comma seprated) <span class="text-danger">*</span>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" formControlName="addTags" [ngClass]="{ 'is-invalid': submitted && f.addTags.errors }">
+                    <div *ngIf="submitted && f.addTags.errors" class="invalid-feedback">
+                      <div *ngIf="f.addTags.errors.required">Please Enter Add Tags</div>
+                  </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary" (click)="createArticle()">Publish</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  END CONTENT AREA  -->
+  </div>
+</div>
+<!-- END MAIN CONTAINER -->

@@ -1,0 +1,278 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing">
+                    <div class="col-md-12">
+                       <label>My Promotion</label>
+                   </div>
+                  </div>
+                <div class="my-patient" id="createPromotion">
+                    <div class="clearfix mt-2 mb-5">
+                        <h4 class="hr Create-New-Promotion">
+                            Create New Promotion
+                        </h4>
+                    </div>
+                    <form id="premiumVersion" [formGroup]="createPromotionForm">
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Promotion Name</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Promotion Name" formControlName="promoName">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                         <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Schedule Date</label>
+                            <div class="col-md-7">
+                                <input type="date" class="form-control" formControlName="scheduleDate">
+                                <!-- <span class="create-promotion-icon">
+                                    <img src="assets/img/dateIcon.png">
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Schedule Time</label>
+                            <div class="col-md-7">
+                                <input type="time" class="form-control" formControlName="scheduleTime">
+                                <!-- <span class="create-promotion-icon">
+                                    <img src="assets/img/timeIcone.png">
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Upload Audience</label>
+                            <div class="col-md-7">
+                                <input type="file" class="form-control"
+                                    accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt"
+                                    (change)="fileUpload($event,'audience')">
+                                <!-- <span class="create-promotion-icon">
+                                    <img src="assets/img/uploadIcon.png">
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-7 text-right"><button class="download-btn" (click)="downloadStaticFile()">Download Template</button></div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Offer End Date</label>
+                            <div class="col-md-7">
+                                <input type="date" class="form-control" formControlName="offerEndTs">
+                                <!-- <span class="create-promotion-icon">
+                                    <img src="assets/img/dateIcon.png">
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Service Title</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" placeholder="Service Title"
+                                    formControlName="offerService">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Extra</label>
+                            <div class="col-md-7">
+                                <textarea rows="3" cols="4" class="form-control" formControlName="extraMessage">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-7">
+                                <button type="submit" class="btn btn-primary" (click)="messagePreview()">Message
+                                    Preview</button>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Message Preview</label>
+                            <div class="col-md-7">
+                                <textarea rows="3" cols="4" class="form-control" [(ngModel)]="previewMessage"
+                                    [ngModelOptions]="{standalone: true}" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Upload Image</label>
+                            <div class="col-md-7">
+                                <input type="file" class="form-control"
+                                    accept="*application/pdf, .jpg, .jpeg, .pdf, .png, .bmp, .txt"
+                                    (change)="fileUpload($event,'image')">
+                                <!-- <span class="create-promotion-icon">
+                                    <img src="assets/img/uploadImage.png">
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">SMS Header</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" placeholder="Ex-MD-Blood"
+                                    formControlName="offerService">
+                                <span class="upgradePlan">Upgrade Plan</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-7 flex">
+                                <div class="form-check mr-2 pl-0">
+                                    <div class="custom-control custom-checkbox checkbox-info">
+                                        <input type="radio" class="custom-control-input" id="sChkbox"
+                                            formControlName="promoMode" value="SMS">
+                                        <label class="custom-control-label" for="sChkbox">SMS</label>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <div class="custom-control custom-checkbox checkbox-info">
+                                        <input type="radio" class="custom-control-input" id="dChkbox"
+                                            formControlName="promoMode" value="Whatsapp">
+                                        <label class="custom-control-label" for="dChkbox">Whatsapp</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-7">
+                                <button type="submit" class="btn btn-primary mr-2" (click)="sendPromo()">SCHEDULE
+                                    NOW</button>
+                                <button type="submit" class="btn btn-primary" (click)="saveAsdraft()">SAVE AS
+                                    DRAFT</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- <form id="basicVersion">
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Promotion Name</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Promotion Name">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Promotion Type</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Promotion Type">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Schedule Date</label>
+                            <div class="col-md-7">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Schedule Time</label>
+                            <div class="col-md-7">
+                                <input type="time" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Select Audience</label>
+                            <div class="col-md-7">
+                                <select class="form-control w40">
+                                    <option selected>Select Audience</option>
+                                    <option>Joshi</option>
+                                    <option>Lakhan</option>
+                                    <option>Ajay</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Offer end date</label>
+                            <div class="col-md-7">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Offered Service</label>
+                            <div class="col-md-7">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Additional Message</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Promotion Name">
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1"> Message</label>
+                            <div class="col-md-7">
+                                <textarea rows="3" cols="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1">Upload Image</label>
+                            <div class="col-md-7">
+                                <input type="file" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="formGroupExampleInput" class="col-md-3 offset-md-1"></label>
+                            <div class="col-md-7 flex">
+                                <div class="form-check mr-2 pl-0">
+                                    <div class="custom-control custom-checkbox checkbox-info">
+                                        <input type="checkbox" class="custom-control-input" id="sChkbox">
+                                        <label class="custom-control-label" for="sChkbox">SMS</label>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <div class="custom-control custom-checkbox checkbox-info">
+                                        <input type="checkbox" class="custom-control-input" id="dChkbox">
+                                        <label class="custom-control-label" for="dChkbox">Whatsapp</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 justify-content-center">
+                            <button type="submit" class="btn btn-primary mr-2">Send Now</button>
+                            <button type="submit" class="btn btn-primary">Save Draft</button>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->

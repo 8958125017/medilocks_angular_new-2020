@@ -1,0 +1,224 @@
+
+    <!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        <div class="main-section">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="dash-widgit mb-4 mt-3">
+                            <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+                            <div class="welname">
+                                <p>
+                                    Hey Doctor!<Br>
+                                    <span>Hope you have Greate day today!</span>
+                                </p>
+                            </div>
+                            <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+                            <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row layout-top-spacing mb-3">
+                  <div class="col-md-6 mb-1">
+                            <label>
+                                My Promotion
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                                <a routerLink="/createPromotions" class="btn btn-primary new-m-promotion float-right">
+                                + New Promotion
+                                </a>
+                     </div>
+                 </div>
+                <div class="row layout-top-spacing mb-3">
+                 <div class="col-md-6 mb-2">
+                   <div class="message-container">
+                       <span class="mr-1">
+                           <img src="assets/img/chart-icon.png">
+                       </span>
+                       <span>Quota Messages</span>
+                       <span class="points-box">{{smsPromoDetil.sent}}/{{smsPromoDetil.totalRequestCount}}</span>
+                   </div>   
+                </div>
+               <div class="col-md-6">
+                  <div class="message-container">
+                            <span class="mr-1">
+                                <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <span>Whatsapp Messages</span>
+                            <span class="points-box">{{whatsUpPromoDetils.sent}}/{{whatsUpPromoDetils.totalRequestCount}}</span>
+                   </div> 
+                 </div>                    
+                </div>
+                <div class="row">
+                 <div class="col-md-6">
+                     <small>Recent Promotion</small>
+                      </div>
+                  <div class="col-md-6">
+                      <small style="float:right">Filter</small>
+                     </div>
+                 </div>
+                <div class="row mb-3">
+                    <div class="col-md-4" *ngFor="let item of promoDetails">
+                     <div class="donation-camp">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>{{item.promoName}}</h4>
+                                <small>11/06/2020 12:26:34
+                                  <a   class="ex-icon" (click)="showPromo(item)">!</a>
+                                 
+                                </small>
+                                <div class="mt-4 mb">
+                                  <span>
+                                      Total <br>Sent
+                                  </span>
+                                    <span>
+                                        Total <br> Click
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="schedule">Scheduled</button>
+                                 <!-- <button class="sent">Sent</button>
+                                  <button class="draft">Draft</button> -->
+                            </div>
+                        </div>
+                      </div>   
+                    </div>
+                            
+                </div>
+             
+                <div class="row layout-top-spacing mb-3" *ngIf="proLength">
+                    <div class="col-md-12">
+                     <div class="text-center">
+                       <small (click)="showMore()" style="cursor: pointer">load more</small>
+                      </div> 
+                        <div class="text-center" >
+                       <small (click)="showLess()" style="cursor: pointer">show less </small>
+                      </div>   
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->
+
+<div class="modal fade"  id="bloodDonationCamp" data-backdrop="static">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myLargeModalLabel"> 
+                    <span class="ex-icon-pop">!</span> 
+                     {{promotionDetails.promoName}}
+                </h5>
+                <button class="schedule">Scheduled</button>
+                <!-- <button class="sent">Sent</button>
+                <button class="draft">Draft</button> -->
+            </div>
+            <hr style="margin:0px;padding:0px">
+            <div class="modal-body">
+                <div class="modal-text">
+                   <table class="donationrow">
+                       <tr>
+                           <td style="text-align:right;">
+                             <label>Promotion Name -</label>
+                            </td>
+                           <td>
+                            <label class="donateText">   
+                              {{promotionDetails.promoName}}
+                            </label>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td style="text-align:right;">
+                          <label>Schedule Date -</label>
+                         </td>
+                        <td><label class="donateText"> {{(promotionDetails.scheduleAt) * 1000 | date: 'dd/MM/yyyy'}}</label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Schedule Time -</label>
+                         </td>
+                        <td><label class="donateText">{{(promotionDetails.scheduleAt) * 1000 | date: 'HH:mm'}}</label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Schedule Audience -</label>
+                         </td>
+                        <td><label class="donateText">44324234234324</label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Uploaded Audience -</label>
+                         </td>
+                        <td><label class="donateText">  Camp 2020</label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Offer End Date -</label>
+                         </td>
+                        <td><label class="donateText"> {{(promotionDetails.offerEndTs) * 1000 | date: 'dd/MM/yyyy'}} </label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Service Title -</label>
+                         </td>
+                        <td><label class="donateText">   {{promotionDetails.additionalMessage}}</label></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Message -</label>
+                         </td>
+                        <td><label class="donateText">   {{promotionDetails.message}}</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align:right;">
+                          <label>Uploaded Image -</label>
+                         </td>
+                        <td><label class="donateText">  Filename.pdf</label></td>
+                    </tr>
+                    <!-- <tr>
+                        <td style="text-align:right;">
+                          <label>SMS Header -</label>
+                         </td>
+                        <td><label class="donateText">  Ex-MD-Blood</label></td>
+                    </tr> -->
+                    <tr>
+                        <td style="text-align:right;">
+
+                         </td>
+                        <td>
+                            <label class="mr-3 donateText checkbox">
+                                <input type="checkbox" value="mode" [(ngModel)]="issmsChecked"> SMS
+                            </label>
+                            <label class="donateText checkbox">
+                                <input type="checkbox" value="mode" [(ngModel)]="iswhatsupChecked"> Whatsapp
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <span  class="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                               Close
+                            </span>
+                         </td>
+                       
+                    </tr>
+
+
+                   
+                   </table>
+               </div>
+            </div>                         
+        </div>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+
+   <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+        <!--  BEGIN SIDEBAR  -->
+        <div class="sidebar-wrapper sidebar-theme">
+            <nav id="compactSidebar">              
+               <ul class="menu-categories">
+                    <li class="menu" routerLinkActive="active">
+                        <a routerLink="/dashboard"  class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/dashboard.png" alt="dashboard">                                   
+                                </div>
+                            </div>                            
+                        </a>
+                        <div class="menu-title"><a routerLink="/dashboard">Home</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Home</span></div>
+                    </li>
+                    <li class="menu" routerLinkActive="active">
+                        <a routerLink="/mypatient" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/patient.png" alt="Patient">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="menu-title"><a routerLink="/mypatient">Patients</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Patients</span></div>
+                    </li>
+                    <li class="menu" routerLinkActive="active">
+                        <a routerLink="/mycalander" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/calendar-menu.png" alt="calendar">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="menu-title"><a routerLink="/mycalander">Schedule</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Schedule</span></div>
+                    </li>
+
+                    <li class="menu">
+                      <div class="base-menu">
+                                <div class="base-icons">
+                                    <div class="theme-logo">
+                                        <a>
+                                            <img src="assets/img/Weblogo_icon.png" class="navbar-logo" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                       </li>
+
+                       <li class="menu" routerLinkActive="active">
+                        <a routerLink="/promotions" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/promotion.png" alt="promotion">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="menu-title"><a routerLink="/promotions">Promotions</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Promotions</span></div>
+                    </li>
+
+                    <li class="menu" routerLinkActive="active">
+                        <a routerLink="/subscription" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/subscription.png" alt="subscription">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="menu-title"><a routerLink="/subscription">Subscription</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Subscription</span></div>
+                    </li>
+                  
+                    <li class="menu" routerLinkActive="active">
+                        <a routerLink="/setting" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <img src="assets/img/settings.png" alt="subscription">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                        <div class="menu-title"><a routerLink="/setting">Setting</a></div>
+                        <div *ngIf="tooltip" class="tooltip"><span>Setting</span></div>
+                    </li>
+               </ul>
+            </nav>
+<!-- 
+            <div id="compact_submenuSidebar" class="submenu-sidebar">
+                <div class="theme-brand-name">
+                    <a >Medilocks</a>
+                </div>
+                <div class="submenu" id="dashboard">
+                   
+
+                    <ul class="submenu-list" data-parent-element="#dashboard">
+                        <li class="active">
+                            <a ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                                </svg> Dashboard </a>
+                        </li>
+                        <li>
+                            <a href="my_patients.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg> My Patient
+                             </a>
+                        </li>
+                        <li>
+                            <a href="my_visits.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg> My Visits
+                             </a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg> My Calendar
+                             </a>
+                        </li>
+                        <li>
+                            <a href="promotions.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>Promotions
+                             </a>
+                        </li>
+                        <li>
+                            <a href="subscription.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>Subscription
+                             </a>
+                        </li>
+                        <li>
+                            <a href="setting.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>Settings
+                             </a>
+                        </li>
+                    </ul>
+                </div>
+            
+        </div> -->
+        <!--  END SIDEBAR  -->
+       
+
+    </div>
+    <!-- END MAIN CONTAINER -->

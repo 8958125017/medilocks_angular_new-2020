@@ -1,0 +1,190 @@
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+  <!--  BEGIN CONTENT AREA  -->
+  <div id="content" class="main-content">
+    <div class="main-section">
+      <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="dash-widgit mb-4 mt-3">
+              <img src="assets/img/drIcon.png" class="dash-icon" style="top: -38px;">
+              <div class="welname">
+                <p>Hey Doctor!<Br>
+                  <span>Hope you have Greate day today!</span>
+                </p>
+              </div>
+              <img src="assets/img/humanIcon.png" class="dash-right-icon" style="top: -38px;z-index: 2;">
+              <img src="assets/img/undraw-doctors.png" class="dash-right-icon" style="top: -4px;
+                height: 62px;
+                width: 217px;
+                z-index: 1;">
+            </div>
+          </div>
+        </div>
+        <div class="row layout-top-spacing mb-3">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <label>Invoice</label>
+            <!-- <span class="float-right" printSectionId="invoice" ngxPrint>Print</span> -->
+            <button class="float-right prt-btn" [useExistingCss]="true" printSectionId="invoice" ngxPrint>Print</button>
+            <a href="javascript:void(0)" class="float-right mr-3" (click)="downloadPdfInvoice()">Download</a>
+          </div>
+        </div>
+
+        <div class="my-patient print-top-space" id="invoice">
+          <div>
+            <div class="row mb-3">
+              <div class="col-md-6 mb-3">
+                <p>
+                  <img src="http://100.26.249.68/medilocks/assets/img2/homeLogo.png" alt="logo">
+                </p>
+                <!-- <p class="horizontalRule">
+                    <strong>Chargebee</strong> <br>
+                      233 S Lemon Ave #1537<br>
+                      Wallnut California 91789<br>
+                      United States
+                  </p> -->
+                <p>
+                  <strong>Billed To</strong><br>
+                  Dr. {{docName?docName:'NA'}}<br>
+                  {{doctorDetail?doctorDetail.city:'NA'}}, {{doctorDetail?doctorDetail.state:'NA'}}<br>
+                  {{doctorDetail?doctorDetail.address:'NA'}}<br>
+                  Mobile.: {{doctorDetail?doctorDetail.mobNumber:'NA'}}<br>
+                </p>
+              </div>
+              <div class="col-md-6">
+                <h3 class="invoice">INVOICE</h3>
+                <p>
+                  Invoice - {{userInvoiceDetail?userInvoiceDetail.invoiceId:'NA'}}<br>
+                  Invoice Date - {{userInvoiceDetail?userInvoiceDetail.invoceDate:'NA'}} <br>
+                  Invoice Amount - <i class="fas fa-rupee-sign"></i> {{userInvoiceDetail?.amount}}<br>
+                  Customer ID - {{userInvoiceDetail?userInvoiceDetail.userId:'NA'}} <br>
+                  <span class="paid">PAID</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="fix-border">
+              <div class="description-row">
+                <div class="fb">
+                  Description
+                </div>
+                <div>
+                  <span>PERIOD</span>
+                  <span>Unit Price</span>
+                  <span>Amount (Rs.)</span>
+                </div>
+              </div>
+            </div>
+            <div class="fix-border">
+              <p>Subscription ID <strong>{{userInvoiceDetail?userInvoiceDetail.subId:'NA'}}</strong></p>
+              <div class="description-row">
+                <div>
+                  <strong>{{userInvoiceDetail?userInvoiceDetail.subName:'NA'}}</strong>
+                </div>
+                <div>
+                  <span
+                    *ngIf="userInvoiceDetail?.validityType=='Yearly'">{{userInvoiceDetail?userInvoiceDetail.planMonth:'NA'}}
+                    (year)</span>
+                  <span
+                    *ngIf="userInvoiceDetail?.validityType=='Monthly'">{{userInvoiceDetail?userInvoiceDetail.planMonth:'NA'}}
+                    (month)</span>
+                  <span><i class="fas fa-rupee-sign"></i> {{unitPrice?unitPrice:'NA'}}</span>
+                  <span><i class="fas fa-rupee-sign"></i>
+                    {{userInvoiceDetail?userInvoiceDetail.planAmtWithoutGst:'NA'}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fix-border">
+              <div class="description-row">
+                <div>
+
+                </div>
+                <div>
+                  <span>Sub Total</span>
+                  <span><i class="fas fa-rupee-sign"></i>
+                    {{userInvoiceDetail?userInvoiceDetail.planAmtWithoutGst:'NA'}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="fix-border">
+              <div class="description-row">
+                <div>
+
+                </div>
+                <div>
+                  <span>GST (18%)</span>
+                  <span><i class="fas fa-rupee-sign"></i> {{(userInvoiceDetail?.planAmtWithoutGst*18)/100}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="fix-border" style="height: 63px;">
+              <div class="description-row">
+                <div>
+                </div>
+                <div>
+                  <span>Total</span>
+                  <span><i class="fas fa-rupee-sign"></i> {{userInvoiceDetail?userInvoiceDetail.amount:'NA'}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="fix-border">
+              <div class="description-row">
+                <div>
+
+                </div>
+                <div>
+                  <span>Amount Due</span>
+                  <span>0.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix mt-3">
+              <h4 class="payments-ruller">Payment</h4>
+              <p><strong><i class="fas fa-rupee-sign"></i> {{userInvoiceDetail?userInvoiceDetail.amount:'NA'}}</strong>
+                was paid on {{userInvoiceDetail?userInvoiceDetail.invoceDate:'NA'}} UTC by
+                {{userInvoiceDetail?userInvoiceDetail.bankcode:'NA'}} card ending
+                {{userInvoiceDetail?userInvoiceDetail.cardnum:'NA'}}</p>
+            </div>
+            <div class="clearfix mt-3">
+              <h4 class="payments-ruller">Notes</h4>
+              <p>Thanks for your Business.</p>
+            </div>
+
+          </div>
+          <!--<div class="subscribeBox mb-3 layout-top-spacing">
+              <span style="   width: 473px;">
+                Tell us your requirements for <br>Customised Plans
+              </span>
+              <a routerLink="#" class="btn btn-primary">Subscribe Now!</a>
+            </div>-->
+        </div>
+      </div>
+    </div>
+    <!--  END CONTENT AREA  -->
+  </div>
+</div>
+<!-- END MAIN CONTAINER -->
+
+<div class="modal fade " id="resetPassword" data-backdrop="static">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content setting-popup-box">
+      <div class="modal-header">
+        <h5 class="modal-title add-content" id="myLargeModalLabel">Reset Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-x">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

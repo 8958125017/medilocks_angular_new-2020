@@ -1,0 +1,270 @@
+/* .defaultShow{
+    width:100% !important; max-width:100%;
+} */
+
+.main-section {
+    min-height: 1050px;
+}
+
+.activeSelect2 {
+  background-color: #1b55e2;
+  color : #000000;
+}
+
+.activeSelect {
+  background-color: #3b76ef;
+  border-radius: 14px;
+}
+
+.activeSelect span{
+  color: #fff !important;  
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #3b76ef !important;
+    padding: 4px 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    height: 35px;
+    border-bottom: none;
+    border-left:1px solid #3b76ef;
+}
+
+.rounded-pills-icon .nav-pills li a {
+  border-radius: 10px;
+}
+
+p.addItem{
+    background:#3b76ef;
+    border-bottom: 1px solid #fff6;
+  }
+
+  p.addItem:hover{
+    background:#3b76ef;
+  }
+  
+  p.addItem a{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .ruller{
+    font-size: 16px;
+    font-weight: 600;
+    color: #4b81f0;
+}
+
+.ruller::after {
+  content: "";
+  position: absolute;
+  top: 17px !important;
+  left: 183px !important;
+  width: 70%;
+  height: 1px;
+  background: #d6d6d6;
+}
+
+.familyMember{
+
+}
+
+.familyMember label{
+  color: #93939d !important;
+  font-size: 13px;
+}
+
+.familyMember input, textarea, select{
+  height: 32px;
+  border-radius: 2px;
+  border: solid 0.5px #e0e9ff;
+  background-color: #ffffff;
+  font-size: 11px;
+  color: #6c6767;
+}
+
+.familyMember  textarea{
+  border-radius: 2px;
+  border: solid 0.5px #e0e9ff;
+  background-color: #ffffff;
+}
+
+.familypic{
+  border-radius: 4px;
+  background-color: #f4faff;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* .familypic img{
+  background-color: #f4faff;
+  height: 82px;
+  border: 4px solid #008cde;
+  border-radius: 50%;
+} */
+
+.family-profile-pic{
+  background-color: #f4faff;
+  height: 80%;
+  width: 80%;
+  border: 4px solid #008cde;
+  border-radius: 50%;
+}
+
+.plus{
+  position: absolute;
+  top: 66px;
+  right: 16px;
+  width: 21px;
+  height: 20px !important;
+  border: 1px transparent !important;
+  background: none !important;
+}
+
+.user-meta-time img{
+  height:14px;
+  margin-right:5px;
+}
+
+.chat-system .chat-box .chat-box-inner {
+  min-height: 609px;
+  position: relative;
+}
+
+
+/* CSS Start for File Upload */
+.fileUpload {
+  position: absolute;
+  overflow: hidden;
+  right: 3px;
+  top: 55px;
+  margin: 0px;
+}
+
+.fileUpload img {
+  height: 23px;
+  border: none;
+  background: none;
+}
+
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/* Chats Box css start here */
+
+.chats-active-container{
+    border-radius: 10px;
+    background: #e7ffff;
+    padding: 5px 30px;
+    position: relative;
+    padding: 10px 30px 11px 30px;
+}
+
+.chats-noneActive-container{
+  border-radius: 10px;
+  background: #f6f6f6;
+  padding: 10px 10px;
+  position: relative;
+  border-top-left-radius: 0px;
+  margin-top: 40px;
+}
+
+.chats-noneActive-container h3{
+  font-size:12px;
+  color: #919191;
+  margin-bottom: 6px;
+}
+
+.chats-noneActive-container h3 span{
+  float:right;
+  font-size: 10px;
+}
+
+.chats-noneActive-container h3 strong{
+  color:#000;
+}
+
+.chats-noneActive-container p{
+  font-size: 10px;
+  font-weight: bold;
+  color: #a1a1a1;
+  margin-bottom: 0px;
+}
+
+.chats-active-container h3{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.chats-active-container p{
+  font-size:11px;
+  font-weight: bold;
+  color:#919191;
+  margin-bottom: 0px;
+}
+
+.chat-img{
+  position: absolute;
+  top: 7px;
+  left: 11px;
+  color: #037fff;
+}
+
+.chat-cross{
+  position: absolute;
+  top: 7px;
+  right: 11px;
+  color: #037fff;
+}
+
+/* .show-chat-box{
+  position: absolute;
+  left: 0px;
+  bottom:40px;
+  width: 300px;
+  min-height: 200px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  padding: 10px 10px 2px 10px;
+}
+
+.chat-list{
+  background: #fff;
+  padding: 3px;
+  display: flex;
+  margin-bottom: 6px;
+  border-radius: 5px;
+}
+
+.chat-list img{
+ height:40px;
+ margin-right:10px;
+}
+
+.chat-name{
+  font-size:12px;
+  font-weight: bold;
+  color:#a0a0a0;
+}
+
+.chat-name span{
+  font-size:11px;
+  font-weight: bold;
+  color:#00bade;
+  display:block;
+} */
